@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function RankingPage() {
-  const rankMedals = ["🥇", "🥈", "🥉"];
+  const rankMedals = ["", "", ""];
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">

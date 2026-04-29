@@ -17,7 +17,7 @@ const subsidyTypes = [
     requirement: "65歳以上または障害者手帳所持者",
     where: "各市区町村の福祉課・介護保険課",
     difficulty: "easy",
-    icon: "🏠",
+    icon: "",
   },
   {
     name: "長期優良住宅化リフォーム推進事業",
@@ -27,7 +27,7 @@ const subsidyTypes = [
     requirement: "インスペクション実施、長期優良住宅化",
     where: "国土交通省（登録施工業者経由）",
     difficulty: "hard",
-    icon: "🏗️",
+    icon: "",
   },
   {
     name: "こどもエコすまい支援事業（後継制度）",
@@ -37,7 +37,7 @@ const subsidyTypes = [
     requirement: "18歳未満の子供がいる、または夫婦どちらかが39歳以下",
     where: "国土交通省（登録事業者経由）",
     difficulty: "medium",
-    icon: "👶",
+    icon: "",
   },
   {
     name: "既存住宅における省エネ改修促進事業",
@@ -47,7 +47,7 @@ const subsidyTypes = [
     requirement: "指定の省エネ基準を達成する改修",
     where: "各都道府県（住宅局）",
     difficulty: "hard",
-    icon: "💡",
+    icon: "",
   },
   {
     name: "自治体独自の住宅改修補助",
@@ -57,7 +57,7 @@ const subsidyTypes = [
     requirement: "居住している住宅、指定業者使用など（自治体による）",
     where: "各市区町村の建設課・住宅課",
     difficulty: "easy",
-    icon: "🏙️",
+    icon: "",
   },
 ];
 

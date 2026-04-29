@@ -62,7 +62,7 @@ export default function SiteFooter() {
         {/* Bottom bar */}
         <div className="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500">
-            © {currentYear} ベランダ防水ナビ. All rights reserved.
+             {currentYear} ベランダ防水ナビ. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs">
             <Link href="/privacy/" className="hover:text-white transition-colors no-underline">プライバシーポリシー</Link>

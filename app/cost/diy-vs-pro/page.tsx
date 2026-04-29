@@ -131,7 +131,7 @@ export default function DiyVsProPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
           <h2 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
-            <span className="text-2xl">✅</span>
+            <span className="text-2xl"></span>
             DIYでもOKなケース
           </h2>
           <ul className="space-y-2">
@@ -148,7 +148,7 @@ export default function DiyVsProPage() {
 
         <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
           <h2 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
-            <span className="text-2xl">⚠️</span>
+            <span className="text-2xl"></span>
             プロに任せるべきケース
           </h2>
           <ul className="space-y-2">

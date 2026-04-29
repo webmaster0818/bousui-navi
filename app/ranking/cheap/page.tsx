@@ -20,27 +20,27 @@ const savingTips = [
   {
     title: "複数社で相見積もりを取る",
     description: "同じ工事でも業者によって30〜40%の価格差があります。最低3社から見積もりを取ることで、適正価格を把握できます。",
-    icon: "📊",
+    icon: "",
   },
   {
     title: "一括見積もりサービスを活用する",
     description: "一度の入力で複数社に見積もり依頼できるサービスを使えば、手間なく相見積もりが取れます。",
-    icon: "⚡",
+    icon: "",
   },
   {
     title: "閑散期（冬・梅雨）に依頼する",
     description: "防水工事の繁忙期は春・秋です。冬や梅雨時期は業者の手が空いているため、値引き交渉しやすくなります。",
-    icon: "📅",
+    icon: "",
   },
   {
     title: "外壁工事と同時に依頼する",
     description: "足場代は工事の中で高額な費用のひとつ。外壁塗装と防水工事を同時に依頼することで足場代を節約できます。",
-    icon: "🏗️",
+    icon: "",
   },
   {
     title: "助成金・補助金を活用する",
     description: "自治体によっては防水工事に使える補助金・助成金制度があります。工事前に必ず確認しましょう。",
-    icon: "💴",
+    icon: "",
   },
 ];
 
@@ -76,7 +76,7 @@ export default function CheapRankingPage() {
                   index === 0 ? "bg-green-100" : "bg-gray-50"
                 }`}>
                   {index === 0 ? (
-                    <span className="text-2xl">💚</span>
+                    <span className="text-2xl"></span>
                   ) : (
                     <span className="text-xl font-black text-gray-500">{index + 1}</span>
                   )}
