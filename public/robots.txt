@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bousui-navi-deploy.pages.dev/sitemap.xml
