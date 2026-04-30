@@ -64,9 +64,10 @@ export default function SiteFooter() {
           <p className="text-xs text-gray-500">
              {currentYear} ベランダ防水ナビ. All rights reserved.
           </p>
-          <div className="flex gap-6 text-xs">
+          <div className="flex flex-wrap gap-4 text-xs">
             <Link href="/privacy/" className="hover:text-white transition-colors no-underline">プライバシーポリシー</Link>
             <Link href="/terms/" className="hover:text-white transition-colors no-underline">利用規約</Link>
+            <Link href="/content-policy/" className="hover:text-white transition-colors no-underline">記事の制作ポリシー</Link>
             <Link href="/about/" className="hover:text-white transition-colors no-underline">運営者情報</Link>
           </div>
         </div>
