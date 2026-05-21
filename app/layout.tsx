@@ -15,6 +15,9 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   metadataBase: new URL("https://balcony-bousui-navi.com"),
   alternates: { canonical: "/" },
+  twitter: {
+    card: "summary_large_image",
+  },
   title: {
     default: "ベランダ防水ナビ | 防水工事の費用・業者比較ガイド",
     template: "%s | ベランダ防水ナビ",
