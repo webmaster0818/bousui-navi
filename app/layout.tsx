@@ -46,7 +46,12 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-[#EFF6FF]">
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">{children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"防水工事ナビ\",\"url\":\"https://bousui-navi-deploy.pages.dev/\",\"logo\":\"https://bousui-navi-deploy.pages.dev/favicon.ico\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"株式会社MediaX\",\"url\":\"https://mediax.biz\"},\"sameAs\":[\"https://bousui-navi-deploy.pages.dev/about/\"]}" }}
+        />
+        </main>
         <SiteFooter />
       </body>
     </html>
