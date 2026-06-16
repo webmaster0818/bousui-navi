@@ -1,0 +1,36 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import reviewsData from "@/data/reviews.json";
+import Breadcrumb from "@/components/Breadcrumb";
+
+export const metadata: Metadata = {
+  title: "防水業者の口コミ・評判まとめ｜実際のGoogleレビューで検証",
+  description: "防水工事の見積もり比較サービス・業者を、実際のGoogle口コミ（実在レビュー）と運営会社の公開情報で中立的に検証します。",
+  alternates: { canonical: "https://balcony-bousui-navi.com/review/" },
+};
+
+export default function ReviewIndex() {
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-8">
+      <Breadcrumb items={[{ label: "口コミ・評判" }]} />
+      <h1 className="text-2xl sm:text-3xl font-bold text-text-primary mt-2 mb-4">防水業者の口コミ・評判まとめ</h1>
+      <p className="text-[15px] leading-8 text-text-secondary mb-8">
+        実際にGoogleマップへ投稿された口コミと、各社の公開情報をもとに、防水工事の見積もり比較サービス・業者を中立的に検証します。掲載しているのはすべて実在のレビューです。
+      </p>
+      <div className="space-y-4">
+        {reviewsData.map((r) => (
+          <Link key={r.slug} href={`/review/${r.slug}/`}
+            className="block rounded-2xl border border-border bg-surface p-5 hover:border-primary transition-colors">
+            <div className="flex items-center justify-between gap-3 mb-2">
+              <h2 className="font-bold text-text-primary">{r.companyName}</h2>
+              <span className="text-sm text-text-muted whitespace-nowrap">
+                <span className="text-warning">★</span> {r.google.rating}（{r.google.reviewCount}件）
+              </span>
+            </div>
+            <p className="text-sm text-text-secondary line-clamp-2 leading-7">{r.summary}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}

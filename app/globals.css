@@ -7,8 +7,26 @@
   --color-bg: #EFF6FF;
   --color-background: #EFF6FF;
   --color-foreground: #1e293b;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F4F8FE;
+  --color-border: #DCE5F0;
+  --color-text-primary: #0F2440;
+  --color-text-secondary: #475569;
+  --color-text-muted: #8595A8;
+  --color-warning: #F59E0B;
   --font-sans: var(--font-noto-sans-jp), "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
+
+/* Mono label / numerals (used on review pages) */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.mono { font-family: var(--font-mono); font-feature-settings: "tnum" 1; }
 
 body {
   background: var(--color-bg);
