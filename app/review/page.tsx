@@ -23,9 +23,13 @@ export default function ReviewIndex() {
             className="block rounded-2xl border border-border bg-surface p-5 hover:border-primary transition-colors">
             <div className="flex items-center justify-between gap-3 mb-2">
               <h2 className="font-bold text-text-primary">{r.companyName}</h2>
-              <span className="text-sm text-text-muted whitespace-nowrap">
-                <span className="text-warning">★</span> {r.google.rating}（{r.google.reviewCount}件）
-              </span>
+              {(r as any).ratingBlock ? (
+                <span className="text-sm text-text-muted whitespace-nowrap">
+                  <span className="text-warning">★</span> {(r as any).ratingBlock.rating}（{(r as any).ratingBlock.reviewCount}件）
+                </span>
+              ) : (
+                <span className="text-xs text-text-muted whitespace-nowrap">公式の声</span>
+              )}
             </div>
             <p className="text-sm text-text-secondary line-clamp-2 leading-7">{r.summary}</p>
           </Link>

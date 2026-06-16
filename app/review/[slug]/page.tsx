@@ -23,20 +23,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const toc = [
-  { id: "basic", label: "防水工事見積もり.comとは（運営会社・基本情報）" },
-  { id: "reviews", label: "実際の口コミ・評判（Googleレビュー）" },
-  { id: "strengths", label: "口コミからわかる強み・特徴" },
-  { id: "cautions", label: "利用前に知っておきたい注意点" },
-  { id: "recommended", label: "どんな人におすすめか" },
-  { id: "faq", label: "よくある質問" },
-  { id: "summary", label: "まとめ" },
-];
-
 export default async function ReviewPage({ params }: Props) {
   const { slug } = await params;
-  const r = reviewsData.find((x) => x.slug === slug);
+  const r = reviewsData.find((x) => x.slug === slug) as any;
   if (!r) notFound();
+
+  const rating = r.ratingBlock; // optional (Google rating)
+
+  const toc = [
+    { id: "basic", label: `${r.companyName}とは（運営会社・基本情報）` },
+    { id: "reviews", label: r.reviewsHeading },
+    { id: "strengths", label: "口コミからわかる強み・特徴" },
+    { id: "cautions", label: "利用前に知っておきたい注意点" },
+    { id: "recommended", label: "どんな人におすすめか" },
+    { id: "faq", label: "よくある質問" },
+    { id: "summary", label: "まとめ" },
+  ];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -53,7 +55,7 @@ export default async function ReviewPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        mainEntity: r.faqs.map((f) => ({
+        mainEntity: r.faqs.map((f: any) => ({
           "@type": "Question",
           name: f.q,
           acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -83,19 +85,21 @@ export default async function ReviewPage({ params }: Props) {
         <p className="text-[15px] leading-8 text-text-secondary">{r.lead}</p>
       </header>
 
-      {/* Google rating callout */}
-      <div className="my-8 rounded-2xl border border-border bg-surface p-5 sm:p-6 flex items-center gap-5 flex-wrap">
-        <div className="text-center">
-          <div className="text-4xl font-bold text-primary leading-none">{r.google.rating}</div>
-          <div className="mt-1 text-warning text-sm">★★★★★</div>
+      {/* Google rating callout (only when a Google rating exists) */}
+      {rating && (
+        <div className="my-8 rounded-2xl border border-border bg-surface p-5 sm:p-6 flex items-center gap-5 flex-wrap">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-primary leading-none">{rating.rating}</div>
+            <div className="mt-1 text-warning text-sm">★★★★★</div>
+          </div>
+          <div className="flex-1 min-w-[200px]">
+            <p className="text-sm text-text-secondary leading-6">
+              <a href={rating.mapsUri} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">{rating.sourceLabel}</a>
+              での評価です。口コミ {rating.reviewCount} 件の平均（{rating.fetchedAt}時点）。本記事の口コミはGoogleマップに実際に投稿されたレビューの抜粋です。
+            </p>
+          </div>
         </div>
-        <div className="flex-1 min-w-[200px]">
-          <p className="text-sm text-text-secondary leading-6">
-            <a href={r.google.mapsUri} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">{r.google.sourceLabel}</a>
-            での評価です。口コミ {r.google.reviewCount} 件の平均（{r.google.fetchedAt}時点）。本記事の口コミはすべてGoogleマップに実際に投稿されたレビューの抜粋です。
-          </p>
-        </div>
-      </div>
+      )}
 
       {/* TOC */}
       <nav className="mb-10 rounded-2xl border border-border bg-surface-alt p-5">
@@ -111,14 +115,12 @@ export default async function ReviewPage({ params }: Props) {
 
       {/* Basic info */}
       <section id="basic" className="scroll-mt-20 mb-12">
-        <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">防水工事見積もり.comとは（運営会社・基本情報）</h2>
-        <p className="text-[15px] leading-8 text-text-secondary mb-5">
-          {r.companyName}は、{r.basicInfo.find((i) => i.label === "運営")?.value}が運営する、防水工事の専門業者を紹介・比較できるサービスです。まずは公開されている基本情報を整理します。
-        </p>
+        <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">{r.companyName}とは（運営会社・基本情報）</h2>
+        <p className="text-[15px] leading-8 text-text-secondary mb-5">{r.basicLead}</p>
         <div className="overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-sm">
             <tbody>
-              {r.basicInfo.map((i, idx) => (
+              {r.basicInfo.map((i: any, idx: number) => (
                 <tr key={i.label} className={idx % 2 ? "bg-surface-alt" : "bg-surface"}>
                   <th className="text-left align-top font-semibold text-text-primary px-4 py-3 w-32 whitespace-nowrap">{i.label}</th>
                   <td className="px-4 py-3 text-text-secondary leading-7">{i.value}</td>
@@ -130,26 +132,33 @@ export default async function ReviewPage({ params }: Props) {
         <p className="mt-3 text-xs text-text-muted">{r.infoSource}</p>
       </section>
 
-      {/* Reviews */}
+      {/* Reviews / testimonials */}
       <section id="reviews" className="scroll-mt-20 mb-12">
-        <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">実際の口コミ・評判（Googleレビュー）</h2>
-        <p className="text-[15px] leading-8 text-text-secondary mb-6">
-          以下は、Googleマップに実際に投稿された{r.companyName}の口コミの抜粋です（{r.google.fetchedAt}時点・★{r.google.rating}／{r.google.reviewCount}件）。屋上・ベランダの防水や雨漏りに関する具体的な体験談が多いのが特徴です。
-        </p>
-        <div className="space-y-4">
-          {r.reviews.map((rv, i) => (
-            <figure key={i} className="rounded-2xl border border-border bg-surface p-5">
-              <div className="flex items-center justify-between mb-2">
-                <figcaption className="text-sm font-semibold text-text-primary">{rv.author} さん</figcaption>
-                <span className="text-warning text-sm" aria-label={`評価${rv.rating}`}>{"★".repeat(rv.rating)}</span>
-              </div>
-              <blockquote className="text-[15px] leading-8 text-text-secondary">「{rv.excerpt}」</blockquote>
-            </figure>
-          ))}
-        </div>
-        <p className="mt-4 text-xs text-text-muted">
-          出典：{r.google.sourceLabel}（<a href={r.google.mapsUri} target="_blank" rel="noopener noreferrer" className="text-primary underline">Googleマップで見る</a>）／{r.google.fetchedAt}取得。口コミは原文の一部を抜粋して掲載しています。
-        </p>
+        <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">{r.reviewsHeading}</h2>
+        <p className="text-[15px] leading-8 text-text-secondary mb-6">{r.reviewsIntro}</p>
+        {r.reviews.length > 0 ? (
+          <div className="space-y-4">
+            {r.reviews.map((rv: any, i: number) => (
+              <figure key={i} className="rounded-2xl border border-border bg-surface p-5">
+                <div className="flex items-center justify-between mb-2 gap-3">
+                  <figcaption className="text-sm font-semibold text-text-primary">{rv.author}</figcaption>
+                  {rv.rating ? (
+                    <span className="text-warning text-sm" aria-label={`評価${rv.rating}`}>{"★".repeat(rv.rating)}<span className="text-border">{"★".repeat(5 - rv.rating)}</span></span>
+                  ) : null}
+                </div>
+                <blockquote className="text-[15px] leading-8 text-text-secondary">「{rv.excerpt}」</blockquote>
+                {rv.sourceUrl && (
+                  <a href={rv.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-xs text-primary underline">出典（公式サイト）</a>
+                )}
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-border bg-surface-alt p-5 text-[15px] leading-8 text-text-secondary">
+            {r.reviewsEmptyNote}
+          </div>
+        )}
+        <p className="mt-4 text-xs text-text-muted">{r.reviewsSourceNote}</p>
 
         <figure className="mt-8">
           <img src={r.subImage} alt={r.subAlt} width={1200} height={630}
@@ -162,7 +171,7 @@ export default async function ReviewPage({ params }: Props) {
       <section id="strengths" className="scroll-mt-20 mb-12">
         <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">口コミからわかる強み・特徴</h2>
         <div className="space-y-5">
-          {r.strengths.map((s, i) => (
+          {r.strengths.map((s: any, i: number) => (
             <div key={i}>
               <h3 className="font-bold text-text-primary mb-2 flex items-start gap-2">
                 <span className="mono text-primary">{String(i + 1).padStart(2, "0")}</span>
@@ -178,7 +187,7 @@ export default async function ReviewPage({ params }: Props) {
       <section id="cautions" className="scroll-mt-20 mb-12">
         <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">利用前に知っておきたい注意点</h2>
         <div className="space-y-4">
-          {r.cautions.map((c, i) => (
+          {r.cautions.map((c: any, i: number) => (
             <div key={i} className="rounded-2xl border border-border bg-surface-alt p-5">
               <h3 className="font-bold text-text-primary mb-2">{c.h}</h3>
               <p className="text-[15px] leading-8 text-text-secondary">{c.b}</p>
@@ -191,7 +200,7 @@ export default async function ReviewPage({ params }: Props) {
       <section id="recommended" className="scroll-mt-20 mb-12">
         <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">どんな人におすすめか</h2>
         <ul className="space-y-3">
-          {r.recommended.map((x, i) => (
+          {r.recommended.map((x: string, i: number) => (
             <li key={i} className="flex items-start gap-3 text-[15px] leading-8 text-text-secondary">
               <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
               <span>{x}</span>
@@ -204,7 +213,7 @@ export default async function ReviewPage({ params }: Props) {
       <section id="faq" className="scroll-mt-20 mb-12">
         <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">よくある質問</h2>
         <div className="space-y-4">
-          {r.faqs.map((f, i) => (
+          {r.faqs.map((f: any, i: number) => (
             <div key={i} className="rounded-2xl border border-border bg-surface p-5">
               <h3 className="font-bold text-text-primary mb-2">Q. {f.q}</h3>
               <p className="text-[15px] leading-8 text-text-secondary">A. {f.a}</p>
@@ -229,7 +238,8 @@ export default async function ReviewPage({ params }: Props) {
         <p className="mt-3 text-xs text-text-muted">本ページにはPR（広告）を含む場合があります。掲載情報は{r.updatedAt}時点のものです。</p>
       </div>
 
-      <div className="mt-8 text-sm">
+      <div className="mt-8 flex flex-wrap gap-4 text-sm">
+        <Link href="/review/" className="text-primary hover:underline">他の業者の口コミ・評判を見る</Link>
         <Link href="/ranking/" className="text-primary hover:underline">防水業者ランキングを見る</Link>
       </div>
     </article>
