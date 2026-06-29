@@ -65,6 +65,29 @@ const priceFactors = [
   { factor: "季節・時期", impact: "low", description: "繁忙期（春・秋）は割高になる傾向。閑散期（冬・梅雨）に依頼すると値引きを引き出しやすいです。" },
 ];
 
+const faqs = [
+  {
+    q: "ベランダ防水工事の費用相場はいくらですか？",
+    a: "10㎡前後で約4〜10万円、20㎡前後で約6〜16万円が目安です。工法別の単価はウレタン防水3,000〜6,500円/㎡、シート防水3,500〜7,000円/㎡、FRP防水4,000〜8,000円/㎡で、面積が大きいほど㎡単価は下がる傾向があります。",
+  },
+  {
+    q: "防水工事の費用以外に追加でかかる費用はありますか？",
+    a: "2階以上のベランダ・屋上では足場費用が5〜15万円かかります。そのほか、既存防水の撤去（1〜5万円）、下地補修（1〜3万円）、排水口（ドレン）交換（1〜3万円/箇所）、シーリング打ち替え（2〜8万円）などが、劣化状況に応じて追加になる場合があります。",
+  },
+  {
+    q: "FRP・ウレタン・シート防水はどれが安いですか？",
+    a: "㎡単価ではウレタン防水が最も安い傾向です。ただし耐用年数やメンテナンス周期、ベランダの形状・面積によって総額は変わります。小〜中規模のベランダはFRP、大面積や屋上はウレタン・シートが向くことが多いです。",
+  },
+  {
+    q: "防水工事の費用を抑えるにはどうすればいいですか？",
+    a: "まず劣化状態を把握し、3社以上で相見積もりを取ることが基本です。一括見積もりサービスを使うと相場が分かり値引き交渉もしやすくなります。また自治体の助成金・補助金が使える場合があるため、工事前に確認しましょう。",
+  },
+  {
+    q: "防水工事の費用はどんな要因で変わりますか？",
+    a: "施工面積、工法の種類、下地の劣化状態、足場の要否、業者の種類（直接施工か仲介か）、依頼する季節などで変わります。特に面積・工法・足場の有無が金額に与える影響が大きいです。",
+  },
+];
+
 export default function PricePage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -84,6 +107,14 @@ export default function PricePage() {
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
           工法別・面積別の詳しい費用相場と、費用を左右する6つのポイントを解説します。
+        </p>
+      </div>
+
+      {/* 即答ブロック（AEO/強調スニペット対応） */}
+      <div className="bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-5 md:p-6 mb-10">
+        <p className="text-sm font-bold text-[#2563EB] mb-2">結論：ベランダ防水工事の費用相場</p>
+        <p className="text-gray-800 leading-relaxed text-sm md:text-base">
+          ベランダ防水工事の費用は、一般的な10㎡前後で<strong>約4〜10万円</strong>、20㎡前後で<strong>約6〜16万円</strong>が目安です。工法別の単価はウレタン防水が3,000〜6,500円/㎡、シート防水が3,500〜7,000円/㎡、FRP防水が4,000〜8,000円/㎡。これに加えて2階以上では足場費用（5〜15万円）や下地補修などが状況に応じて発生します。正確な金額は面積・劣化状況・工法で変わるため、3社以上の相見積もりで比較するのが確実です。
         </p>
       </div>
 
@@ -201,6 +232,48 @@ export default function PricePage() {
           </li>
         </ol>
       </div>
+
+      {/* FAQ */}
+      <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
+        <h2 className="text-xl font-bold text-gray-900 mb-4">ベランダ防水工事の費用に関するよくある質問</h2>
+        <div className="space-y-4">
+          {faqs.map((f, i) => (
+            <div key={i} className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+              <p className="font-bold text-gray-900 text-sm mb-1">Q. {f.q}</p>
+              <p className="text-sm text-gray-600 leading-relaxed">A. {f.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "ホーム", item: "https://balcony-bousui-navi.com/" },
+              { "@type": "ListItem", position: 2, name: "費用ガイド", item: "https://balcony-bousui-navi.com/cost/price/" },
+              { "@type": "ListItem", position: 3, name: "防水工事の費用相場" },
+            ],
+          }),
+        }}
+      />
 
       {/* Related & CTA */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
