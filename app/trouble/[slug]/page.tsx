@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const trouble = troublesData.find((t) => t.slug === slug);
   if (!trouble) return {};
   return {
+    alternates: { canonical: `/trouble/${slug}/` },
     title: `${trouble.title}【2026年最新】`,
     description: `${trouble.description.slice(0, 120)}。緊急度：${trouble.urgency}。費用目安：${trouble.estimatedCost}。`,
   };

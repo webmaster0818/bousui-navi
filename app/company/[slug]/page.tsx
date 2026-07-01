@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const company = companiesData.find((c) => c.slug === slug);
   if (!company) return {};
   return {
+    alternates: { canonical: `/company/${slug}/` },
     title: `${company.name}の口コミ・評判・費用【2026年】`,
     description: `${company.name}の特徴・料金・口コミを徹底解説。${company.tagline}。${company.description.slice(0, 80)}`,
   };

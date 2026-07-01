@@ -4,6 +4,7 @@ import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/ranking/cheap/" },
   title: "安い防水業者ランキング【2026年・費用重視】",
   description:
     "ベランダ防水工事を安くするためのおすすめ業者ランキング。費用重視で選んだ業者TOP5と、コストを抑えるための5つのポイントを解説。",

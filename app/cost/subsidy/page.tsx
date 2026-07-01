@@ -3,6 +3,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/cost/subsidy/" },
   title: "ベランダ防水工事の助成金・補助金ガイド【2026年最新】",
   description:
     "防水工事に使える助成金・補助金制度を徹底解説。省エネ・耐震・バリアフリー改修の補助金から申請方法まで2026年最新情報でお届けします。",

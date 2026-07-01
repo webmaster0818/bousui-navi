@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const method = methodsData.find((m) => m.slug === slug);
   if (!method) return {};
   return {
+    alternates: { canonical: `/method/${slug}/` },
     title: `${method.title}【2026年最新】`,
     description: `${method.description.slice(0, 120)}。費用相場：${method.costPerSqm}。耐用年数：${method.durability}。`,
   };

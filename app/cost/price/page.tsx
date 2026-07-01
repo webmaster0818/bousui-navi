@@ -3,6 +3,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/cost/price/" },
   title: "ベランダ防水工事の費用相場【工法別・面積別】2026年版",
   description:
     "ベランダ防水工事の費用相場を工法別・面積別に詳しく解説。FRP・ウレタン・シート防水の価格比較から、費用を左右するポイントまで徹底ガイド。",

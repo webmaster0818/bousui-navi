@@ -4,6 +4,7 @@ import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/ranking/" },
   title: "ベランダ防水業者ランキングTOP10【2026年版】",
   description:
     "2026年最新のベランダ防水業者ランキングTOP10を発表。費用・品質・保証・口コミを徹底比較。無料見積もりで最適な業者を見つけよう。",

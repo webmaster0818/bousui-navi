@@ -3,6 +3,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/cost/diy-vs-pro/" },
   title: "防水工事はDIY vs プロどちらがお得？【費用・リスク比較】",
   description:
     "ベランダ防水工事のDIYとプロ依頼を費用・品質・リスクで徹底比較。DIYが向いているケース、プロに任せるべきケースを解説します。",
