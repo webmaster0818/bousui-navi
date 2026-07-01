@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "ベランダ防水ナビ | ベランダ防水工事の費用・業者比較【2026年版】",
   description:
     "ベランダ・屋上の防水工事をプロにおまかせ。FRP・ウレタン・シート防水の費用比較、おすすめ業者ランキングTOP10、雨漏り対処法まで徹底解説。無料見積もり受付中。",
+  alternates: { canonical: "/" },
 };
 
 const TOP3 = companiesData.slice(0, 3);

@@ -14,7 +14,6 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://balcony-bousui-navi.com"),
-  alternates: { canonical: "/" },
   twitter: {
     card: "summary_large_image",
   },
