@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "記事の制作ポリシー | ベランダ防水ナビ",
+  title: "記事の制作ポリシー",
   description: "ベランダ防水ナビの編集方針・記事制作ポリシーです。正確で信頼できる情報提供を目指しています。",
   alternates: { canonical: "/content-policy/" },
 };

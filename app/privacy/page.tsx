@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "プライバシーポリシー | ベランダ防水ナビ",
+  title: "プライバシーポリシー",
   description: "ベランダ防水ナビのプライバシーポリシーです。個人情報の取り扱いについて説明しています。",
   alternates: { canonical: "/privacy/" },
 };

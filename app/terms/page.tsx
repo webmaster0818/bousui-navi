@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "利用規約 | ベランダ防水ナビ",
+  title: "利用規約",
   description: "ベランダ防水ナビの利用規約です。サービス利用前に必ずお読みください。",
   alternates: { canonical: "/terms/" },
 };
