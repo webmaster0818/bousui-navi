@@ -17,12 +17,60 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const method = methodsData.find((m) => m.slug === slug);
   if (!method) return {};
+  const title =
+    slug === "comparison"
+      ? "防水工事の工法比較【ウレタン・シート・FRP・絶縁工法の価格比較】"
+      : `${method.title}【2026年最新】`;
   return {
     alternates: { canonical: `/method/${slug}/` },
-    title: `${method.title}【2026年最新】`,
+    title,
     description: `${method.description.slice(0, 120)}。費用相場：${method.costPerSqm}。耐用年数：${method.durability}。`,
   };
 }
+
+/** /method/comparison/ でのみ表示する工法比較表（他の工法ページには出力されない） */
+const comparisonRows = [
+  {
+    name: "FRP防水",
+    href: "/method/frp/",
+    unit: "4,000〜8,000円/㎡",
+    life: "10〜15年",
+    days: "2〜3日",
+    place: "ベランダ・小面積",
+    topcoat: "5〜7年ごと",
+    note: "ガラス繊維のマットに樹脂を含浸させて硬化させる工法。強度が高く、住宅のベランダで広く使われます。",
+  },
+  {
+    name: "ウレタン防水（密着工法）",
+    href: "/method/urethane/",
+    unit: "3,000〜6,500円/㎡（レンジの下限側）",
+    life: "8〜12年",
+    days: "3〜5日",
+    place: "新築・下地の状態が良い場所",
+    topcoat: "約5年ごと",
+    note: "下地に直接ウレタンを塗布する方法。安価ですが、下地の湿気や動きの影響を受けやすい工法です。",
+  },
+  {
+    name: "ウレタン防水（絶縁・通気緩衝工法）",
+    href: "/method/urethane/",
+    unit: "3,000〜6,500円/㎡（レンジの上限側）",
+    life: "8〜12年",
+    days: "3〜5日",
+    place: "改修工事・湿気の多い場所・屋上",
+    topcoat: "約5年ごと",
+    note: "通気緩衝シートを挟んでから施工する方法。費用は高めですが、下地の湿気や動きを吸収します。",
+  },
+  {
+    name: "シート防水（塩ビ・ゴム）",
+    href: "/method/sheet/",
+    unit: "3,500〜7,000円/㎡",
+    life: "10〜15年",
+    days: "1〜2日",
+    place: "屋上・大面積",
+    topcoat: "5年ごとに接合部の点検",
+    note: "工場で製造された防水シートを敷く工法。接着工法と機械的固定工法があり、平らで広い面に向きます。",
+  },
+];
 
 export default async function MethodPage({ params }: Props) {
   const { slug } = await params;
@@ -31,12 +79,19 @@ export default async function MethodPage({ params }: Props) {
 
   const TOP3 = companiesData.slice(0, 3);
 
+  // /method/comparison/ は比較対象にウレタン防水の密着・絶縁工法を加えたため、
+  // 見出しも実際に比較している工法にあわせて表示する。
+  const displayTitle =
+    slug === "comparison"
+      ? "防水工事の工法比較｜ウレタン・シート・FRP・絶縁工法の価格比較"
+      : method.title;
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumb
         items={[
           { label: "工法ガイド" },
-          { label: method.title },
+          { label: displayTitle },
         ]}
       />
 
@@ -47,7 +102,7 @@ export default async function MethodPage({ params }: Props) {
           <span className="text-xs bg-green-50 text-[#059669] font-bold px-3 py-1 rounded-full">費用：{method.costPerSqm}</span>
           <span className="text-xs bg-gray-100 text-gray-600 font-bold px-3 py-1 rounded-full">耐久：{method.durability}</span>
         </div>
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{method.title}</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{displayTitle}</h1>
         <p className="text-gray-700 leading-relaxed">{method.description}</p>
       </div>
 
@@ -98,6 +153,56 @@ export default async function MethodPage({ params }: Props) {
           </div>
         </div>
       </div>
+
+      {/* 工法比較表（/method/comparison/ のみ） */}
+      {slug === "comparison" && (
+        <section className="mb-8">
+          <h2 className="font-bold text-gray-900 text-xl mb-2">
+            工法別の比較表（ウレタン・シート・FRP・絶縁工法）
+          </h2>
+          <p className="text-sm text-gray-600 leading-relaxed mb-4">
+            当サイトが各工法ページに掲載している㎡単価・耐用年数・施工日数を並べたものです。㎡単価は工事本体の目安で、足場や下地補修は含みません。ウレタン防水は密着工法と絶縁（通気緩衝）工法で単価表を分けて確認できていないため、同じレンジの中でどちら側に寄るかを記載しています。
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white">
+            <table className="w-full text-sm min-w-[760px]">
+              <thead>
+                <tr className="bg-gray-50 text-left text-gray-600">
+                  <th className="px-4 py-3 font-bold">工法</th>
+                  <th className="px-4 py-3 font-bold">㎡単価の目安</th>
+                  <th className="px-4 py-3 font-bold">耐用年数</th>
+                  <th className="px-4 py-3 font-bold">施工日数</th>
+                  <th className="px-4 py-3 font-bold">向いている場所</th>
+                  <th className="px-4 py-3 font-bold">トップコートの周期</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map((row) => (
+                  <tr key={row.name} className="border-t border-gray-100 align-top">
+                    <td className="px-4 py-3">
+                      <Link href={row.href} className="font-bold text-[#2563EB]">
+                        {row.name}
+                      </Link>
+                      <div className="text-xs text-gray-500 mt-1 leading-relaxed">{row.note}</div>
+                    </td>
+                    <td className="px-4 py-3 font-bold text-[#059669]">{row.unit}</td>
+                    <td className="px-4 py-3 text-gray-700 whitespace-nowrap">{row.life}</td>
+                    <td className="px-4 py-3 text-gray-700 whitespace-nowrap">{row.days}</td>
+                    <td className="px-4 py-3 text-gray-700">{row.place}</td>
+                    <td className="px-4 py-3 text-gray-700">{row.topcoat}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-gray-600 leading-relaxed mt-4">
+            面積別の費用や、足場・下地補修などの追加費用の目安は
+            <Link href="/cost/price/" className="text-[#2563EB] font-medium">費用相場のページ</Link>
+            に掲載しています。工法を指定して見積もりを取りたい場合は
+            <Link href="/ranking/" className="text-[#2563EB] font-medium">業者・会社ランキング</Link>
+            から、防水工事の取扱い範囲を確認して依頼先を選んでください。
+          </p>
+        </section>
+      )}
 
       {/* Sections */}
       {method.sections.map((section, index) => (
@@ -183,7 +288,9 @@ export default async function MethodPage({ params }: Props) {
               href={`/method/${m.slug}/`}
               className="bg-white rounded-xl border border-gray-200 p-4 hover:border-[#2563EB] transition-colors no-underline"
             >
-              <div className="font-bold text-gray-900 text-sm mb-1">{m.title}</div>
+              <div className="font-bold text-gray-900 text-sm mb-1">
+                {slug === "comparison" ? m.title.replace(/【[^】]*】/g, "") : m.title}
+              </div>
               <div className="text-xs text-gray-500">{m.costPerSqm} / 耐久：{m.durability}</div>
             </Link>
           ))}
