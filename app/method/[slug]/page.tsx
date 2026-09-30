@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!method) return {};
   const title =
     slug === "comparison"
-      ? "防水工事の工法比較【ウレタン・シート・FRP・絶縁工法の価格比較】"
+      ? "防水工事の種類と工法比較【2026年・ウレタン/シート/FRP/絶縁工法の価格】"
       : `${method.title}【2026年最新】`;
   return {
     alternates: { canonical: `/method/${slug}/` },

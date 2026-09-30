@@ -4,9 +4,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/cost/subsidy/" },
-  title: "ベランダ防水工事の助成金・補助金ガイド【2026年最新】",
+  title: "ベランダ防水・修理・リフォームの補助金・助成金【2026年最新】",
   description:
-    "防水工事に使える助成金・補助金制度を徹底解説。省エネ・耐震・バリアフリー改修の補助金から申請方法まで2026年最新情報でお届けします。",
+    "ベランダの防水工事・修理・リフォームに使える補助金・助成金制度を解説。住宅改修費助成、長期優良住宅化リフォーム推進事業、自治体独自の住宅改修補助など、対象・金額・申請先・申請方法を一覧で整理しています。",
 };
 
 const subsidyTypes = [
@@ -88,7 +88,7 @@ export default function SubsidyPage() {
           2026年最新情報
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-          防水工事に使える助成金・補助金ガイド
+          ベランダ防水・修理・リフォームに使える補助金・助成金ガイド
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
           適切な補助金・助成金を活用することで、防水工事の費用を大幅に削減できます。種類・条件・申請方法を詳しく解説します。

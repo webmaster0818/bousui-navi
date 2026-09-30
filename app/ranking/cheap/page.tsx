@@ -6,9 +6,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/ranking/cheap/" },
-  title: "格安・安い防水工事業者ランキング【費用重視・ベランダ/屋上】",
+  title: "激安・格安の防水工事業者ランキング【2026年・ベランダ/屋上】",
   description:
-    "ベランダ・屋上の防水工事を費用重視で選ぶためのランキング。各社が掲載する㎡単価の下限が低い順に並べ、順位の根拠と、格安業者に依頼する前に確認したい追加費用の項目を解説します。",
+    "防水工事を安く抑えたい人向けのランキング。ベランダ・屋上に対応する業者を、各社が掲載する㎡単価の下限が低い順に並べ、順位の根拠を明示しました。激安・格安をうたう業者に依頼する前に確認したい追加費用の項目もあわせて解説します。",
 };
 
 type BasicInfoItem = { label: string; value: string };
@@ -122,7 +122,7 @@ export default function CheapRankingPage() {
           費用重視版
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-          格安・安い防水工事業者ランキング TOP5【費用重視】
+          激安・格安の防水工事業者ランキング TOP5【安い順・ベランダ/屋上】
         </h1>
         <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
           ベランダ・屋上の防水工事を費用重視で検討している方向けのページです。各社が掲載している㎡単価の下限が低い順に並べ、順位の根拠と、格安業者に依頼する前に確認しておきたい追加費用の項目をまとめました。

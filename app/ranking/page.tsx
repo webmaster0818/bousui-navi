@@ -6,9 +6,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/ranking/" },
-  title: "防水工事の業者・会社ランキングTOP10【ベランダ・屋上】",
+  title: "防水工事の優良業者・会社ランキングTOP10【2026年・ベランダ/屋上】",
   description:
-    "ベランダ・屋上の防水工事に対応する業者・会社10社を、対応エリア・取扱い工法・見積もりの取り方・運営形態の4基準で比較。運営会社や口コミ評価は当サイトで一次確認した情報のみを掲載しています。",
+    "ベランダ・屋上の防水工事に対応する優良業者・会社10社を、対応エリア・取扱い工法・見積もりの取り方・運営形態の4基準で比較したランキングです。どこに頼むか迷ったときの選び方も解説。運営会社や口コミ評価は当サイトで一次確認した情報のみを掲載しています。",
 };
 
 type BasicInfoItem = { label: string; value: string };
@@ -129,7 +129,7 @@ export default function RankingPage() {
           2026年版・掲載10社
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-          防水工事の業者・会社ランキングTOP10【ベランダ・屋上】
+          防水工事の優良業者・会社ランキングTOP10【ベランダ・屋上】
         </h1>
         <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
           ベランダ・バルコニーと屋上の防水工事を依頼できる業者・会社10社を、対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4基準で比較しました。運営会社と口コミ評価は、当サイトが取得日を記録して一次確認できた情報のみを掲載しています。
