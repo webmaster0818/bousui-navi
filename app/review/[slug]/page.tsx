@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import reviewsData from "@/data/reviews.json";
 import Breadcrumb from "@/components/Breadcrumb";
 
+const OG_IMAGE = { url: "/opengraph-image?v=20261014", width: 1200, height: 630, alt: "防水工事ナビ" };
+
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
@@ -19,7 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: r.title,
     description: r.metaDescription,
     alternates: { canonical: url },
-    openGraph: { title: r.title, description: r.metaDescription, url, type: "article" },
+    openGraph: { title: r.title, description: r.metaDescription, url, type: "article", images: [OG_IMAGE] },
+    twitter: { card: "summary_large_image", title: r.title, description: r.metaDescription, images: [OG_IMAGE.url] },
   };
 }
 
