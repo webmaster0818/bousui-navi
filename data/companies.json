@@ -26,8 +26,6 @@
     "warranty": "施工保証あり（業者による）",
     "officialUrl": "https://example.com/bousui-pro",
     "rank": 1,
-    "score": 4.8,
-    "reviewCount": 1243,
     "priceRange": "¥8,000〜¥25,000/㎡",
     "responseTime": "最短即日",
     "category": "専門業者紹介"
@@ -59,8 +57,6 @@
     "warranty": "最長10年保証",
     "officialUrl": "https://example.com/nurikae",
     "rank": 2,
-    "score": 4.7,
-    "reviewCount": 3567,
     "priceRange": "¥7,500〜¥22,000/㎡",
     "responseTime": "1〜3日",
     "category": "一括見積もり"
@@ -91,8 +87,6 @@
     "warranty": "業者による",
     "officialUrl": "https://example.com/reshop-navi",
     "rank": 3,
-    "score": 4.5,
-    "reviewCount": 2891,
     "priceRange": "¥8,000〜¥24,000/㎡",
     "responseTime": "1〜2日",
     "category": "リフォーム仲介"
@@ -124,8 +118,6 @@
     "warranty": "最長10年保証",
     "officialUrl": "https://example.com/protimes",
     "rank": 4,
-    "score": 4.4,
-    "reviewCount": 1876,
     "priceRange": "¥8,500〜¥23,000/㎡",
     "responseTime": "最短翌日",
     "category": "フランチャイズ"
@@ -157,8 +149,6 @@
     "warranty": "10年保証（標準）",
     "officialUrl": "https://example.com/gaiso",
     "rank": 5,
-    "score": 4.3,
-    "reviewCount": 1542,
     "priceRange": "¥9,000〜¥26,000/㎡",
     "responseTime": "2〜5日",
     "category": "フランチャイズ"
@@ -191,8 +181,6 @@
     "warranty": "業者による",
     "officialUrl": "https://example.com/kurashi-market",
     "rank": 6,
-    "score": 4.2,
-    "reviewCount": 5234,
     "priceRange": "¥6,000〜¥20,000/㎡",
     "responseTime": "業者による",
     "category": "プラットフォーム"
@@ -225,8 +213,6 @@
     "warranty": "業者による",
     "officialUrl": "https://example.com/mitsumoa",
     "rank": 7,
-    "score": 4.1,
-    "reviewCount": 4123,
     "priceRange": "¥6,500〜¥21,000/㎡",
     "responseTime": "最短当日",
     "category": "見積もり比較"
@@ -258,8 +244,6 @@
     "warranty": "業者による",
     "officialUrl": "https://example.com/sumai-hotline",
     "rank": 8,
-    "score": 4.0,
-    "reviewCount": 987,
     "priceRange": "¥7,000〜¥22,000/㎡",
     "responseTime": "1〜3日",
     "category": "価格比較"
@@ -292,8 +276,6 @@
     "warranty": "業者による",
     "officialUrl": "https://example.com/ienakama",
     "rank": 9,
-    "score": 3.9,
-    "reviewCount": 756,
     "priceRange": "¥6,000〜¥20,000/㎡",
     "responseTime": "業者による",
     "category": "口コミ検索"
@@ -326,8 +308,6 @@
     "warranty": "施工保証あり",
     "officialUrl": "https://example.com/bousui-mitsumori",
     "rank": 10,
-    "score": 4.2,
-    "reviewCount": 432,
     "priceRange": "¥7,500〜¥23,000/㎡",
     "responseTime": "最短翌日",
     "category": "専門見積もり"

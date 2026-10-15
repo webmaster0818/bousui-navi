@@ -48,7 +48,7 @@ export default function RootLayout({
         <main className="flex-1">{children}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"防水工事ナビ\",\"url\":\"https://bousui-navi-deploy.pages.dev/\",\"logo\":\"https://bousui-navi-deploy.pages.dev/favicon.ico\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"株式会社MediaX\",\"url\":\"https://mediax.biz\"},\"sameAs\":[\"https://bousui-navi-deploy.pages.dev/about/\"]}" }}
+          dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"ベランダ防水ナビ\",\"url\":\"https://balcony-bousui-navi.com/\",\"logo\":\"https://balcony-bousui-navi.com/favicon.ico\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"株式会社MediaX\",\"url\":\"https://mediax.biz\"},\"sameAs\":[\"https://balcony-bousui-navi.com/about/\"]}" }}
         />
         </main>
         <SiteFooter />

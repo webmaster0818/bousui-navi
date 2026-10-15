@@ -26,6 +26,7 @@ export default function ReviewIndex() {
               {(r as any).ratingBlock ? (
                 <span className="text-sm text-text-muted whitespace-nowrap">
                   <span className="text-warning">★</span> {(r as any).ratingBlock.rating}（{(r as any).ratingBlock.reviewCount}件）
+                  <span className="block text-[11px] text-right">Googleマップ・{(r as any).ratingBlock.fetchedAt}取得</span>
                 </span>
               ) : (
                 <span className="text-xs text-text-muted whitespace-nowrap">公式の声</span>

@@ -93,7 +93,7 @@ export default async function ReviewPage({ params }: Props) {
         <div className="my-8 rounded-2xl border border-border bg-surface p-5 sm:p-6 flex items-center gap-5 flex-wrap">
           <div className="text-center">
             <div className="text-4xl font-bold text-primary leading-none">{rating.rating}</div>
-            <div className="mt-1 text-warning text-sm">★★★★★</div>
+            <div className="mt-1 text-warning text-sm" aria-label={`評価${rating.rating}`}>{"★".repeat(Math.floor(rating.rating))}<span className="text-border">{"★".repeat(5 - Math.floor(rating.rating))}</span></div>
           </div>
           <div className="flex-1 min-w-[200px]">
             <p className="text-sm text-text-secondary leading-6">
