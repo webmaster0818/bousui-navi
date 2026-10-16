@@ -202,7 +202,7 @@ export default function CheapRankingPage() {
                   <dl className="text-sm text-gray-700 space-y-1 mb-3">
                     <div className="flex gap-2">
                       <dt className="text-gray-500 flex-shrink-0 w-20">掲載価格帯</dt>
-                      <dd className="flex-1 font-bold text-[#059669]">{company.priceRange}</dd>
+                      <dd className="flex-1 font-bold text-[#059669]">{company.priceRange || "公式に記載なし"}</dd>
                     </div>
                     {operator && (
                       <div className="flex gap-2">
@@ -281,11 +281,11 @@ export default function CheapRankingPage() {
                     <span className="font-bold text-gray-900">{company.name}</span>
                     <div className="text-xs text-gray-500 mt-0.5">{company.category}</div>
                   </td>
-                  <td className="px-4 py-3 font-bold text-[#059669] whitespace-nowrap">{company.priceRange}</td>
+                  <td className="px-4 py-3 font-bold text-[#059669] whitespace-nowrap">{company.priceRange || "公式に記載なし"}</td>
                   <td className="px-4 py-3 text-gray-700">
                     {pickInfo(company.slug, AREA_LABELS) || "未取得"}
                   </td>
-                  <td className="px-4 py-3 text-gray-700">{company.warranty}</td>
+                  <td className="px-4 py-3 text-gray-700">{company.warranty || "公式に記載なし"}</td>
                   <td className="px-4 py-3 whitespace-nowrap">
                     <Link href={`/company/${company.slug}/`} className="text-[#2563EB] font-medium">
                       会社情報

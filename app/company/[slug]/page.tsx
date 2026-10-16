@@ -82,19 +82,19 @@ export default async function CompanyPage({ params }: Props) {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
           <div className="text-center p-3 bg-gray-50 rounded-xl">
             <div className="text-xs text-gray-500 mb-1">対応エリア</div>
-            <div className="text-sm font-bold text-gray-900">{company.coverage}</div>
+            <div className="text-sm font-bold text-gray-900">{company.coverage || "公式に記載なし"}</div>
           </div>
           <div className="text-center p-3 bg-gray-50 rounded-xl">
             <div className="text-xs text-gray-500 mb-1">保証期間</div>
-            <div className="text-sm font-bold text-gray-900">{company.warranty}</div>
+            <div className="text-sm font-bold text-gray-900">{company.warranty || "公式に記載なし"}</div>
           </div>
           <div className="text-center p-3 bg-gray-50 rounded-xl">
             <div className="text-xs text-gray-500 mb-1">価格帯</div>
-            <div className="text-sm font-bold text-[#059669]">{company.priceRange}</div>
+            <div className="text-sm font-bold text-[#059669]">{company.priceRange || "公式に記載なし"}</div>
           </div>
           <div className="text-center p-3 bg-gray-50 rounded-xl">
             <div className="text-xs text-gray-500 mb-1">対応速度</div>
-            <div className="text-sm font-bold text-gray-900">{company.responseTime}</div>
+            <div className="text-sm font-bold text-gray-900">{company.responseTime || "公式に記載なし"}</div>
           </div>
         </div>
 

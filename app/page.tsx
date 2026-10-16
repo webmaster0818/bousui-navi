@@ -122,8 +122,8 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-3 gap-4 max-w-sm">
             <div className="text-center">
-              <div className="text-2xl font-bold text-[#F97316] drop-shadow">300社+</div>
-              <div className="text-xs text-blue-200">加盟業者数</div>
+              <div className="text-2xl font-bold text-[#F97316] drop-shadow">10社</div>
+              <div className="text-xs text-blue-200">掲載サービス</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-[#F97316] drop-shadow">無料</div>
@@ -414,7 +414,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">まずは無料見積もりから始めよう</h2>
           <p className="text-blue-100 mb-8 text-base leading-relaxed">
-            入力3分・完全無料。全国300社以上の防水専門業者からあなたに最適な1社をご紹介します。
+            掲載10サービスの運営会社・保証・対応エリアを、公式情報をもとに比較できます。
           </p>
           <Link
             href="/ranking/"

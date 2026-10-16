@@ -284,9 +284,9 @@ export default function RankingPage() {
 
                   {/* Meta */}
                   <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-                    <span>掲載エリア区分：{company.coverage}</span>
-                    <span>保証：{company.warranty}</span>
-                    <span className="text-[#059669] font-bold">掲載価格帯：{company.priceRange}</span>
+                    <span>掲載エリア区分：{company.coverage || "公式に記載なし"}</span>
+                    <span>保証：{company.warranty || "公式に記載なし"}</span>
+                    <span className="text-[#059669] font-bold">掲載価格帯：{company.priceRange || "公式に記載なし"}</span>
                   </div>
                 </div>
 
