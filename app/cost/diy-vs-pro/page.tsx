@@ -208,7 +208,7 @@ export default function DiyVsProPage() {
 
       {/* Conclusion */}
       <div className="bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-3">まとめ：多くのケースでは専門業者への依頼が適切</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">ベランダ防水は多くの場合、専門業者への依頼が適しています</h2>
         <p className="text-gray-700 leading-relaxed text-sm">
           DIYは初期費用が安く見えますが、施工品質・耐久性・保証・安全性の面で専門業者に劣ります。特に防水工事は、施工不良が雨漏りに直結するため、リスクが高い工事です。
           トップコートの塗り替えのみであればDIYも選択肢ですが、防水層の新設・全面改修は専門業者への依頼を強くおすすめします。
