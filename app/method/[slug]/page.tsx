@@ -161,7 +161,7 @@ export default async function MethodPage({ params }: Props) {
             工法別の比較表（ウレタン・シート・FRP・絶縁工法）
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
-            当サイトが各工法ページに掲載している㎡単価・耐用年数・施工日数を並べたものです。㎡単価は工事本体の目安で、足場や下地補修は含みません。ウレタン防水は密着工法と絶縁（通気緩衝）工法で単価表を分けて確認できていないため、同じレンジの中でどちら側に寄るかを記載しています。
+            当サイトが各工法ページに掲載している㎡単価・耐用年数・施工日数をまとめた表です。㎡単価は工事本体の目安で、足場や下地補修は含みません。ウレタン防水は密着工法と絶縁（通気緩衝）工法で単価表を分けて確認できていないため、同じ価格帯の中でどちらの側に位置するかを記載しています。
           </p>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white">
             <table className="w-full text-sm min-w-[760px]">
@@ -245,7 +245,7 @@ export default async function MethodPage({ params }: Props) {
 
       {/* Recommended Companies */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
-        <h2 className="font-bold text-gray-900 text-lg mb-4">この工法が得意な業者TOP3</h2>
+        <h2 className="font-bold text-gray-900 text-lg mb-4">この工法に対応するおすすめ業者TOP3</h2>
         <div className="space-y-3">
           {TOP3.map((company, index) => (
             <div key={company.slug} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
@@ -273,14 +273,14 @@ export default async function MethodPage({ params }: Props) {
             className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full transition-colors no-underline text-sm"
           >
             <span className="text-xs bg-white text-[#F97316] px-1.5 py-0.5 rounded font-bold">PR</span>
-            全業者を比較・無料見積もり
+            全業者の比較・無料見積もり
           </Link>
         </div>
       </div>
 
       {/* Other Methods */}
       <div className="mb-8">
-        <h2 className="text-lg font-bold text-gray-900 mb-4">他の工法ガイドも見る</h2>
+        <h2 className="text-lg font-bold text-gray-900 mb-4">他の工法ガイド</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {methodsData.filter((m) => m.slug !== slug).map((m) => (
             <Link

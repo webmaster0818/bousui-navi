@@ -35,7 +35,7 @@ const subsidyTypes = [
     target: "子育て世帯・若者夫婦世帯",
     amount: "最大60万円",
     coverage: "省エネ改修、外皮工事含む",
-    requirement: "18歳未満の子供がいる、または夫婦どちらかが39歳以下",
+    requirement: "18歳未満の子がいる、または夫婦のいずれかが39歳以下",
     where: "国土交通省（登録事業者経由）",
     difficulty: "medium",
     icon: "",
@@ -63,12 +63,12 @@ const subsidyTypes = [
 ];
 
 const steps = [
-  { step: "工事前", action: "自治体に申請", detail: "ほとんどの補助金制度は工事前の申請が必要。工事後に申請しても対象外になります。" },
+  { step: "工事前", action: "自治体に申請", detail: "ほとんどの補助金制度では工事前の申請が必要です。工事後に申請しても対象外となります。" },
   { step: "事前確認", action: "対象工事か確認", detail: "防水工事が補助対象かどうか、対象工法・業者の条件を確認します。" },
-  { step: "業者選定", action: "登録業者を選ぶ", detail: "補助金制度によっては指定・登録業者からしか施工を受け付けない場合があります。" },
+  { step: "業者選定", action: "登録業者を選ぶ", detail: "補助金制度によっては、指定・登録業者による施工のみが対象となる場合があります。" },
   { step: "申請書作成", action: "必要書類を準備", detail: "工事見積書、住宅図面、本人確認書類等が必要になります。" },
-  { step: "交付決定", action: "許可を待つ", detail: "申請後、自治体から交付決定通知が来るまで工事を開始しないことが重要です。" },
-  { step: "工事実施", action: "補助対象工事を実施", detail: "交付決定後に工事を実施。工事内容が申請内容と一致していることを確認します。" },
+  { step: "交付決定", action: "許可を待つ", detail: "申請後、自治体から交付決定通知が届くまで工事を開始しないことが重要です。" },
+  { step: "工事実施", action: "補助対象工事を実施", detail: "交付決定後に工事を実施します。工事内容が申請内容と一致していることを確認します。" },
   { step: "実績報告", action: "完工報告書を提出", detail: "工事完了後に実績報告書・写真・領収書等を提出します。" },
   { step: "補助金受領", action: "口座に振込", detail: "審査完了後、指定口座に補助金が振り込まれます。" },
 ];
@@ -85,13 +85,13 @@ export default function SubsidyPage() {
 
       <div className="text-center mb-10">
         <div className="inline-flex items-center gap-2 bg-green-50 text-[#059669] text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-          2026年最新情報
+          2026年版
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
           ベランダ防水・修理・リフォームに使える補助金・助成金ガイド
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          適切な補助金・助成金を活用することで、防水工事の費用を大幅に削減できます。種類・条件・申請方法を詳しく解説します。
+          補助金・助成金を活用することで、防水工事の費用を削減できる場合があります。制度の種類・条件・申請方法を解説しています。
         </p>
       </div>
 
@@ -181,13 +181,13 @@ export default function SubsidyPage() {
 
       {/* Tips */}
       <div className="bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-6 mb-8">
-        <h2 className="text-lg font-bold text-gray-900 mb-4">補助金活用のポイント</h2>
+        <h2 className="text-lg font-bold text-gray-900 mb-4">補助金活用の要点</h2>
         <ul className="space-y-3">
           <li className="flex gap-2 text-sm text-gray-700">
             <svg className="w-4 h-4 text-[#2563EB] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>自治体の補助金は地域によって内容が大きく異なります。まずはお住まいの市区町村のウェブサイトで確認しましょう。</span>
+            <span>自治体の補助金は地域によって内容が大きく異なります。お住まいの市区町村のウェブサイトでご確認ください。</span>
           </li>
           <li className="flex gap-2 text-sm text-gray-700">
             <svg className="w-4 h-4 text-[#2563EB] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,28 +199,28 @@ export default function SubsidyPage() {
             <svg className="w-4 h-4 text-[#2563EB] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>補助金に詳しい業者に依頼すると、申請手続きをサポートしてもらえる場合があります。見積もり時に確認しましょう。</span>
+            <span>補助金に詳しい業者に依頼すると、申請手続きの支援を受けられる場合があります。見積もりの際にご確認ください。</span>
           </li>
           <li className="flex gap-2 text-sm text-gray-700">
             <svg className="w-4 h-4 text-[#2563EB] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>複数の補助金制度を組み合わせることも可能な場合があります。専門家（リフォームコーディネーター等）に相談してみましょう。</span>
+            <span>複数の補助金制度を組み合わせることも可能な場合があります。専門家（リフォームコーディネーター等）への相談をおすすめします。</span>
           </li>
         </ul>
       </div>
 
       <div className="bg-gradient-to-r from-[#2563EB] to-[#1e40af] rounded-2xl p-8 text-white text-center">
-        <h2 className="text-xl font-bold mb-3">補助金込みで費用を確認する</h2>
+        <h2 className="text-xl font-bold mb-3">補助金を含めた費用の確認</h2>
         <p className="text-blue-100 text-sm mb-6">
-          補助金対応の業者に見積もりを依頼して、実際の自己負担額を確認しましょう。
+          補助金に対応した業者に見積もりを依頼し、実際の自己負担額をご確認ください。
         </p>
         <Link
           href="/ranking/"
           className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full transition-colors no-underline"
         >
           <span className="text-xs bg-white text-[#F97316] px-1.5 py-0.5 rounded font-bold">PR</span>
-          補助金対応業者に無料で相談する
+          補助金に対応した業者に無料で相談する
         </Link>
       </div>
     </div>

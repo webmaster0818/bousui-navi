@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/ranking/" },
   title: "防水工事の優良業者・会社ランキングTOP10【2026年・ベランダ/屋上】",
   description:
-    "ベランダ・屋上の防水工事に対応する優良業者・会社10社を、対応エリア・取扱い工法・見積もりの取り方・運営形態の4基準で比較したランキングです。どこに頼むか迷ったときの選び方も解説。運営会社や口コミ評価は当サイトで一次確認した情報のみを掲載しています。",
+    "ベランダ・屋上の防水工事に対応する優良業者・会社10社を、対応エリア・取扱い工法・見積もりの取り方・運営形態の4基準で比較したランキングです。依頼先の選び方も解説しています。運営会社や口コミ評価は、当サイトで一次確認した情報のみを掲載しています。",
 };
 
 type BasicInfoItem = { label: string; value: string };
@@ -48,7 +48,7 @@ const OPERATOR_LABELS = ["運営", "運営本部"];
 const AREA_LABELS = ["対応エリア"];
 const FEATURE_LABELS = ["特徴", "取扱い", "店舗展開"];
 
-/** ランキングの評価軸（順位づけの根拠として本文に明示する4項目） */
+/** ランキングの評価軸（順位の根拠として本文に明示する4項目） */
 const rankingCriteria = [
   {
     axis: "対応エリア",
@@ -98,8 +98,8 @@ const goodContractorChecks = [
 
 const rankingFaqs = [
   {
-    q: "このランキングは何を基準に順位づけしていますか。",
-    a: "対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4項目を確認したうえで、編集部が総合的に判断して並べています。掲載料や広告費で順位は変わりません。金額の安さは順位に含めていません。工事金額は面積・下地の状態・足場の要否で変わるためです。",
+    q: "このランキングは何を基準に順位を決めていますか。",
+    a: "対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4項目を確認したうえで、編集部が総合的に判断して順位を決定しています。掲載料や広告費で順位は変わりません。金額の安さは順位に含めていません。工事金額は面積・下地の状態・足場の要否で変わるためです。",
   },
   {
     q: "掲載している口コミ評価はどこから取得したものですか。",
@@ -107,7 +107,7 @@ const rankingFaqs = [
   },
   {
     q: "屋上の防水工事を頼める会社も含まれていますか。",
-    a: "含まれています。掲載10社はいずれもベランダ・バルコニーに加えて屋上の防水工事に対応しています。屋上のような広い面積ではシート防水やウレタン防水が選ばれることが多く、工法ごとの向き不向きは工法比較ページで整理しています。",
+    a: "含まれています。掲載10社はいずれもベランダ・バルコニーに加えて屋上の防水工事に対応しています。屋上のような広い面積ではシート防水やウレタン防水が選ばれることが多く、工法ごとの適性は工法比較ページで整理しています。",
   },
   {
     q: "優良業者かどうかはどこで見分ければよいですか。",
@@ -115,7 +115,7 @@ const rankingFaqs = [
   },
   {
     q: "格安の業者に依頼しても問題ありませんか。",
-    a: "㎡単価が安くても、足場・既存防水の撤去・下地補修が別途になっていると総額は変わります。見積もりの内訳が分かれているか、追加費用の発生条件が明記されているかを確認してください。費用重視で選ぶ場合は価格帯順に並べた格安ランキングを参照してください。",
+    a: "㎡単価が安くても、足場・既存防水の撤去・下地補修が別途になっていると総額は変わります。見積もりの内訳が分かれているか、追加費用の発生条件が明記されているかを確認してください。費用を重視する場合は、価格帯の順に整理した格安ランキングをご参照ください。",
   },
 ];
 
@@ -132,14 +132,14 @@ export default function RankingPage() {
           防水工事の優良業者・会社ランキングTOP10【ベランダ・屋上】
         </h1>
         <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          ベランダ・バルコニーと屋上の防水工事を依頼できる業者・会社10社を、対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4基準で比較しました。運営会社と口コミ評価は、当サイトが取得日を記録して一次確認できた情報のみを掲載しています。
+          ベランダ・バルコニーと屋上の防水工事を依頼できる業者・会社10社を、対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4基準で比較しています。運営会社と口コミ評価は、当サイトが取得日を記録して一次確認できた情報のみを掲載しています。
         </p>
         <div className="flex justify-center gap-3 mt-4 flex-wrap">
           <Link
             href="/ranking/cheap/"
             className="text-sm text-[#2563EB] bg-[#EFF6FF] px-4 py-2 rounded-full font-medium hover:bg-blue-100 transition-colors no-underline"
           >
-            格安・費用重視のランキングを見る
+            格安・費用重視のランキング
           </Link>
           <Link
             href="/method/comparison/"
@@ -174,9 +174,9 @@ export default function RankingPage() {
             <span className="font-bold text-gray-900">順位に含めていないもの：</span>
             工事金額の安さは順位に反映していません。防水工事の金額は面積・下地の状態・足場の要否で変わり、同じ会社でも現場ごとに差が出るためです。金額の決まり方は
             <Link href="/cost/price/" className="text-[#2563EB] font-medium">費用相場のページ</Link>
-            にまとめています。費用重視で並べ替えたものは
+            にまとめています。費用を重視した順位は
             <Link href="/ranking/cheap/" className="text-[#2563EB] font-medium">格安ランキング</Link>
-            を参照してください。
+            をご参照ください。
           </p>
           <p>
             <span className="font-bold text-gray-900">口コミ評価の扱い：</span>
@@ -411,9 +411,9 @@ export default function RankingPage() {
 
       {/* 優良業者の見極め */}
       <section className="mt-12 bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">優良業者を見極める4つのチェックポイント</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-2">優良業者を見極める4つの確認事項</h2>
         <p className="text-sm text-gray-600 leading-relaxed mb-5">
-          「屋上防水工事の優良業者」を探すとき、比較サイトの掲載順だけで決めると判断材料が足りません。実際に見積もりを取ったあと、次の4点を確認すると絞り込みやすくなります。
+          「屋上防水工事の優良業者」を探すとき、比較サイトの掲載順だけでは判断材料が不足します。見積もりを取得した後、次の4点を確認すると候補を絞り込みやすくなります。
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {goodContractorChecks.map((c, i) => (
@@ -426,7 +426,7 @@ export default function RankingPage() {
           ))}
         </div>
         <p className="text-sm text-gray-600 leading-relaxed mt-5">
-          工法ごとの向き不向きは
+          工法ごとの適性は
           <Link href="/method/comparison/" className="text-[#2563EB] font-medium">工法比較のページ</Link>
           で整理しています。見積書の項目の読み方は
           <Link href="/cost/price/" className="text-[#2563EB] font-medium">費用相場のページ</Link>
@@ -443,7 +443,7 @@ export default function RankingPage() {
             className="bg-white rounded-xl border border-gray-200 p-4 hover:border-[#2563EB] transition-colors no-underline"
           >
             <div className="font-bold text-gray-900 text-sm mb-1">費用重視で選ぶ</div>
-            <div className="text-xs text-gray-500 leading-relaxed">掲載価格帯の下限が低い順に並べた格安ランキング</div>
+            <div className="text-xs text-gray-500 leading-relaxed">掲載価格帯の下限が低い順の格安ランキング</div>
           </Link>
           <Link
             href="/method/comparison/"
@@ -497,9 +497,9 @@ export default function RankingPage() {
 
       {/* Bottom CTA */}
       <div className="mt-12 bg-gradient-to-r from-[#2563EB] to-[#1e40af] rounded-2xl p-8 text-white text-center">
-        <h2 className="text-2xl font-bold mb-3">迷ったら複数社の見積もりを比較する</h2>
+        <h2 className="text-2xl font-bold mb-3">複数社の見積もりの比較</h2>
         <p className="text-blue-100 mb-6 text-sm">
-          同じ工事でも見積書の内訳の立て方は業者ごとに異なります。複数社から見積もりを取って項目を見比べるのが、条件に合う業者を見つける近道です。
+          同じ工事でも見積書の内訳の立て方は業者ごとに異なります。複数社から見積もりを取得して項目を比較することが、条件に合う業者を選ぶうえで有効です。
         </p>
         <Link
           href="/ranking/"

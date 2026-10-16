@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     alternates: { canonical: `/company/${slug}/` },
     title: `${company.name}の口コミ・評判・費用【2026年】`,
-    description: `${company.name}の特徴・料金・口コミを徹底解説。${company.tagline}。${company.description.slice(0, 80)}`,
+    description: `${company.name}の特徴・料金・口コミを解説しています。${company.tagline}。${company.description.slice(0, 80)}`,
   };
 }
 
@@ -173,7 +173,7 @@ export default async function CompanyPage({ params }: Props) {
       <div className="bg-gradient-to-r from-[#2563EB] to-[#1e40af] rounded-2xl p-8 text-white text-center">
         <h2 className="text-xl font-bold mb-3">{company.name}で無料見積もりを依頼する</h2>
         <p className="text-blue-100 text-sm mb-6">
-          入力3分・完全無料。{company.tagline}
+          入力は約3分・無料。{company.tagline}
         </p>
         <a
           href={company.officialUrl}

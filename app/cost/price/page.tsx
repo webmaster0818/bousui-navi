@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cost/price/" },
   title: "ベランダ防水工事の費用相場【工法別・面積別】2026年版",
   description:
-    "ベランダ防水工事の費用相場を工法別・面積別に詳しく解説。FRP・ウレタン・シート防水の価格比較から、費用を左右するポイントまで徹底ガイド。",
+    "ベランダ防水工事の費用相場を工法別・面積別に解説しています。FRP・ウレタン・シート防水の価格比較と、費用を左右する要因をまとめています。",
 };
 
 const methodCosts = [
@@ -58,12 +58,12 @@ const extraCosts = [
 ];
 
 const priceFactors = [
-  { factor: "施工面積", impact: "high", description: "面積が大きいほど材料費・人件費が増加。ただし単価は下がる傾向があります。" },
-  { factor: "工法の種類", impact: "high", description: "FRP＞シート＞ウレタンの順でコストがかかる傾向。下地の状態によっても変わります。" },
+  { factor: "施工面積", impact: "high", description: "面積が大きいほど材料費・人件費は増加しますが、単価は下がる傾向があります。" },
+  { factor: "工法の種類", impact: "high", description: "FRP、シート、ウレタンの順に費用が高くなる傾向があります。下地の状態によっても異なります。" },
   { factor: "下地の状態", impact: "medium", description: "既存防水の劣化が激しいと撤去・補修費用が増加します。" },
   { factor: "足場の要否", impact: "high", description: "2階以上のベランダは足場が必要になり5〜15万円の追加費用が発生します。" },
-  { factor: "業者の種類", impact: "medium", description: "直接施工の専門業者は仲介業者より安い場合があります。一括見積もりで比較しましょう。" },
-  { factor: "季節・時期", impact: "low", description: "繁忙期（春・秋）は割高になる傾向。閑散期（冬・梅雨）に依頼すると値引きを引き出しやすいです。" },
+  { factor: "業者の種類", impact: "medium", description: "直接施工の専門業者は仲介業者より安い場合があります。一括見積もりで比較することをおすすめします。" },
+  { factor: "季節・時期", impact: "low", description: "繁忙期（春・秋）は割高になる傾向があります。閑散期（冬・梅雨）に依頼すると、価格交渉に応じてもらいやすくなります。" },
 ];
 
 const faqs = [
@@ -77,15 +77,15 @@ const faqs = [
   },
   {
     q: "FRP・ウレタン・シート防水はどれが安いですか？",
-    a: "㎡単価ではウレタン防水が最も安い傾向です。ただし耐用年数やメンテナンス周期、ベランダの形状・面積によって総額は変わります。小〜中規模のベランダはFRP、大面積や屋上はウレタン・シートが向くことが多いです。",
+    a: "㎡単価ではウレタン防水が最も安い傾向です。ただし耐用年数やメンテナンス周期、ベランダの形状・面積によって総額は変わります。小〜中規模のベランダにはFRP、大面積や屋上にはウレタン・シートが適している場合が多くあります。",
   },
   {
-    q: "防水工事の費用を抑えるにはどうすればいいですか？",
-    a: "まず劣化状態を把握し、3社以上で相見積もりを取ることが基本です。一括見積もりサービスを使うと相場が分かり値引き交渉もしやすくなります。また自治体の助成金・補助金が使える場合があるため、工事前に確認しましょう。",
+    q: "防水工事の費用を抑えるにはどうすればよいですか？",
+    a: "まず劣化状態を把握し、3社以上から相見積もりを取得することが基本です。一括見積もりサービスを利用すると相場を把握でき、価格交渉もしやすくなります。また、自治体の助成金・補助金を利用できる場合があるため、工事前にご確認ください。",
   },
   {
     q: "防水工事の費用はどんな要因で変わりますか？",
-    a: "施工面積、工法の種類、下地の劣化状態、足場の要否、業者の種類（直接施工か仲介か）、依頼する季節などで変わります。特に面積・工法・足場の有無が金額に与える影響が大きいです。",
+    a: "施工面積、工法の種類、下地の劣化状態、足場の要否、業者の種類（直接施工か仲介か）、依頼する季節などで変わります。特に面積・工法・足場の有無が金額に大きく影響します。",
   },
 ];
 
@@ -101,21 +101,21 @@ export default function PricePage() {
 
       <div className="text-center mb-10">
         <div className="inline-flex items-center gap-2 bg-[#EFF6FF] text-[#2563EB] text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-          2026年最新版
+          2026年版
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
           ベランダ防水工事の費用相場
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          工法別・面積別の詳しい費用相場と、費用を左右する6つのポイントを解説します。
+          工法別・面積別の費用相場と、費用を左右する6つの要因を解説しています。
         </p>
       </div>
 
       {/* 即答ブロック（AEO/強調スニペット対応） */}
       <div className="bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-5 md:p-6 mb-10">
-        <p className="text-sm font-bold text-[#2563EB] mb-2">結論：ベランダ防水工事の費用相場</p>
+        <p className="text-sm font-bold text-[#2563EB] mb-2">要点：ベランダ防水工事の費用相場</p>
         <p className="text-gray-800 leading-relaxed text-sm md:text-base">
-          ベランダ防水工事の費用は、一般的な10㎡前後で<strong>約4〜10万円</strong>、20㎡前後で<strong>約6〜16万円</strong>が目安です。工法別の単価はウレタン防水が3,000〜6,500円/㎡、シート防水が3,500〜7,000円/㎡、FRP防水が4,000〜8,000円/㎡。これに加えて2階以上では足場費用（5〜15万円）や下地補修などが状況に応じて発生します。正確な金額は面積・劣化状況・工法で変わるため、3社以上の相見積もりで比較するのが確実です。
+          ベランダ防水工事の費用は、一般的な10㎡前後で<strong>約4〜10万円</strong>、20㎡前後で<strong>約6〜16万円</strong>が目安です。工法別の単価はウレタン防水が3,000〜6,500円/㎡、シート防水が3,500〜7,000円/㎡、FRP防水が4,000〜8,000円/㎡。これに加えて2階以上では足場費用（5〜15万円）や下地補修などが状況に応じて発生します。正確な金額は面積・劣化状況・工法で変わるため、3社以上から相見積もりを取得して比較することをおすすめします。
         </p>
       </div>
 
@@ -156,7 +156,7 @@ export default function PricePage() {
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
         <h2 className="text-xl font-bold text-gray-900 mb-2">追加でかかる費用一覧</h2>
         <p className="text-sm text-gray-600 mb-4">
-          以下の費用は状況によって追加でかかる場合があります。見積もり時に必ず確認しましょう。
+          以下の費用は状況によって追加でかかる場合があります。見積もりの際に必ずご確認ください。
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -182,7 +182,7 @@ export default function PricePage() {
 
       {/* Price Factors */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">費用を左右する6つのポイント</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">費用を左右する6つの要因</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {priceFactors.map((factor, index) => {
             const impactColors = {
@@ -213,22 +213,22 @@ export default function PricePage() {
           <li className="flex gap-3">
             <span className="w-8 h-8 bg-[#2563EB] text-white text-sm font-black rounded-full flex items-center justify-center flex-shrink-0">1</span>
             <div>
-              <div className="font-bold text-gray-900 text-sm mb-1">まず自己診断する</div>
-              <div className="text-sm text-gray-600">当サイトのチェックリストで劣化状態を確認。補修が必要な範囲を把握しておくと見積もり比較がしやすくなります。</div>
+              <div className="font-bold text-gray-900 text-sm mb-1">劣化状態を自己診断する</div>
+              <div className="text-sm text-gray-600">当サイトのチェックリストで劣化状態を確認します。補修が必要な範囲を把握しておくと、見積もりを比較しやすくなります。</div>
             </div>
           </li>
           <li className="flex gap-3">
             <span className="w-8 h-8 bg-[#2563EB] text-white text-sm font-black rounded-full flex items-center justify-center flex-shrink-0">2</span>
             <div>
               <div className="font-bold text-gray-900 text-sm mb-1">3社以上で相見積もりを取る</div>
-              <div className="text-sm text-gray-600">一括見積もりサービスを使えば1回の入力で複数社に見積もり依頼できます。相場がわかり、値引き交渉もしやすくなります。</div>
+              <div className="text-sm text-gray-600">一括見積もりサービスを利用すると、1回の入力で複数社に見積もりを依頼できます。相場を把握でき、価格交渉もしやすくなります。</div>
             </div>
           </li>
           <li className="flex gap-3">
             <span className="w-8 h-8 bg-[#2563EB] text-white text-sm font-black rounded-full flex items-center justify-center flex-shrink-0">3</span>
             <div>
               <div className="font-bold text-gray-900 text-sm mb-1">助成金・補助金を確認する</div>
-              <div className="text-sm text-gray-600">自治体によっては防水工事に使える補助金があります。工事前に必ず確認することで費用を削減できます。</div>
+              <div className="text-sm text-gray-600">自治体によっては防水工事に使える補助金があります。工事前に確認することで、費用を削減できる場合があります。</div>
             </div>
           </li>
         </ol>
@@ -279,22 +279,22 @@ export default function PricePage() {
       {/* Related & CTA */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <Link href="/cost/diy-vs-pro/" className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#2563EB] transition-colors no-underline">
-          <div className="font-bold text-gray-900 text-sm mb-1">DIY vs プロ比較</div>
-          <div className="text-xs text-gray-500">本当に安いのはどっち？</div>
+          <div className="font-bold text-gray-900 text-sm mb-1">DIYと業者依頼の比較</div>
+          <div className="text-xs text-gray-500">費用とリスクの比較</div>
         </Link>
         <Link href="/cost/subsidy/" className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#2563EB] transition-colors no-underline">
           <div className="font-bold text-gray-900 text-sm mb-1">助成金・補助金ガイド</div>
-          <div className="text-xs text-gray-500">使える制度を全て紹介</div>
+          <div className="text-xs text-gray-500">利用できる制度の一覧</div>
         </Link>
         <Link href="/ranking/cheap/" className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#2563EB] transition-colors no-underline">
           <div className="font-bold text-gray-900 text-sm mb-1">安い業者ランキング</div>
-          <div className="text-xs text-gray-500">コスパ重視TOP5</div>
+          <div className="text-xs text-gray-500">費用重視のTOP5</div>
         </Link>
       </div>
 
       <div className="bg-gradient-to-r from-[#2563EB] to-[#1e40af] rounded-2xl p-8 text-white text-center">
-        <h2 className="text-xl font-bold mb-3">無料で費用の見積もりを取る</h2>
-        <p className="text-blue-100 text-sm mb-6">複数社を比較して適正価格を把握しましょう</p>
+        <h2 className="text-xl font-bold mb-3">無料の費用見積もり</h2>
+        <p className="text-blue-100 text-sm mb-6">複数社を比較し、適正価格を把握できます</p>
         <Link
           href="/ranking/"
           className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full transition-colors no-underline"

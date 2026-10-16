@@ -8,7 +8,7 @@ import { getVerifiedRating } from "@/lib/verifiedRating";
 export const metadata: Metadata = {
   title: "ベランダ防水ナビ | ベランダ防水工事の費用・業者比較【2026年版】",
   description:
-    "ベランダ・屋上の防水工事をプロにおまかせ。FRP・ウレタン・シート防水の費用比較、おすすめ業者ランキングTOP10、雨漏り対処法まで徹底解説。無料見積もり受付中。",
+    "ベランダ・屋上の防水工事について、FRP・ウレタン・シート防水の費用比較、おすすめ業者ランキングTOP10、雨漏りの対処法を解説しています。",
   alternates: { canonical: "/" },
 };
 
@@ -23,29 +23,29 @@ const faqs = [
   {
     question: "防水工事は何年おきに必要ですか？",
     answer:
-      "一般的には10〜15年で全面改修、5〜7年でトップコートの塗り替えが推奨されます。ただし、紫外線の強さや歩行頻度によって劣化速度は変わります。色あせや細かいひび割れが見られたら早めに専門家に相談することをお勧めします。",
+      "一般的には10〜15年で全面改修、5〜7年でトップコートの塗り替えが推奨されます。ただし、紫外線の強さや歩行頻度によって劣化速度は変わります。色あせや細かいひび割れが見られた場合は、早めに専門業者へ相談することをおすすめします。",
   },
   {
     question: "FRP防水とウレタン防水はどちらがおすすめですか？",
     answer:
-      "小面積のベランダ（10㎡以下）ならFRP防水が強度・耐久性の面でおすすめです。改修工事や大面積ではウレタン防水がコスパに優れています。現地の状態によって最適な工法が変わるため、複数の専門業者に診断してもらうことをお勧めします。",
+      "小面積のベランダ（10㎡以下）では、強度・耐久性の面からFRP防水が適しています。改修工事や大面積では、ウレタン防水が費用対効果に優れています。現地の状態によって適した工法は異なるため、複数の専門業者に診断を依頼することをおすすめします。",
   },
   {
-    question: "自分でDIY防水工事はできますか？",
+    question: "防水工事をDIYで行うことはできますか？",
     answer:
-      "トップコートの塗り替えであればDIYも選択肢の一つですが、防水層の新設や改修はプロへの依頼を強くお勧めします。施工ミスは雨漏りの原因になり、かえって費用がかさむリスクがあります。まずは無料見積もりで専門家の意見を聞いてみてください。",
+      "トップコートの塗り替えであればDIYも選択肢の一つですが、防水層の新設や改修は専門業者への依頼を強くおすすめします。施工不良は雨漏りの原因となり、かえって費用が増える可能性があります。無料見積もりを利用し、専門業者の意見を確認することをおすすめします。",
   },
   {
-    question: "複数の業者に見積もりを取った方がいいですか？",
+    question: "複数の業者から見積もりを取るべきですか？",
     answer:
-      "はい、最低でも3社以上から見積もりを取ることを強くお勧めします。業者によって費用・工法・保証内容が異なります。当サイトで紹介している無料見積もりサービスを活用すれば、一度の入力で複数社を比較できます。",
+      "はい、3社以上から見積もりを取得することを強くおすすめします。業者によって費用・工法・保証内容が異なります。当サイトで紹介している無料見積もりサービスを利用すると、一度の入力で複数社を比較できます。",
   },
 ];
 
 const checklist = [
   { label: "表面の色あせ・白化が目立つ", severity: "low" },
   { label: "細かいひび割れ（ヘアクラック）がある", severity: "low" },
-  { label: "触ると白い粉がつく（チョーキング）", severity: "medium" },
+  { label: "触ると白い粉が付着する（チョーキング）", severity: "medium" },
   { label: "防水層の膨れ・浮きがある", severity: "high" },
   { label: "防水層が剥がれている箇所がある", severity: "high" },
   { label: "雨の後に水たまりができる", severity: "medium" },
@@ -61,10 +61,10 @@ const severityConfig = {
 };
 
 const costTable = [
-  { method: "FRP防水", area: "〜10㎡", cost: "5〜10万円", life: "10〜15年", best: "小ベランダ" },
-  { method: "FRP防水", area: "10〜20㎡", cost: "8〜16万円", life: "10〜15年", best: "中ベランダ" },
+  { method: "FRP防水", area: "〜10㎡", cost: "5〜10万円", life: "10〜15年", best: "小規模ベランダ" },
+  { method: "FRP防水", area: "10〜20㎡", cost: "8〜16万円", life: "10〜15年", best: "中規模ベランダ" },
   { method: "ウレタン防水", area: "〜20㎡", cost: "6〜13万円", life: "8〜12年", best: "改修工事" },
-  { method: "ウレタン防水", area: "20〜50㎡", cost: "12〜25万円", life: "8〜12年", best: "大ベランダ" },
+  { method: "ウレタン防水", area: "20〜50㎡", cost: "12〜25万円", life: "8〜12年", best: "大規模ベランダ" },
   { method: "シート防水", area: "30㎡〜", cost: "15〜30万円", life: "10〜15年", best: "屋上" },
   { method: "トップコートのみ", area: "〜20㎡", cost: "3〜8万円", life: "3〜5年", best: "延命" },
 ];
@@ -97,13 +97,13 @@ export default function HomePage() {
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 py-16 text-white">
           <div className="inline-flex items-center gap-2 bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full mb-6">
             <span className="w-2 h-2 bg-[#F97316] rounded-full"></span>
-            2026年最新版・10社を徹底比較
+            2026年版・10社を比較
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight drop-shadow-lg">
-            ベランダの防水、<br />プロにおまかせ。
+            ベランダ防水工事の<br />費用と業者を比較
           </h1>
           <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl leading-relaxed drop-shadow">
-            雨漏り・ひび割れ・膨れを解決。FRP・ウレタン・シート防水を比較して、最適な業者に無料で見積もり依頼できます。
+            雨漏り・ひび割れ・膨れの対処法と、FRP・ウレタン・シート防水の費用を比較しています。条件に合う業者に無料で見積もりを依頼できます。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <Link
@@ -145,7 +145,7 @@ export default function HomePage() {
               工法ガイド
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">防水工法から探す</h2>
-            <p className="text-gray-500">あなたのベランダに最適な工法を見つけましょう</p>
+            <p className="text-gray-500">ベランダの条件に適した工法を確認できます</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {methodsData.slice(0, 3).map((method) => (
@@ -168,7 +168,7 @@ export default function HomePage() {
                 <p className="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">{method.description.slice(0, 60)}...</p>
                 <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100">
                   <span>耐用年数：{method.durability}</span>
-                  <span className="text-[#2563EB] font-semibold group-hover:translate-x-0.5 transition-transform">詳しく見る →</span>
+                  <span className="text-[#2563EB] font-semibold group-hover:translate-x-0.5 transition-transform">詳細を見る →</span>
                 </div>
               </Link>
             ))}
@@ -181,7 +181,7 @@ export default function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-[#2563EB] mb-1">3工法を徹底比較</h3>
+              <h3 className="font-bold text-[#2563EB] mb-1">3工法の比較</h3>
               <p className="text-sm text-gray-500">FRP vs ウレタン vs シート</p>
             </Link>
             <Link
@@ -194,13 +194,13 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                 </div>
-                <span className="text-xs font-bold text-[#059669] bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">最安メンテ</span>
+                <span className="text-xs font-bold text-[#059669] bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">低コストの保守</span>
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-2">トップコート塗り替え</h3>
               <p className="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">防水層を長持ちさせる延命メンテナンス</p>
               <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100">
                 <span>1,000〜2,500円/㎡</span>
-                <span className="text-[#059669] font-semibold group-hover:translate-x-0.5 transition-transform">詳しく見る →</span>
+                <span className="text-[#059669] font-semibold group-hover:translate-x-0.5 transition-transform">詳細を見る →</span>
               </div>
             </Link>
           </div>
@@ -215,7 +215,7 @@ export default function HomePage() {
               無料診断
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">ベランダ劣化診断チェックリスト</h2>
-            <p className="text-gray-500">当てはまる症状をチェックして、防水工事の必要性を確認しましょう</p>
+            <p className="text-gray-500">該当する症状を確認し、防水工事の必要性を判断する目安としてご活用ください</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
             {checklist.map((item, index) => {
@@ -234,7 +234,7 @@ export default function HomePage() {
           <div className="bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-7 text-center">
             <p className="text-sm text-gray-700 mb-5 leading-relaxed">
               <strong className="text-[#dc2626]">「危険」「緊急」</strong>が1つでも当てはまる場合は早急な対応が必要です。
-              無料見積もりで専門家に現地診断を依頼しましょう。
+              無料見積もりを利用し、専門業者に現地診断を依頼することをおすすめします。
             </p>
             <Link
               href="/ranking/"
@@ -338,7 +338,7 @@ export default function HomePage() {
               費用相場
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">工法別・面積別 費用早見表</h2>
-            <p className="text-gray-500">2026年最新の費用相場（材工込み）</p>
+            <p className="text-gray-500">2026年時点の費用相場（材料費・施工費込み）</p>
           </div>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
@@ -365,11 +365,11 @@ export default function HomePage() {
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3 text-center">
-            ※費用は目安です。実際の費用は現地の状態・業者によって異なります。複数社への見積もりをお勧めします。
+            ※費用は目安です。実際の費用は現地の状態・業者によって異なります。複数社からの見積もり取得をおすすめします。
           </p>
           <div className="text-center mt-6">
             <Link href="/cost/price/" className="text-[#2563EB] font-bold hover:underline no-underline text-sm">
-              詳しい費用相場を見る →
+              費用相場の詳細を見る →
             </Link>
           </div>
         </div>
@@ -383,7 +383,7 @@ export default function HomePage() {
               よくある質問
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">よくある質問</h2>
-            <p className="text-gray-500">防水工事に関するよくある疑問にお答えします</p>
+            <p className="text-gray-500">防水工事に関するよくある質問をまとめています</p>
           </div>
           <div className="space-y-3">
             {faqs.map((faq, index) => (
@@ -412,7 +412,7 @@ export default function HomePage() {
       {/* CTA */}
       <section className="bg-gradient-to-r from-[#2563EB] to-[#1e40af] py-16 px-4 text-white text-center">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">まずは無料見積もりから始めよう</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">無料見積もりのご案内</h2>
           <p className="text-blue-100 mb-8 text-base leading-relaxed">
             掲載10サービスの運営会社・保証・対応エリアを、公式情報をもとに比較できます。
           </p>
@@ -421,7 +421,7 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-orange-600 text-white font-bold text-lg px-10 py-4 rounded-full transition-colors no-underline shadow-xl"
           >
             <span className="text-sm bg-white text-[#F97316] px-2 py-0.5 rounded font-bold">PR</span>
-            今すぐ無料見積もりを依頼する
+            無料で見積もりを依頼する
           </Link>
           <p className="text-xs text-blue-200 mt-4">しつこい営業なし・個人情報は厳重に管理</p>
         </div>

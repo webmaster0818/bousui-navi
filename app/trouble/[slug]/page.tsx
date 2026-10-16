@@ -167,13 +167,13 @@ export default async function TroublePage({ params }: Props) {
           className="block w-full text-center bg-[#F97316] hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition-colors no-underline text-sm"
         >
           <span className="text-xs bg-white text-[#F97316] px-1.5 py-0.5 rounded font-bold mr-2">PR</span>
-          緊急！今すぐ無料で業者を探す
+          無料で対応可能な業者を探す
         </Link>
       </div>
 
       {/* Other Troubles */}
       <div>
-        <h2 className="text-lg font-bold text-gray-900 mb-4">他のトラブル解決ガイド</h2>
+        <h2 className="text-lg font-bold text-gray-900 mb-4">他のトラブル対処ガイド</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {troublesData.filter((t) => t.slug !== slug).map((t) => (
             <Link

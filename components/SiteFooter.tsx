@@ -19,7 +19,7 @@ export default function SiteFooter() {
               <span className="font-bold text-white text-base">ベランダ防水ナビ</span>
             </div>
             <p className="text-xs text-gray-400 leading-relaxed">
-              ベランダ・屋上の防水工事に関する情報を提供する比較メディアです。工法の選び方から業者選びまでサポートします。
+              ベランダ・屋上の防水工事に関する情報を提供する比較メディアです。工法の選び方から業者の選定までの情報を掲載しています。
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function SiteFooter() {
               <li><Link href="/ranking/" className="hover:text-white transition-colors no-underline">業者ランキング</Link></li>
               <li><Link href="/ranking/cheap/" className="hover:text-white transition-colors no-underline">安い業者ランキング</Link></li>
               <li><Link href="/cost/price/" className="hover:text-white transition-colors no-underline">防水工事の費用相場</Link></li>
-              <li><Link href="/cost/diy-vs-pro/" className="hover:text-white transition-colors no-underline">DIY vs プロ比較</Link></li>
+              <li><Link href="/cost/diy-vs-pro/" className="hover:text-white transition-colors no-underline">DIYと業者依頼の比較</Link></li>
               <li><Link href="/cost/subsidy/" className="hover:text-white transition-colors no-underline">助成金・補助金ガイド</Link></li>
             </ul>
           </div>

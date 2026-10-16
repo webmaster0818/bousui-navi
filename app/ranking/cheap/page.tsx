@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/ranking/cheap/" },
   title: "激安・格安の防水工事業者ランキング【2026年・ベランダ/屋上】",
   description:
-    "防水工事を安く抑えたい人向けのランキング。ベランダ・屋上に対応する業者を、各社が掲載する㎡単価の下限が低い順に並べ、順位の根拠を明示しました。激安・格安をうたう業者に依頼する前に確認したい追加費用の項目もあわせて解説します。",
+    "防水工事の費用を抑えたい方向けのランキングです。ベランダ・屋上に対応する業者を、各社が掲載する㎡単価の下限が低い順に整理し、順位の根拠を明示しています。激安・格安をうたう業者に依頼する前に確認すべき追加費用の項目もあわせて解説します。",
 };
 
 type BasicInfoItem = { label: string; value: string };
@@ -65,12 +65,12 @@ const savingTips = [
   {
     title: "工事の時期をずらせるか相談する",
     description:
-      "防水工事は乾燥時間を確保する必要があるため、天候の影響を受けます。着工時期に幅を持たせられる場合は、日程調整に融通が利くかどうかを見積もり時に相談してみてください。",
+      "防水工事は乾燥時間を確保する必要があるため、天候の影響を受けます。着工時期に幅を持たせられる場合は、日程調整に柔軟に対応できるかを見積もり時にご相談ください。",
   },
   {
     title: "外壁・屋根の工事とまとめて依頼する",
     description:
-      "2階以上のベランダや屋上では足場が必要になります。外壁塗装や屋根の工事を近い時期に予定しているなら、同時に依頼して足場を共用できないか相談すると、足場の費用を二重に払わずに済みます。",
+      "2階以上のベランダや屋上では足場が必要になります。外壁塗装や屋根の工事を近い時期に予定しているなら、同時に依頼して足場を共用できないか相談すると、足場の費用の重複を避けられます。",
   },
   {
     title: "助成金・補助金が使えるか確認する",
@@ -90,16 +90,16 @@ const extraCostItems = [
 
 const cheapFaqs = [
   {
-    q: "このランキングの順位はどうやって決めていますか。",
-    a: "各社が掲載している㎡単価の価格帯のうち、下限が低い順に機械的に並べています。編集部の主観や口コミ評価は順位に反映していません。総合的な比較は総合ランキングを参照してください。",
+    q: "このランキングの順位はどのように決めていますか。",
+    a: "各社が掲載している㎡単価の価格帯のうち、下限が低い順に機械的に順位を付けています。編集部の主観や口コミ評価は順位に反映していません。総合的な比較は総合ランキングをご参照ください。",
   },
   {
     q: "㎡単価が安い会社に頼めば総額も安くなりますか。",
-    a: "必ずしもそうとは限りません。掲載価格帯は工事本体の単価であり、足場・既存防水の撤去・下地補修・ドレン交換などが別途になることがあります。総額で比べるには、同じ条件で複数社から見積もりを取り、内訳を並べて確認してください。",
+    a: "必ずしもそうとは限りません。掲載価格帯は工事本体の単価であり、足場・既存防水の撤去・下地補修・ドレン交換などが別途になることがあります。総額で比べるには、同じ条件で複数社から見積もりを取り、内訳を比較してご確認ください。",
   },
   {
     q: "屋上防水工事で格安業者を探す場合の注意点はありますか。",
-    a: "屋上は面積が広く足場が必要になることが多いため、足場の費用が見積もりに含まれているかを最初に確認してください。また、屋上では防水層の下に湿気が溜まりやすく、下地の状態によっては絶縁（通気緩衝）工法が必要になり、密着工法より単価が上がります。工法の指定ができるかも確認しておくと安心です。",
+    a: "屋上は面積が広く足場が必要になることが多いため、足場の費用が見積もりに含まれているかを最初に確認してください。また、屋上では防水層の下に湿気が溜まりやすく、下地の状態によっては絶縁（通気緩衝）工法が必要になり、密着工法より単価が上がります。工法を指定できるかもあわせて確認することをおすすめします。",
   },
   {
     q: "工法によって費用はどれくらい違いますか。",
@@ -125,7 +125,7 @@ export default function CheapRankingPage() {
           激安・格安の防水工事業者ランキング TOP5【安い順・ベランダ/屋上】
         </h1>
         <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          ベランダ・屋上の防水工事を費用重視で検討している方向けのページです。各社が掲載している㎡単価の下限が低い順に並べ、順位の根拠と、格安業者に依頼する前に確認しておきたい追加費用の項目をまとめました。
+          ベランダ・屋上の防水工事を費用重視で検討している方向けのページです。各社が掲載している㎡単価の下限が低い順に整理し、順位の根拠と、格安業者に依頼する前に確認すべき追加費用の項目をまとめています。
         </p>
       </div>
 
@@ -134,14 +134,14 @@ export default function CheapRankingPage() {
         <h2 className="text-xl font-bold text-gray-900 mb-3">このランキングの順位の根拠</h2>
         <ul className="space-y-3 text-sm text-gray-700 leading-relaxed">
           <li>
-            <span className="font-bold text-gray-900">並べ方：</span>
-            各社ページに掲載している価格帯（㎡単価）の下限が低い順に、機械的に並べています。下限が同じ場合は総合ランキングの順序を維持しています。
+            <span className="font-bold text-gray-900">順位の決め方：</span>
+            各社ページに掲載している価格帯（㎡単価）の下限が低い順に、機械的に順位を付けています。下限が同じ場合は総合ランキングの順序を維持しています。
           </li>
           <li>
             <span className="font-bold text-gray-900">順位に含めていないもの：</span>
             口コミ評価・保証内容・施工実績は順位に反映していません。これらを含めた比較は
             <Link href="/ranking/" className="text-[#2563EB] font-medium">総合ランキング</Link>
-            を参照してください。
+            をご参照ください。
           </li>
           <li>
             <span className="font-bold text-gray-900">価格帯の位置づけ：</span>
@@ -334,7 +334,7 @@ export default function CheapRankingPage() {
       <div className="mb-12">
         <h2 className="text-xl font-bold text-gray-900 mb-2 text-center">防水工事の費用を抑える5つの進め方</h2>
         <p className="text-gray-600 text-center text-sm mb-6">
-          金額そのものを値切るのではなく、比較できる状態を作ることが結果的に費用を抑えることにつながります。
+          金額の値引きを求めるのではなく、見積もりを比較できる状態を整えることが、結果として費用の抑制につながります。
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {savingTips.map((tip, index) => (
@@ -350,7 +350,7 @@ export default function CheapRankingPage() {
 
       {/* FAQ */}
       <section className="mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">費用重視で選ぶときのよくある質問</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">費用を重視して選ぶ際のよくある質問</h2>
         <div className="space-y-3">
           {cheapFaqs.map((faq) => (
             <details key={faq.q} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
@@ -380,7 +380,7 @@ export default function CheapRankingPage() {
           href="/cost/price/"
           className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#2563EB] transition-colors no-underline"
         >
-          <div className="font-bold text-gray-900 text-sm mb-1">費用相場を詳しく見る</div>
+          <div className="font-bold text-gray-900 text-sm mb-1">費用相場の詳細</div>
           <div className="text-xs text-gray-500">工法別・面積別</div>
         </Link>
         <Link
@@ -388,14 +388,14 @@ export default function CheapRankingPage() {
           className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#2563EB] transition-colors no-underline"
         >
           <div className="font-bold text-gray-900 text-sm mb-1">DIYと業者依頼の比較</div>
-          <div className="text-xs text-gray-500">どちらが安いか</div>
+          <div className="text-xs text-gray-500">費用の比較</div>
         </Link>
         <Link
           href="/cost/subsidy/"
           className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#2563EB] transition-colors no-underline"
         >
           <div className="font-bold text-gray-900 text-sm mb-1">助成金・補助金</div>
-          <div className="text-xs text-gray-500">使える制度を確認</div>
+          <div className="text-xs text-gray-500">利用できる制度の確認</div>
         </Link>
       </div>
 
