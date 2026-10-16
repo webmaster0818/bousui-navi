@@ -113,7 +113,7 @@ export default function PricePage() {
 
       {/* 即答ブロック（AEO/強調スニペット対応） */}
       <div className="bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-5 md:p-6 mb-10">
-        <p className="text-sm font-bold text-[#2563EB] mb-2">要点：ベランダ防水工事の費用相場</p>
+        <p className="text-sm font-bold text-[#2563EB] mb-2">ベランダ防水工事の費用相場の目安は、次のとおりです。</p>
         <p className="text-gray-800 leading-relaxed text-sm md:text-base">
           ベランダ防水工事の費用は、一般的な10㎡前後で<strong>約4〜10万円</strong>、20㎡前後で<strong>約6〜16万円</strong>が目安です。工法別の単価はウレタン防水が3,000〜6,500円/㎡、シート防水が3,500〜7,000円/㎡、FRP防水が4,000〜8,000円/㎡。これに加えて2階以上では足場費用（5〜15万円）や下地補修などが状況に応じて発生します。正確な金額は面積・劣化状況・工法で変わるため、3社以上から相見積もりを取得して比較することをおすすめします。
         </p>
