@@ -329,6 +329,7 @@ export default function RankingPage() {
                   >
                     口コミ検証を読む
                   </Link>
+                  {company.officialUrl && (
                   <a
                     href={company.officialUrl}
                     target="_blank"
@@ -338,6 +339,7 @@ export default function RankingPage() {
                     <span className="text-xs bg-white text-[#F97316] px-1 py-0.5 rounded font-bold mr-1">PR</span>
                     見積もり
                   </a>
+                  )}
                 </div>
               </div>
             </div>

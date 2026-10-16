@@ -98,6 +98,7 @@ export default async function CompanyPage({ params }: Props) {
           </div>
         </div>
 
+        {company.officialUrl && (
         <a
           href={company.officialUrl}
           target="_blank"
@@ -107,6 +108,7 @@ export default async function CompanyPage({ params }: Props) {
           <span className="text-xs bg-white text-[#F97316] px-1.5 py-0.5 rounded font-bold mr-2">PR</span>
           {company.name}で無料見積もりを依頼する
         </a>
+        )}
       </div>
 
       {/* Features */}
@@ -166,7 +168,8 @@ export default async function CompanyPage({ params }: Props) {
         </div>
       </div>
 
-      {/* CTA */}
+      {/* CTA（公式URLが確認できている会社のみ） */}
+      {company.officialUrl && (
       <div className="bg-gradient-to-r from-[#2563EB] to-[#1e40af] rounded-2xl p-8 text-white text-center">
         <h2 className="text-xl font-bold mb-3">{company.name}で無料見積もりを依頼する</h2>
         <p className="text-blue-100 text-sm mb-6">
@@ -182,6 +185,7 @@ export default async function CompanyPage({ params }: Props) {
           無料で見積もりを依頼する
         </a>
       </div>
+      )}
 
       {/* Related */}
       <div className="mt-8 text-center">

@@ -238,6 +238,7 @@ export default function CheapRankingPage() {
                   >
                     口コミ検証
                   </Link>
+                  {company.officialUrl && (
                   <a
                     href={company.officialUrl}
                     target="_blank"
@@ -247,6 +248,7 @@ export default function CheapRankingPage() {
                     <span className="text-xs bg-white text-[#F97316] px-1 py-0.5 rounded font-bold mr-1">PR</span>
                     無料見積もり
                   </a>
+                  )}
                 </div>
               </div>
             </div>
