@@ -115,7 +115,7 @@ const rankingFaqs = [
   },
   {
     q: "格安の業者に依頼しても問題ありませんか。",
-    a: "㎡単価が安くても、足場・既存防水の撤去・下地補修が別途になっていると総額は変わります。見積もりの内訳が分かれているか、追加費用の発生条件が明記されているかを確認してください。費用を重視する場合は、価格帯の順に整理した格安ランキングをご参照ください。",
+    a: "㎡単価が安くても、足場・既存防水の撤去・下地補修が別途になっていると総額は変わります。見積もりの内訳が分かれているか、追加費用の発生条件が明記されているかを確認してください。費用を抑えたい場合は、見積もりで確認する項目のページをご参照ください。",
   },
 ];
 
@@ -139,7 +139,7 @@ export default function RankingPage() {
             href="/ranking/cheap/"
             className="text-sm text-[#2563EB] bg-[#EFF6FF] px-4 py-2 rounded-full font-medium hover:bg-blue-100 transition-colors no-underline"
           >
-            格安・費用重視のランキング
+            見積もりで確認する項目
           </Link>
           <Link
             href="/method/comparison/"
@@ -174,9 +174,9 @@ export default function RankingPage() {
             <span className="font-bold text-gray-900">順位に含めていないもの：</span>
             工事金額の安さは順位に反映していません。防水工事の金額は面積・下地の状態・足場の要否で変わり、同じ会社でも現場ごとに差が出るためです。金額の決まり方は
             <Link href="/cost/price/" className="text-[#2563EB] font-medium">費用相場のページ</Link>
-            にまとめています。費用を重視した順位は
-            <Link href="/ranking/cheap/" className="text-[#2563EB] font-medium">格安ランキング</Link>
-            をご参照ください。
+            にまとめています。費用を抑えるために見積書で確認する項目は
+            <Link href="/ranking/cheap/" className="text-[#2563EB] font-medium">見積もりで確認する項目</Link>
+            のページにまとめています。
           </p>
           <p>
             <span className="font-bold text-gray-900">口コミ評価の扱い：</span>
@@ -442,8 +442,8 @@ export default function RankingPage() {
             href="/ranking/cheap/"
             className="bg-white rounded-xl border border-gray-200 p-4 hover:border-[#2563EB] transition-colors no-underline"
           >
-            <div className="font-bold text-gray-900 text-sm mb-1">費用重視で選ぶ</div>
-            <div className="text-xs text-gray-500 leading-relaxed">掲載価格帯の下限が低い順の格安ランキング</div>
+            <div className="font-bold text-gray-900 text-sm mb-1">費用を抑えて依頼する</div>
+            <div className="text-xs text-gray-500 leading-relaxed">費用を抑えるために見積書で確認する項目</div>
           </Link>
           <Link
             href="/method/comparison/"

@@ -287,8 +287,8 @@ export default function PricePage() {
           <div className="text-xs text-gray-500">利用できる制度の一覧</div>
         </Link>
         <Link href="/ranking/cheap/" className="bg-white rounded-xl border border-gray-200 p-4 text-center hover:border-[#2563EB] transition-colors no-underline">
-          <div className="font-bold text-gray-900 text-sm mb-1">安い業者ランキング</div>
-          <div className="text-xs text-gray-500">費用重視のランキング</div>
+          <div className="font-bold text-gray-900 text-sm mb-1">見積もりで確認する項目</div>
+          <div className="text-xs text-gray-500">費用を抑えるための確認項目</div>
         </Link>
       </div>
 

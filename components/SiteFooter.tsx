@@ -51,7 +51,7 @@ export default function SiteFooter() {
             <h3 className="text-white font-bold text-sm mb-4">費用・ランキング</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/ranking/" className="hover:text-white transition-colors no-underline">業者ランキング</Link></li>
-              <li><Link href="/ranking/cheap/" className="hover:text-white transition-colors no-underline">安い業者ランキング</Link></li>
+              <li><Link href="/ranking/cheap/" className="hover:text-white transition-colors no-underline">見積もりで確認する項目</Link></li>
               <li><Link href="/cost/price/" className="hover:text-white transition-colors no-underline">防水工事の費用相場</Link></li>
               <li><Link href="/cost/diy-vs-pro/" className="hover:text-white transition-colors no-underline">DIYと業者依頼の比較</Link></li>
               <li><Link href="/cost/subsidy/" className="hover:text-white transition-colors no-underline">助成金・補助金ガイド</Link></li>
