@@ -23,7 +23,7 @@ const subsidyTypes = [
   {
     name: "長期優良住宅化リフォーム推進事業",
     target: "一般世帯（持ち家）",
-    amount: "最大200万円/戸",
+    amount: "補助率・上限額は公募要領をご確認ください",
     coverage: "耐震・省エネ・劣化対策を含む改修工事",
     requirement: "インスペクション実施、長期優良住宅化",
     where: "国土交通省（登録施工業者経由）",
@@ -31,12 +31,12 @@ const subsidyTypes = [
     icon: "",
   },
   {
-    name: "こどもエコすまい支援事業（後継制度）",
-    target: "子育て世帯・若者夫婦世帯",
-    amount: "最大60万円",
-    coverage: "省エネ改修、外皮工事含む",
-    requirement: "18歳未満の子がいる、または夫婦のいずれかが39歳以下",
-    where: "国土交通省（登録事業者経由）",
+    name: "みらいエコ住宅2026事業（住宅省エネ2026キャンペーン）",
+    target: "すべての世帯（平成28年以前に新築された住宅）",
+    amount: "40万〜100万円/戸",
+    coverage: "断熱改修を含むリフォーム（開口部・躯体の断熱改修、エコ住宅設備の設置など）。防水工事は補助対象工事のメニューに含まれていません",
+    requirement: "外皮に面する開口部を有する居室で、事業が定める組み合わせの断熱改修（要件化工事）を行うこと。補助額は住宅の新築時期と工事内容によって異なります。交付申請の予約は遅くとも2026年11月16日まで、交付申請は遅くとも12月31日まで（予算上限に達した時点で受付終了）",
+    where: "国土交通省（登録された住宅省エネ支援事業者が申請）",
     difficulty: "medium",
     icon: "",
   },
@@ -151,6 +151,15 @@ export default function SubsidyPage() {
             </div>
           );
         })}
+        <p className="text-xs text-gray-500 leading-relaxed">
+          子育てエコホーム支援事業は、2024年12月31日で交付申請（予約を含む）の受付を終了しています。住宅省エネ2026キャンペーンのリフォーム向け事業には、みらいエコ住宅2026事業のほか、窓の断熱改修を対象とする先進的窓リノベ2026事業（環境省）があります。
+          出典（2026年10月17日に公式サイトで確認）：
+          <a href="https://jutaku-shoene2026.mlit.go.jp/about/reform.html" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">住宅省エネ2026キャンペーン「リフォームについて」</a>
+          ／
+          <a href="https://mirai-eco2026.mlit.go.jp/reform/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">みらいエコ住宅2026事業「リフォーム」</a>
+          ／
+          <a href="https://kosodate-ecohome.mlit.go.jp/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">子育てエコホーム支援事業</a>
+        </p>
       </div>
 
       {/* Application Steps */}
