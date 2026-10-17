@@ -130,8 +130,8 @@ export default function HomePage() {
               <div className="text-xs text-blue-200">見積もり費用</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-[#F97316] drop-shadow">10年</div>
-              <div className="text-xs text-blue-200">最長保証</div>
+              <div className="text-2xl font-bold text-[#F97316] drop-shadow">20年</div>
+              <div className="text-xs text-blue-200">最長保証（ガイソー公式）</div>
             </div>
           </div>
         </div>

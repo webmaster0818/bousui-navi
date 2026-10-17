@@ -46,10 +46,13 @@ function lowerBound(priceRange: string): number {
   return first ? parseInt(first[0], 10) : Number.MAX_SAFE_INTEGER;
 }
 
+/** ㎡単価で掲載している会社だけに順位を付ける（総額表記の会社を換算して順位に入れない） */
+const perSqm = (c: { priceRange?: string }) => (c.priceRange || "").includes("/㎡");
 const byLowerBound = [...companiesData].sort(
-  (a, b) => lowerBound(a.priceRange) - lowerBound(b.priceRange)
+  (a, b) =>
+    Number(perSqm(b)) - Number(perSqm(a)) || lowerBound(a.priceRange) - lowerBound(b.priceRange)
 );
-const cheapRanking = byLowerBound.slice(0, 5);
+const cheapRanking = byLowerBound.filter(perSqm).slice(0, 5);
 
 const savingTips = [
   {
@@ -122,7 +125,7 @@ export default function CheapRankingPage() {
           費用重視版
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-          激安・格安の防水工事業者ランキング TOP5【安い順・ベランダ/屋上】
+          激安・格安の防水工事業者ランキング TOP{cheapRanking.length}【安い順・ベランダ/屋上】
         </h1>
         <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
           ベランダ・屋上の防水工事を費用重視で検討している方向けのページです。各社が掲載している㎡単価の下限が低い順に整理し、順位の根拠と、格安業者に依頼する前に確認すべき追加費用の項目をまとめています。
@@ -135,7 +138,7 @@ export default function CheapRankingPage() {
         <ul className="space-y-3 text-sm text-gray-700 leading-relaxed">
           <li>
             <span className="font-bold text-gray-900">順位の決め方：</span>
-            各社ページに掲載している価格帯（㎡単価）の下限が低い順に、機械的に順位を付けています。下限が同じ場合は総合ランキングの順序を維持しています。
+            各社ページに掲載している価格帯（㎡単価）の下限が低い順に、機械的に順位を付けています。下限が同じ場合は総合ランキングの順序を維持しています。料金を㎡単価ではなく総額で掲載している会社（防水工事屋さんPROなど）は、㎡単価に換算すると条件が変わるため、順位の対象に含めていません。
           </li>
           <li>
             <span className="font-bold text-gray-900">順位に含めていないもの：</span>
@@ -159,7 +162,7 @@ export default function CheapRankingPage() {
       </section>
 
       {/* Cheap Ranking */}
-      <h2 className="text-xl font-bold text-gray-900 mb-4">掲載価格帯の下限が低い順 TOP5</h2>
+      <h2 className="text-xl font-bold text-gray-900 mb-4">掲載価格帯の下限が低い順 TOP{cheapRanking.length}</h2>
       <div className="space-y-4 mb-12">
         {cheapRanking.map((company, index) => {
           const operator = pickInfo(company.slug, OPERATOR_LABELS);
@@ -260,7 +263,7 @@ export default function CheapRankingPage() {
       <section className="mb-12">
         <h2 className="text-xl font-bold text-gray-900 mb-2">掲載10社の価格帯一覧（㎡単価の下限が低い順）</h2>
         <p className="text-sm text-gray-600 leading-relaxed mb-4">
-          TOP5に入らなかった会社も含めた一覧です。価格帯は各社が示している目安であり、面積・下地の状態・足場の要否で実際の金額は変わります。
+          TOP{cheapRanking.length}に入らなかった会社も含めた一覧です。価格帯は各社が示している目安であり、面積・下地の状態・足場の要否で実際の金額は変わります。
         </p>
         <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white">
           <table className="w-full text-sm min-w-[680px]">
