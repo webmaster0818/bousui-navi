@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import methodsData from "@/data/methods.json";
 import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
+import { RelatedGuides } from "@/lib/guides";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -277,6 +278,8 @@ export default async function MethodPage({ params }: Props) {
           </Link>
         </div>
       </div>
+
+      <RelatedGuides path={`/method/${slug}/`} />
 
       {/* Other Methods */}
       <div className="mb-8">

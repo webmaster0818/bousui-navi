@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import troublesData from "@/data/troubles.json";
 import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
+import { RelatedGuides } from "@/lib/guides";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -170,6 +171,8 @@ export default async function TroublePage({ params }: Props) {
           無料で対応可能な業者を探す
         </Link>
       </div>
+
+      <RelatedGuides path={`/trouble/${slug}/`} />
 
       {/* Other Troubles */}
       <div>

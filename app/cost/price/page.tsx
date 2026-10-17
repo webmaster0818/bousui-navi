@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/cost/price/" },
@@ -303,6 +304,7 @@ export default function PricePage() {
           無料で見積もりを比較する
         </Link>
       </div>
+      <RelatedGuides path="/cost/price/" />
     </div>
   );
 }

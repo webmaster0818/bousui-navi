@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
+import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/ranking/cheap/" },
@@ -351,6 +352,7 @@ export default function QuoteChecklistPage() {
           業者ランキングに戻る
         </Link>
       </div>
+      <RelatedGuides path="/ranking/cheap/" />
     </div>
   );
 }

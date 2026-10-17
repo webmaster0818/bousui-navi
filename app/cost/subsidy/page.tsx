@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/cost/subsidy/" },
@@ -232,6 +233,7 @@ export default function SubsidyPage() {
           補助金に対応した業者に無料で相談する
         </Link>
       </div>
+      <RelatedGuides path="/cost/subsidy/" />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import companiesData from "@/data/companies.json";
 import reviewsData from "@/data/reviews.json";
 import Breadcrumb from "@/components/Breadcrumb";
+import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/ranking/" },
@@ -509,6 +510,7 @@ export default function RankingPage() {
           無料で一括見積もりを依頼する
         </Link>
       </div>
+      <RelatedGuides path="/ranking/" />
     </div>
   );
 }

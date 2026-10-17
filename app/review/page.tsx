@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import reviewsData from "@/data/reviews.json";
 import Breadcrumb from "@/components/Breadcrumb";
+import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   title: "防水業者の口コミ・評判｜Googleマップの口コミで検証",
@@ -36,6 +37,7 @@ export default function ReviewIndex() {
           </Link>
         ))}
       </div>
+      <RelatedGuides path="/review/" />
     </div>
   );
 }
