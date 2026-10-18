@@ -12,17 +12,17 @@
 
 ## 主要コンテンツ
 
-- トップページ: https://bousui-navi-deploy.pages.dev/
-- プライバシーポリシー: https://bousui-navi-deploy.pages.dev/privacy-policy (または /privacy)
-- 利用規約: https://bousui-navi-deploy.pages.dev/terms (または /terms-of-service)
-- サイトマップ: https://bousui-navi-deploy.pages.dev/sitemap.xml
+- トップページ: https://balcony-bousui-navi.com/
+- プライバシーポリシー: https://balcony-bousui-navi.com/privacy/
+- 利用規約: https://balcony-bousui-navi.com/terms/
+- サイトマップ: https://balcony-bousui-navi.com/sitemap.xml
 
 ## クローラー向けポリシー
 
 - AI クローラー (GPTBot / ClaudeBot / PerplexityBot / Google-Extended 等) のアクセスを許可しています
-- 詳細は https://bousui-navi-deploy.pages.dev/robots.txt を参照してください
+- 詳細は https://balcony-bousui-navi.com/robots.txt を参照してください
 - 引用の際は、本ドメインへのリンクを記載してください
 
 ## 最終更新
 
-2026-05-21
+2026-10-18
