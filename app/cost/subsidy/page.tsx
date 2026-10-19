@@ -5,19 +5,19 @@ import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/cost/subsidy/" },
-  title: "ベランダ防水・修理・リフォームの補助金・助成金【2026年最新】",
+  title: "ベランダ防水工事・修理に使える補助金は？対象の条件と確認先【2026年】",
   description:
-    "ベランダの防水工事・修理・リフォームに使える補助金・助成金制度を解説。住宅改修費助成、長期優良住宅化リフォーム推進事業、自治体独自の住宅改修補助など、対象・金額・申請先・申請方法を一覧で整理しています。",
+    "ベランダの防水工事・修理・リフォームに使える補助金を、国の制度と自治体の制度に分けてご説明します。住宅省エネ2026キャンペーンのみらいエコ住宅2026事業では防水工事は補助対象外です。防水工事を対象に含めるのは主に市区町村の住宅リフォーム補助で、条件の例と確認先を掲載しています。",
 };
 
 const subsidyTypes = [
   {
-    name: "住宅改修費助成制度",
-    target: "高齢者・障害者のいる世帯",
-    amount: "最大20万円",
-    coverage: "バリアフリー改修、防水含む住宅改修",
-    requirement: "65歳以上または障害者手帳所持者",
-    where: "各市区町村の福祉課・介護保険課",
+    name: "介護保険の住宅改修費の支給",
+    target: "要支援・要介護の認定を受けた方",
+    amount: "支給限度基準額 20万円（費用の7〜9割を支給）",
+    coverage: "手すりの取付け、段差の解消、床材の変更、引き戸等への扉の取替え、洋式便器等への取替えと、これらに付帯する工事。防水工事は対象の種類に含まれていません",
+    requirement: "ケアマネジャー等が作成する住宅改修が必要な理由書を添えて、工事の前に市区町村へ申請すること",
+    where: "各市区町村の介護保険担当窓口・担当のケアマネジャー",
     difficulty: "easy",
     icon: "",
   },
@@ -26,7 +26,7 @@ const subsidyTypes = [
     target: "一般世帯（持ち家）",
     amount: "補助率・上限額は公募要領をご確認ください",
     coverage: "耐震・省エネ・劣化対策を含む改修工事",
-    requirement: "インスペクション実施、長期優良住宅化",
+    requirement: "インスペクション実施、長期優良住宅化。2026年度（令和8年度）の募集は、2026年10月19日時点で国土交通省のサイトにて確認できていません",
     where: "国土交通省（登録施工業者経由）",
     difficulty: "hard",
     icon: "",
@@ -42,21 +42,11 @@ const subsidyTypes = [
     icon: "",
   },
   {
-    name: "既存住宅における省エネ改修促進事業",
-    target: "省エネ改修を行う世帯",
-    amount: "最大120万円（国産材使用の場合）",
-    coverage: "断熱工事、外皮改修等",
-    requirement: "指定の省エネ基準を達成する改修",
-    where: "各都道府県（住宅局）",
-    difficulty: "hard",
-    icon: "",
-  },
-  {
-    name: "自治体独自の住宅改修補助",
-    target: "各自治体の住民",
-    amount: "5〜50万円（自治体による）",
-    coverage: "防水工事含む住宅改修（自治体による）",
-    requirement: "居住している住宅、指定業者使用など（自治体による）",
+    name: "市区町村の住宅リフォーム補助",
+    target: "各市区町村の住民（制度により異なります）",
+    amount: "自治体により異なります（例：前橋市は対象工事費の3分の1以内・上限10万円）",
+    coverage: "対象工事は自治体により異なります。前橋市の制度では、ベランダを含む外装部の防水が対象工事に含まれています",
+    requirement: "市内業者の施工、工事費の下限、交付決定前に着工しないことなど（前橋市の例：市内業者・税抜20万円以上・未着工の工事）",
     where: "各市区町村の建設課・住宅課",
     difficulty: "easy",
     icon: "",
@@ -64,11 +54,11 @@ const subsidyTypes = [
 ];
 
 const steps = [
-  { step: "工事前", action: "自治体に申請", detail: "ほとんどの補助金制度では工事前の申請が必要です。工事後に申請しても対象外となります。" },
+  { step: "工事前", action: "申請の時期を確認", detail: "市区町村の制度は、交付決定前に着工した工事を対象外とするものがあります。国のみらいエコ住宅2026事業は、登録事業者が工事の完了・引渡し後に交付申請します。" },
   { step: "事前確認", action: "対象工事か確認", detail: "防水工事が補助対象かどうか、対象工法・業者の条件を確認します。" },
   { step: "業者選定", action: "登録業者を選ぶ", detail: "補助金制度によっては、指定・登録業者による施工のみが対象となる場合があります。" },
   { step: "申請書作成", action: "必要書類を準備", detail: "工事見積書、住宅図面、本人確認書類等が必要になります。" },
-  { step: "交付決定", action: "許可を待つ", detail: "申請後、自治体から交付決定通知が届くまで工事を開始しないことが重要です。" },
+  { step: "交付決定", action: "交付決定を待つ", detail: "市区町村の制度では、交付決定通知を受け取ってから着工します。" },
   { step: "工事実施", action: "補助対象工事を実施", detail: "交付決定後に工事を実施します。工事内容が申請内容と一致していることを確認します。" },
   { step: "実績報告", action: "完工報告書を提出", detail: "工事完了後に実績報告書・写真・領収書等を提出します。" },
   { step: "補助金受領", action: "口座に振込", detail: "審査完了後、指定口座に補助金が振り込まれます。" },
@@ -92,9 +82,59 @@ export default function SubsidyPage() {
           ベランダ防水・修理・リフォームに使える補助金・助成金ガイド
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          補助金・助成金を活用することで、防水工事の費用を削減できる場合があります。制度の種類・条件・申請方法を解説しています。
+          ベランダの防水工事・修理・リフォームに使える補助金・助成金の有無、条件、確認先をご説明します。
         </p>
       </div>
+
+      <section className="bg-white rounded-2xl border-2 border-[#059669]/30 p-6 mb-8">
+        <h2 className="text-xl font-bold text-gray-900 mb-3">ベランダ防水工事に使える補助金の有無</h2>
+        <p className="text-sm text-gray-700 leading-relaxed mb-4">
+          ベランダの防水工事・修理を対象に含める補助金は、主に市区町村の住宅リフォーム補助です。国の住宅省エネ2026キャンペーンや介護保険の住宅改修では、防水工事は補助の対象に含まれていません。以下は2026年10月19日に各公式サイトで確認した内容です。
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-gray-50 text-left">
+                <th className="border border-gray-200 px-3 py-2">制度</th>
+                <th className="border border-gray-200 px-3 py-2">防水工事の扱い</th>
+                <th className="border border-gray-200 px-3 py-2">確認先</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-200 px-3 py-2 font-medium">市区町村の住宅リフォーム補助</td>
+                <td className="border border-gray-200 px-3 py-2">対象に含める自治体があります（例：前橋市はベランダを含む外装部の防水を対象工事としています）。市内業者の施工・工事費の下限・交付決定前に着工しないことなどが条件です</td>
+                <td className="border border-gray-200 px-3 py-2">お住まいの市区町村の住宅担当課、<a href="https://www.j-reform.com/reform-support/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">住宅リフォーム支援制度検索サイト</a></td>
+              </tr>
+              <tr>
+                <td className="border border-gray-200 px-3 py-2 font-medium">みらいエコ住宅2026事業（国土交通省）</td>
+                <td className="border border-gray-200 px-3 py-2">補助対象工事のメニュー（開口部・躯体の断熱改修、エコ住宅設備の設置など）に防水工事は含まれていません。断熱改修と同時に行っても、防水工事の費用は補助額に算入されません</td>
+                <td className="border border-gray-200 px-3 py-2">登録された住宅省エネ支援事業者、<a href="https://mirai-eco2026.mlit.go.jp/reform/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">事業の公式サイト</a></td>
+              </tr>
+              <tr>
+                <td className="border border-gray-200 px-3 py-2 font-medium">介護保険の住宅改修</td>
+                <td className="border border-gray-200 px-3 py-2">対象は手すりの取付け・段差の解消など6種類で、防水工事は含まれていません</td>
+                <td className="border border-gray-200 px-3 py-2">市区町村の介護保険担当窓口、担当のケアマネジャー</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-sm text-gray-700 leading-relaxed mt-4">
+          市区町村の制度は、年度ごとに受付期間と予算が定められています。前橋市の2026年度の制度は、申請書の受付が2026年12月18日まで、補助額は対象工事費（税抜）の3分の1以内・上限10万円です。お住まいの自治体の制度は、見積もりの依頼前に住宅担当課でご確認ください。
+        </p>
+        <p className="text-xs text-gray-500 leading-relaxed mt-3">
+          出典（2026年10月19日確認）：
+          <a href="https://www.city.maebashi.gunma.jp/material/files/group/63/R8tebiki.pdf" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">前橋市「住宅リフォーム補助 申請手引き」（令和8年度）</a>
+          ／
+          <a href="https://mirai-eco2026.mlit.go.jp/reform/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">みらいエコ住宅2026事業「対象要件の詳細【リフォーム】」</a>
+          ／
+          <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000212398.html" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">厚生労働省「福祉用具・住宅改修」</a>
+          ／
+          <a href="https://www.mhlw.go.jp/content/12300000/001016043.pdf" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">厚生労働省「介護保険における住宅改修」</a>
+          ／
+          <a href="https://www.j-reform.com/reform-support/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">住宅リフォーム推進協議会「地方公共団体における住宅リフォーム支援制度検索サイト」</a>
+        </p>
+      </section>
 
       {/* Important Notice */}
       <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-8 flex gap-3">
@@ -102,9 +142,9 @@ export default function SubsidyPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
         <div>
-          <div className="font-bold text-yellow-800 text-sm mb-1">重要：必ず工事前に申請してください</div>
+          <div className="font-bold text-yellow-800 text-sm mb-1">申請の時期は着工前にご確認ください</div>
           <div className="text-sm text-yellow-700">
-            ほとんどの補助金・助成金制度は、<strong>工事前の事前申請が必須</strong>です。工事後に申請しても補助対象外になりますのでご注意ください。また、各制度の内容・金額は毎年変更される場合があります。必ず各窓口で最新情報をご確認ください。
+            市区町村の補助制度は、<strong>交付決定前に着工した工事を対象外</strong>とするものがあります。契約・着工の前に、お住まいの市区町村の窓口で申請の時期をご確認ください。制度の内容・金額は年度ごとに変更されるため、ご利用前に各窓口で最新情報をご確認ください。
           </div>
         </div>
       </div>
@@ -154,7 +194,7 @@ export default function SubsidyPage() {
         })}
         <p className="text-xs text-gray-500 leading-relaxed">
           子育てエコホーム支援事業は、2024年12月31日で交付申請（予約を含む）の受付を終了しています。住宅省エネ2026キャンペーンのリフォーム向け事業には、みらいエコ住宅2026事業のほか、窓の断熱改修を対象とする先進的窓リノベ2026事業（環境省）があります。
-          出典（2026年10月17日に公式サイトで確認）：
+          出典（2026年10月19日に公式サイトで確認）：
           <a href="https://jutaku-shoene2026.mlit.go.jp/about/reform.html" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">住宅省エネ2026キャンペーン「リフォームについて」</a>
           ／
           <a href="https://mirai-eco2026.mlit.go.jp/reform/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">みらいエコ住宅2026事業「リフォーム」</a>
@@ -203,7 +243,7 @@ export default function SubsidyPage() {
             <svg className="w-4 h-4 text-[#2563EB] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>防水工事だけでは補助対象外でも、外壁塗装・断熱改修と組み合わせることで補助対象になる場合があります。</span>
+            <span>国のみらいエコ住宅2026事業では、断熱改修と同時に工事を行う場合でも、防水工事の費用は補助額に算入されません。見積書で補助対象の工事と防水工事を分けて記載してもらうと、自己負担額を確認しやすくなります。</span>
           </li>
           <li className="flex gap-2 text-sm text-gray-700">
             <svg className="w-4 h-4 text-[#2563EB] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -215,7 +255,7 @@ export default function SubsidyPage() {
             <svg className="w-4 h-4 text-[#2563EB] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>複数の補助金制度を組み合わせることも可能な場合があります。専門家（リフォームコーディネーター等）への相談をおすすめします。</span>
+            <span>同じ工事に国と自治体の補助金を重ねて受けられない場合があります（前橋市の制度では、国または市の他の補助金を受けた工事は対象外です）。併用の可否は、申請先の窓口でご確認ください。</span>
           </li>
         </ul>
       </div>
