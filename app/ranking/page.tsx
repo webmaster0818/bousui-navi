@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/ranking/" },
   title: "防水工事の優良業者・会社ランキングTOP10【2026年・ベランダ/屋上】",
   description:
-    "ベランダ・屋上の防水工事に対応する優良業者・会社10社を、対応エリア・取扱い工法・見積もりの取り方・運営形態の4基準で比較したランキングです。依頼先の選び方も解説しています。運営会社や口コミ評価は、当サイトで一次確認した情報のみを掲載しています。",
+    "屋上・ベランダの防水工事を頼める優良業者・会社10社を、対応エリア・工法・見積もりの取り方・運営形態で比較したランキングです。優良業者の見分け方として、建設業許可（防水工事業）の調べ方、保証の書面、見積もりの内訳の確認方法も解説しています。",
 };
 
 type BasicInfoItem = { label: string; value: string };
@@ -135,6 +135,27 @@ export default function RankingPage() {
         <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
           ベランダ・バルコニーと屋上の防水工事を依頼できる業者・会社10社を、対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4基準で比較しています。運営会社と口コミ評価は、当サイトが取得日を記録して一次確認できた情報のみを掲載しています。
         </p>
+        <div className="max-w-3xl mx-auto mt-6 text-left bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-5">
+          <p className="text-sm font-bold text-[#2563EB] mb-2">屋上・ベランダの防水工事で優良業者を見分ける3つの確認</p>
+          <ol className="text-sm text-gray-800 leading-relaxed space-y-2 list-decimal pl-5">
+            <li>
+              <strong>建設業許可（防水工事業）</strong>：工事1件の請負代金が500万円以上（消費税を含む）の防水工事を請け負うには、建設業法第3条にもとづく許可が必要です（国土交通省）。屋上の全面改修など金額が大きい工事では、国土交通省の
+              <a href="https://etsuran2.mlit.go.jp/TAKKEN/" target="_blank" rel="nofollow noopener" className="text-[#2563EB] underline">建設業者・宅建業者等企業情報検索システム</a>
+              で許可の業種を確認できます。500万円未満の工事は許可がなくても請け負えるため、許可の有無だけで良し悪しは判断できません。
+            </li>
+            <li>
+              <strong>保証の書面</strong>：保証の期間と対象となる範囲（防水層・トップコート・雨漏り）が、契約前に書面で示されるかを確認します。
+            </li>
+            <li>
+              <strong>見積もりの内訳</strong>：現地調査で実測した面積、工法と材料、既存防水層の撤去と下地補修の範囲、施工を自社で行うかが記載されているかを確認します。住まいるダイヤル（国土交通大臣指定の住まいの相談窓口）では、契約前のリフォーム見積書を無料で確認するサービスを行っています。
+            </li>
+          </ol>
+          <p className="text-xs text-gray-600 mt-3">
+            詳しくは<Link href="/guide/where-to-ask/" className="text-[#2563EB] underline">ベランダ防水工事はどこに頼む？依頼先の種類と建設業許可の確認方法</Link>で解説しています。出典：
+            <a href="https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000080.html" target="_blank" rel="nofollow noopener" className="underline">国土交通省「建設業の許可とは」</a>・
+            <a href="https://www.chord.or.jp/reform/index.html" target="_blank" rel="nofollow noopener" className="underline">住まいるダイヤル「リフォームの見積書に関する相談」</a>・<a href="https://www.chord.or.jp/" target="_blank" rel="nofollow noopener" className="underline">住まいるダイヤル</a>（2026年10月20日確認）
+          </p>
+        </div>
         <div className="flex justify-center gap-3 mt-4 flex-wrap">
           <Link
             href="/ranking/cheap/"
