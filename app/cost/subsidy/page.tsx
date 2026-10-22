@@ -5,9 +5,9 @@ import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/cost/subsidy/" },
-  title: "ベランダ防水工事・修理に使える補助金は？対象の条件と確認先【2026年】",
+  title: "ベランダ防水工事・修理に補助金は使える？国の制度は対象外、市区町村の補助が中心【2026年】",
   description:
-    "ベランダの防水工事・修理・リフォームに使える補助金を、国の制度と自治体の制度に分けてご説明します。住宅省エネ2026キャンペーンのみらいエコ住宅2026事業では防水工事は補助対象外です。防水工事を対象に含めるのは主に市区町村の住宅リフォーム補助で、条件の例と確認先を掲載しています。",
+    "ベランダの防水工事・修理・リフォームに使える補助金は、主に市区町村の住宅リフォーム補助です。国のみらいエコ住宅2026事業と介護保険の住宅改修では、防水工事は対象外です。ベランダ等の防水を対象工事に挙げる前橋市・我孫子市の例と、申請の時期、マンションの場合の注意点を公式の資料をもとにご説明します。",
 };
 
 const subsidyTypes = [
@@ -26,7 +26,7 @@ const subsidyTypes = [
     target: "一般世帯（持ち家）",
     amount: "補助率・上限額は公募要領をご確認ください",
     coverage: "耐震・省エネ・劣化対策を含む改修工事",
-    requirement: "インスペクション実施、長期優良住宅化。2026年度（令和8年度）の募集は、2026年10月19日時点で国土交通省のサイトにて確認できていません",
+    requirement: "インスペクション実施、長期優良住宅化。2026年度（令和8年度）の募集は、2026年10月22日時点で国土交通省のサイトにて確認できていません",
     where: "国土交通省（登録施工業者経由）",
     difficulty: "hard",
     icon: "",
@@ -44,9 +44,9 @@ const subsidyTypes = [
   {
     name: "市区町村の住宅リフォーム補助",
     target: "各市区町村の住民（制度により異なります）",
-    amount: "自治体により異なります（例：前橋市は対象工事費の3分の1以内・上限10万円）",
-    coverage: "対象工事は自治体により異なります。前橋市の制度では、ベランダを含む外装部の防水が対象工事に含まれています",
-    requirement: "市内業者の施工、工事費の下限、交付決定前に着工しないことなど（前橋市の例：市内業者・税抜20万円以上・未着工の工事）",
+    amount: "自治体により異なります（例：前橋市は対象工事費の3分の1以内・上限10万円、我孫子市は持家のリフォームで対象経費の5％・上限7万円）",
+    coverage: "対象工事は自治体により異なります。前橋市はベランダを含む外装部の防水を、我孫子市はベランダ等の防水を対象工事に挙げています",
+    requirement: "市内業者の施工、工事費の下限、交付決定前に着工しないことなど（前橋市の例：市内業者・税抜20万円以上・未着工の工事。我孫子市の例：市の登録施工事業者・税込20万円以上・交付決定後の着手）",
     where: "各市区町村の建設課・住宅課",
     difficulty: "easy",
     icon: "",
@@ -62,6 +62,21 @@ const steps = [
   { step: "工事実施", action: "補助対象工事を実施", detail: "交付決定後に工事を実施します。工事内容が申請内容と一致していることを確認します。" },
   { step: "実績報告", action: "完工報告書を提出", detail: "工事完了後に実績報告書・写真・領収書等を提出します。" },
   { step: "補助金受領", action: "口座に振込", detail: "審査完了後、指定口座に補助金が振り込まれます。" },
+];
+
+const faqs = [
+  {
+    q: "ベランダの防水工事に国の補助金は使えますか。",
+    a: "2026年10月22日時点で確認した範囲では、国の制度で防水工事を対象とするものはありません。みらいエコ住宅2026事業の補助対象工事（開口部・躯体の断熱改修、エコ住宅設備の設置など）に防水工事は含まれておらず、介護保険の住宅改修も手すりの取付けや段差の解消など6種類に限られています。ベランダの防水工事を対象に含めるのは、主に市区町村の住宅リフォーム補助です。",
+  },
+  {
+    q: "マンションのベランダの防水工事に補助金は使えますか。",
+    a: "制度によっては対象外です。我孫子市の住宅リフォーム補助金は、マンションなど区分所有建物の共用部分の工事を対象外としており、専用部分にあるベランダもこれに含めています。マンションのベランダは管理規約上の扱いも確認が必要なため、お住まいの自治体の住宅担当課と管理組合にご確認ください。",
+  },
+  {
+    q: "補助金はいつ申請すればよいですか。",
+    a: "工事の着工前に申請してください。前橋市は交付決定前に着工した工事を対象外とし、我孫子市も市からの交付決定を受けてから着手する工事を対象としています。いずれも見積書を添えて申請するため、見積もりを取った段階で窓口へ申請し、交付決定の通知を受けてから着工します。",
+  },
 ];
 
 export default function SubsidyPage() {
@@ -89,7 +104,7 @@ export default function SubsidyPage() {
       <section className="bg-white rounded-2xl border-2 border-[#059669]/30 p-6 mb-8">
         <h2 className="text-xl font-bold text-gray-900 mb-3">ベランダ防水工事に使える補助金の有無</h2>
         <p className="text-sm text-gray-700 leading-relaxed mb-4">
-          ベランダの防水工事・修理を対象に含める補助金は、主に市区町村の住宅リフォーム補助です。国の住宅省エネ2026キャンペーンや介護保険の住宅改修では、防水工事は補助の対象に含まれていません。以下は2026年10月19日に各公式サイトで確認した内容です。
+          ベランダの防水工事・修理を対象に含める補助金は、主に市区町村の住宅リフォーム補助です。国の住宅省エネ2026キャンペーン（みらいエコ住宅2026事業）や介護保険の住宅改修では、防水工事は補助の対象に含まれていません。以下は2026年10月22日に各公式サイトで確認した内容です。
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -103,7 +118,7 @@ export default function SubsidyPage() {
             <tbody>
               <tr>
                 <td className="border border-gray-200 px-3 py-2 font-medium">市区町村の住宅リフォーム補助</td>
-                <td className="border border-gray-200 px-3 py-2">対象に含める自治体があります（例：前橋市はベランダを含む外装部の防水を対象工事としています）。市内業者の施工・工事費の下限・交付決定前に着工しないことなどが条件です</td>
+                <td className="border border-gray-200 px-3 py-2">対象に含める自治体があります（例：前橋市はベランダを含む外装部の防水を、我孫子市はベランダ等の防水を対象工事としています）。市内業者の施工・工事費の下限・交付決定前に着工しないことなどが条件です</td>
                 <td className="border border-gray-200 px-3 py-2">お住まいの市区町村の住宅担当課、<a href="https://www.j-reform.com/reform-support/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">住宅リフォーム支援制度検索サイト</a></td>
               </tr>
               <tr>
@@ -120,11 +135,15 @@ export default function SubsidyPage() {
           </table>
         </div>
         <p className="text-sm text-gray-700 leading-relaxed mt-4">
-          市区町村の制度は、年度ごとに受付期間と予算が定められています。前橋市の2026年度の制度は、申請書の受付が2026年12月18日まで、補助額は対象工事費（税抜）の3分の1以内・上限10万円です。お住まいの自治体の制度は、見積もりの依頼前に住宅担当課でご確認ください。
+          市区町村の制度は、年度ごとに受付期間と予算が定められています。前橋市の2026年度の制度は、申請書の受付が2026年12月18日まで、補助額は対象工事費（税抜）の3分の1以内・上限10万円です。我孫子市の2026年度の制度は、受付が2027年2月10日まで（予算に達した場合は終了）、補助額は持家のリフォームで対象経費の5％・上限7万円です。なお、我孫子市の制度では、マンションなど区分所有建物の共用部分の工事（専用部分にあるベランダを含む）は対象外です。お住まいの自治体の制度は、見積もりの依頼前に住宅担当課でご確認ください。
         </p>
         <p className="text-xs text-gray-500 leading-relaxed mt-3">
-          出典（2026年10月19日確認）：
+          出典（2026年10月22日確認）：
           <a href="https://www.city.maebashi.gunma.jp/material/files/group/63/R8tebiki.pdf" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">前橋市「住宅リフォーム補助 申請手引き」（令和8年度）</a>
+          ／
+          <a href="https://www.city.abiko.chiba.jp/kurashi/sumai/josei/reform/index.html" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">我孫子市「我孫子市住宅リフォーム補助金制度」</a>
+          ／
+          <a href="https://www.city.abiko.chiba.jp/kurashi/sumai/josei/reform/index.files/080327_R8_tebiki.pdf" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">我孫子市「住宅リフォーム補助金 申請の手引き」（令和8年度）</a>
           ／
           <a href="https://mirai-eco2026.mlit.go.jp/reform/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">みらいエコ住宅2026事業「対象要件の詳細【リフォーム】」</a>
           ／
@@ -194,7 +213,7 @@ export default function SubsidyPage() {
         })}
         <p className="text-xs text-gray-500 leading-relaxed">
           子育てエコホーム支援事業は、2024年12月31日で交付申請（予約を含む）の受付を終了しています。住宅省エネ2026キャンペーンのリフォーム向け事業には、みらいエコ住宅2026事業のほか、窓の断熱改修を対象とする先進的窓リノベ2026事業（環境省）があります。
-          出典（2026年10月19日に公式サイトで確認）：
+          出典（2026年10月22日に公式サイトで確認）：
           <a href="https://jutaku-shoene2026.mlit.go.jp/about/reform.html" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">住宅省エネ2026キャンペーン「リフォームについて」</a>
           ／
           <a href="https://mirai-eco2026.mlit.go.jp/reform/" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">みらいエコ住宅2026事業「リフォーム」</a>
@@ -259,6 +278,33 @@ export default function SubsidyPage() {
           </li>
         </ul>
       </div>
+
+      <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
+        <h2 className="text-xl font-bold text-gray-900 mb-4">ベランダ防水工事の補助金に関するよくある質問</h2>
+        <div className="space-y-4">
+          {faqs.map((f, i) => (
+            <div key={i} className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+              <p className="font-bold text-gray-900 text-sm mb-1">Q. {f.q}</p>
+              <p className="text-sm text-gray-600 leading-relaxed">A. {f.a}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-gray-500 leading-relaxed mt-4">出典は本ページ上部の各表の下に記載しています（2026年10月22日確認）。</p>
+      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
 
       <div className="bg-gradient-to-r from-[#2563EB] to-[#1e40af] rounded-2xl p-8 text-white text-center">
         <h2 className="text-xl font-bold mb-3">補助金を含めた費用の確認</h2>
