@@ -98,7 +98,7 @@ export default function ContentPolicyPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3 pb-2 border-b border-blue-100">お問い合わせ・誤情報の報告</h2>
           <p>
             記事内容に誤りや古い情報を発見された場合、または情報の訂正・削除のご要望がある場合は、
-            お問い合わせフォームよりご連絡ください。いただいたご意見は編集部で確認のうえ、
+            メール（<a href="mailto:webmaster@mediax.biz" className="text-[#2563EB] hover:underline">webmaster@mediax.biz</a>）でご連絡ください。いただいたご意見は編集部で確認のうえ、
             必要に応じて速やかに対応いたします。
           </p>
         </section>
@@ -106,7 +106,7 @@ export default function ContentPolicyPage() {
         <div className="text-sm text-gray-500 pt-4 border-t border-gray-100">
           <p>運営者: 株式会社MediaX</p>
           <p>制定日: 2025年1月1日</p>
-          <p>最終改訂: 2026年4月27日</p>
+          <p>最終改訂: 2026年10月23日</p>
         </div>
       </div>
     </div>
