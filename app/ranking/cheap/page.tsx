@@ -6,9 +6,9 @@ import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/ranking/cheap/" },
-  title: "ベランダ防水の費用を安く抑えるために見積もりで確認する項目",
+  title: "格安・激安の防水工事を選ぶ前に｜費用を安く抑える見積もりの確認項目",
   description:
-    "ベランダ・屋上の防水工事の費用を安く抑えるために、見積書で確認する項目を解説します。工法・施工面積・既存防水層の撤去・下地補修・トップコート・足場と養生・諸経費・保証・工期・追加費用の条件について、確認する内容と業者への質問例をまとめています。",
+    "格安・激安をうたう防水工事でも、足場や下地補修が別途なら総額は高くなります。ベランダ・屋上の防水工事を安く抑えるために見積書で確認する11項目、契約前の見積書を無料で確認してもらえる住まいるダイヤル、訪問販売のクーリング・オフ（8日以内）をまとめました。",
 };
 
 type CheckItem = {
@@ -146,7 +146,31 @@ const compareSteps = [
   },
 ];
 
+/** 冒頭の即答。公的機関の公表内容のみを記載し、金額の目安は記載しない。 */
+const quickAnswers = [
+  {
+    title: "安さは総額と内訳で比べる",
+    body: "㎡単価や工事本体の金額が安くても、足場・既存防水層の撤去・下地補修・排水口（ドレン）の交換が別途になっていると、総額は高くなります。同じ条件で複数社から見積もりを取り、下の11項目が記載されているかを比べてください。",
+  },
+  {
+    title: "見積書が妥当か分からないときは、契約前に無料で確認してもらう",
+    body: "国土交通大臣の指定を受けた相談窓口「住まいるダイヤル」（公益財団法人住宅リフォーム・紛争処理支援センター）は、契約前のリフォーム工事の見積書を送ると、相談員が電話で内容を確認する「リフォーム見積チェックサービス」を無料で行っています。ウェブ申込みの場合、予約できる日時は登録から最短で14日後以降です。",
+  },
+  {
+    title: "訪問して契約を急がせる業者とは、その場で契約しない",
+    body: "国民生活センターには、点検に来たと言って訪問し「工事をしないと危険」などと言って契約させる点検商法の相談が2025年度に19,696件寄せられています（PIO-NET、2026年5月31日現在）。訪問販売で契約した場合は、法律で決められた書面を受け取った日から数えて8日以内であれば、書面または電磁的記録でクーリング・オフができます。",
+  },
+];
+
 const faqs = [
+  {
+    q: "格安・激安をうたう防水工事は避けたほうがよいですか。",
+    a: "金額だけで判断せず、見積書の内訳で判断してください。足場・既存防水層の撤去・下地補修・トップコート・保証が含まれていれば、金額が低くても適正な見積もりである場合があります。反対に、これらが別途や「一式」になっている場合は、契約後に追加費用が発生することがあります。",
+  },
+  {
+    q: "見積書が適正かどうかを第三者に確認してもらうことはできますか。",
+    a: "住まいるダイヤル（公益財団法人住宅リフォーム・紛争処理支援センター）の「リフォーム見積チェックサービス」を無料で利用できます。対象は着工前・契約前の見積書（契約書は不可）で、相談員から電話でアドバイスを受けられます。事業者との交渉に使うことは目的としていないとされています。",
+  },
   {
     q: "見積もりの金額が安い業者に依頼すれば、総額も安くなりますか。",
     a: "必ずしもそうとは限りません。見積もりの金額は工事本体のみの場合があり、足場・既存防水層の撤去・下地補修・排水口（ドレン）の交換などが別途になることがあります。総額で比べるには、同じ条件で複数社から見積もりを取り、内訳を比較してご確認ください。",
@@ -180,12 +204,39 @@ export default function QuoteChecklistPage() {
           費用を抑えるための確認項目
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-          ベランダ防水の費用を安く抑えるために見積もりで確認する項目
+          格安・激安の防水工事を選ぶ前に見積もりで確認する項目
         </h1>
         <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
           ベランダ・屋上の防水工事の費用は、施工面積・工法・既存の防水層や下地の状態・足場の要否によって変わります。本ページでは、費用を抑えながら適正な工事を依頼するために、見積書で確認する項目と業者への質問例をご説明します。
         </p>
       </div>
+
+      {/* 即答 */}
+      <section className="bg-[#EFF6FF] rounded-2xl border border-blue-100 p-6 md:p-8 mb-10">
+        <h2 className="text-xl font-bold text-gray-900 mb-4">格安の防水工事を選ぶときに確認する3点</h2>
+        <ol className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          {quickAnswers.map((a, i) => (
+            <li key={a.title} className="flex gap-3">
+              <span className="w-7 h-7 bg-white text-[#2563EB] text-sm font-bold rounded-md flex items-center justify-center flex-shrink-0">
+                {i + 1}
+              </span>
+              <div>
+                <p className="font-bold text-gray-900 mb-1">{a.title}</p>
+                <p>{a.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p className="text-xs text-gray-500 leading-relaxed mt-5">
+          出典：
+          <a href="https://www.chord.or.jp/reform/index.html" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">住まいるダイヤル「リフォームの見積書に関する相談」</a>
+          、
+          <a href="https://www.kokusen.go.jp/soudan_topics/data/reformtenken.html" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">国民生活センター「訪問販売によるリフォーム工事・点検商法」</a>
+          、
+          <a href="https://www.no-trouble.caa.go.jp/what/doortodoorsales/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">消費者庁 特定商取引法ガイド「訪問販売」</a>
+          （2026年10月23日確認）
+        </p>
+      </section>
 
       {/* 本ページの位置づけ */}
       <section className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 mb-10">
@@ -321,6 +372,21 @@ export default function QuoteChecklistPage() {
           ))}
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
 
       {/* Related Links */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
