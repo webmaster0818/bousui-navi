@@ -4,7 +4,10 @@ import { notFound } from "next/navigation";
 import troublesData from "@/data/troubles.json";
 import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
-import { RelatedGuides } from "@/lib/guides";
+import { RelatedGuides, RichText } from "@/lib/guides";
+
+type TroubleAnswer = { heading: string; rows: string[][]; paragraphs: string[] };
+type TroubleSource = { label: string; url: string };
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -18,6 +21,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const trouble = troublesData.find((t) => t.slug === slug);
   if (!trouble) return {};
+  if ("seoTitle" in trouble && "seoDescription" in trouble) {
+    return {
+      alternates: { canonical: `/trouble/${slug}/` },
+      title: trouble.seoTitle as string,
+      description: trouble.seoDescription as string,
+    };
+  }
   return {
     alternates: { canonical: `/trouble/${slug}/` },
     title: `${trouble.title}【2026年最新】`,
@@ -37,6 +47,21 @@ export default async function TroublePage({ params }: Props) {
     "中（放置すると防水層劣化が加速）": "bg-yellow-100 text-yellow-800 border-yellow-200",
   };
   const urgencyColor = urgencyColors[trouble.urgency as keyof typeof urgencyColors] || "bg-orange-100 text-orange-800 border-orange-200";
+
+  const answer = "answer" in trouble ? (trouble.answer as TroubleAnswer) : null;
+  const sources = "sources" in trouble ? (trouble.sources as TroubleSource[]) : [];
+  const checked = "checked" in trouble ? (trouble.checked as string) : "";
+  const faqJsonLd = answer
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: trouble.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      }
+    : null;
 
   const recommendedCompanies = trouble.recommendedCompanies
     .map((slug) => companiesData.find((c) => c.slug === slug))
@@ -62,7 +87,53 @@ export default async function TroublePage({ params }: Props) {
       <div className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{trouble.title}</h1>
         <p className="text-gray-700 leading-relaxed">{trouble.description}</p>
+        {checked && <p className="mt-2 text-xs text-gray-500">出典の確認日：{checked}</p>}
       </div>
+
+      {answer && (
+        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{answer.heading}</h2>
+          <div className="overflow-x-auto mb-4">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-[#EFF6FF]">
+                  <th className="border border-gray-200 px-3 py-2 text-left">ひび割れの状態</th>
+                  <th className="border border-gray-200 px-3 py-2 text-left">対応</th>
+                  <th className="border border-gray-200 px-3 py-2 text-left">根拠</th>
+                </tr>
+              </thead>
+              <tbody>
+                {answer.rows.map((row, i) => (
+                  <tr key={i}>
+                    {row.map((cell, j) => (
+                      <td key={j} className="border border-gray-200 px-3 py-2 align-top text-gray-700">
+                        <RichText text={cell} />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {answer.paragraphs.map((t, i) => (
+            <p key={i} className="text-sm text-gray-700 leading-relaxed mb-3">
+              <RichText text={t} />
+            </p>
+          ))}
+          {sources.length > 0 && (
+            <div className="mt-4 text-xs text-gray-500">
+              <p>出典（{checked}確認）：</p>
+              <ul className="mt-1 space-y-1">
+                {sources.map((src, i) => (
+                  <li key={i}>
+                    <a href={src.url} target="_blank" rel="noopener noreferrer" className="underline">{src.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Causes */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
@@ -173,6 +244,9 @@ export default async function TroublePage({ params }: Props) {
       </div>
 
       <RelatedGuides path={`/trouble/${slug}/`} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
 
       {/* Other Troubles */}
       <div>
