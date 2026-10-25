@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     alternates: { canonical: `/method/${slug}/` },
     title,
-    description: `${method.description.slice(0, 120)}。費用相場：${method.costPerSqm}。耐用年数：${method.durability}。`,
+    description: `${method.description.slice(0, 120).replace(/。$/, "")}。${method.costPerSqm ? `費用相場：${method.costPerSqm}。` : ""}耐用年数：${method.durability}。`,
   };
 }
 
@@ -34,7 +34,7 @@ const comparisonRows = [
   {
     name: "FRP防水",
     href: "/method/frp/",
-    unit: "4,000〜8,000円/㎡",
+    unit: "10㎡で40,000〜97,000円程度",
     life: "10〜15年",
     days: "2〜3日",
     place: "ベランダ・小面積",
@@ -44,7 +44,7 @@ const comparisonRows = [
   {
     name: "ウレタン防水（密着工法）",
     href: "/method/urethane/",
-    unit: "3,000〜6,500円/㎡（レンジの下限側）",
+    unit: "10㎡で45,000〜88,000円程度（工法の別なし）",
     life: "8〜12年",
     days: "3〜5日",
     place: "新築・下地の状態が良い場所",
@@ -54,7 +54,7 @@ const comparisonRows = [
   {
     name: "ウレタン防水（絶縁・通気緩衝工法）",
     href: "/method/urethane/",
-    unit: "3,000〜6,500円/㎡（レンジの上限側）",
+    unit: "10㎡で45,000〜88,000円程度（工法の別なし）",
     life: "8〜12年",
     days: "3〜5日",
     place: "改修工事・湿気の多い場所・屋上",
@@ -64,7 +64,7 @@ const comparisonRows = [
   {
     name: "シート防水（塩ビ・ゴム）",
     href: "/method/sheet/",
-    unit: "3,500〜7,000円/㎡",
+    unit: "10㎡で35,000〜93,000円程度",
     life: "10〜15年",
     days: "1〜2日",
     place: "屋上・大面積",
@@ -100,7 +100,7 @@ export default async function MethodPage({ params }: Props) {
       <div className="mb-8">
         <div className="flex flex-wrap gap-2 mb-4">
           <span className="text-xs bg-[#EFF6FF] text-[#2563EB] font-bold px-3 py-1 rounded-full">工法ガイド</span>
-          <span className="text-xs bg-green-50 text-[#059669] font-bold px-3 py-1 rounded-full">費用：{method.costPerSqm}</span>
+          {method.costPerSqm && <span className="text-xs bg-green-50 text-[#059669] font-bold px-3 py-1 rounded-full">費用：{method.costPerSqm}</span>}
           <span className="text-xs bg-gray-100 text-gray-600 font-bold px-3 py-1 rounded-full">耐久：{method.durability}</span>
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{displayTitle}</h1>
@@ -112,8 +112,8 @@ export default async function MethodPage({ params }: Props) {
         <h2 className="font-bold text-gray-900 text-lg mb-4">この工法の基本情報</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
           <div className="text-center p-4 bg-[#EFF6FF] rounded-xl">
-            <div className="text-xs text-gray-500 mb-1">費用（㎡あたり）</div>
-            <div className="text-base font-bold text-[#2563EB]">{method.costPerSqm}</div>
+            <div className="text-xs text-gray-500 mb-1">費用の目安</div>
+            <div className="text-base font-bold text-[#2563EB]">{method.costPerSqm || "見積もりで確認"}</div>
           </div>
           <div className="text-center p-4 bg-green-50 rounded-xl">
             <div className="text-xs text-gray-500 mb-1">耐用年数</div>
@@ -124,6 +124,13 @@ export default async function MethodPage({ params }: Props) {
             <div className="text-base font-bold text-gray-900">{method.bestFor}</div>
           </div>
         </div>
+        {method.costPerSqm && (
+          <p className="-mt-3 mb-6 text-xs text-gray-500 leading-relaxed">
+            出典：費用の目安は、くらしのマーケット「
+            <a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">ベランダ防水工事の費用相場</a>
+            」の10平米あたりの費用相場によります（税込・税別の記載なし。2026年10月25日確認）。金額は業者の見積もりで確認してください。
+          </p>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -169,7 +176,7 @@ export default async function MethodPage({ params }: Props) {
               <thead>
                 <tr className="bg-gray-50 text-left text-gray-600">
                   <th className="px-4 py-3 font-bold">工法</th>
-                  <th className="px-4 py-3 font-bold">㎡単価の目安</th>
+                  <th className="px-4 py-3 font-bold">費用の目安</th>
                   <th className="px-4 py-3 font-bold">耐用年数</th>
                   <th className="px-4 py-3 font-bold">施工日数</th>
                   <th className="px-4 py-3 font-bold">向いている場所</th>
@@ -196,9 +203,9 @@ export default async function MethodPage({ params }: Props) {
             </table>
           </div>
           <p className="text-sm text-gray-600 leading-relaxed mt-4">
-            面積別の費用や、足場・下地補修などの追加費用の目安は
-            <Link href="/cost/price/" className="text-[#2563EB] font-medium">費用相場のページ</Link>
-            に掲載しています。工法を指定して見積もりを取りたい場合は
+            費用の目安は、くらしのマーケット「
+            <a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] font-medium">ベランダ防水工事の費用相場</a>
+            」の10平米あたりの費用相場によります（密着工法・絶縁工法の別、税込・税別の記載なし。2026年10月25日確認）。足場・下地補修などを含めた金額は業者の見積もりで確認してください。工法を指定して見積もりを取りたい場合は
             <Link href="/ranking/" className="text-[#2563EB] font-medium">業者・会社ランキング</Link>
             から、防水工事の取扱い範囲を確認して依頼先を選んでください。
           </p>
@@ -294,7 +301,7 @@ export default async function MethodPage({ params }: Props) {
               <div className="font-bold text-gray-900 text-sm mb-1">
                 {slug === "comparison" ? m.title.replace(/【[^】]*】/g, "") : m.title}
               </div>
-              <div className="text-xs text-gray-500">{m.costPerSqm} / 耐久：{m.durability}</div>
+              <div className="text-xs text-gray-500">{m.costPerSqm ? `${m.costPerSqm} / ` : ""}耐久：{m.durability}</div>
             </Link>
           ))}
         </div>

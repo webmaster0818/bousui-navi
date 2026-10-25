@@ -32,7 +32,7 @@
       }
     ],
     "urgency": "高（早急に対応が必要）",
-    "estimatedCost": "部分補修：2〜8万円 / 全面改修：10〜20万円",
+    "estimatedCost": "",
     "recommendedCompanies": ["bousui-pro", "nurikae", "bousui-mitsumori"],
     "faqs": [
       {
@@ -41,7 +41,7 @@
       },
       {
         "question": "ベランダの雨漏り修理費用の相場はいくらですか？",
-        "answer": "雨漏りの原因・範囲・工法によって大きく異なります。シーリングの打ち直しなど軽微な補修は2〜5万円、防水層の部分補修は3〜8万円、全面改修は10〜20万円程度が目安です。複数社から見積もりを取得することをおすすめします。"
+        "answer": "雨漏りの原因・範囲・工法によって大きく異なります。金額は業者の見積もりで確認してください。複数社から見積もりを取得することをおすすめします。"
       },
       {
         "question": "雨漏りを放置するとどうなりますか？",
@@ -88,7 +88,7 @@
       }
     ],
     "urgency": "中〜高（ひび割れの大きさ・深さによる）",
-    "estimatedCost": "部分補修：3〜8万円 / 全面改修：8〜18万円",
+    "estimatedCost": "",
     "recommendedCompanies": [
       "bousui-pro",
       "nurikae",
@@ -195,7 +195,7 @@
       }
     ],
     "urgency": "高（早急な対応が必要）",
-    "estimatedCost": "部分補修：4〜10万円 / 全面改修：10〜20万円",
+    "estimatedCost": "",
     "recommendedCompanies": ["bousui-pro", "nurikae", "gaiso"],
     "faqs": [
       {
@@ -244,7 +244,7 @@
       }
     ],
     "urgency": "中（放置すると防水層劣化が加速）",
-    "estimatedCost": "排水口清掃：無料〜2万円 / 勾配改修＋防水：15〜30万円",
+    "estimatedCost": "",
     "recommendedCompanies": ["bousui-pro", "kurashi-market", "bousui-mitsumori"],
     "faqs": [
       {

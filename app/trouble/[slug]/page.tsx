@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     alternates: { canonical: `/trouble/${slug}/` },
     title: `${trouble.title}【2026年最新】`,
-    description: `${trouble.description.slice(0, 120)}。緊急度：${trouble.urgency}。費用目安：${trouble.estimatedCost}。`,
+    description: `${trouble.description.slice(0, 120)}。緊急度：${trouble.urgency}。${trouble.estimatedCost ? `費用目安：${trouble.estimatedCost}。` : ""}`,
   };
 }
 
@@ -79,7 +79,7 @@ export default async function TroublePage({ params }: Props) {
         <div>
           <span className="font-bold text-sm">緊急度：{trouble.urgency}</span>
           <span className="mx-3 text-gray-400">|</span>
-          <span className="text-sm">費用目安：<strong>{trouble.estimatedCost}</strong></span>
+          <span className="text-sm">費用：<strong>{trouble.estimatedCost || "業者の見積もりで確認"}</strong></span>
         </div>
       </div>
 

@@ -5,18 +5,15 @@ import { RelatedGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/cost/price/" },
-  title: "ベランダ防水工事の費用相場【工法別・面積別】2026年版",
+  title: "ベランダ防水工事の費用相場【工法別】2026年版",
   description:
-    "ベランダ防水工事の費用相場を工法別・面積別に解説しています。FRP・ウレタン・シート防水の価格比較と、費用を左右する要因をまとめています。",
+    "ベランダ防水工事の費用相場を工法別に解説しています。FRP・ウレタン・シート防水の10㎡あたりの費用相場を出典つきで示し、費用を左右する要因をまとめています。",
 };
 
 const methodCosts = [
   {
     method: "FRP防水",
-    perSqm: "4,000〜8,000円",
-    small: "5〜10万円（10㎡以下）",
-    medium: "8〜16万円（10〜20㎡）",
-    large: "16〜32万円（20〜40㎡）",
+    tenSqm: "40,000〜97,000円程度",
     life: "10〜15年",
     topcoat: "3〜5年ごと",
     best: "小〜中ベランダ、新築・リフォーム",
@@ -25,10 +22,7 @@ const methodCosts = [
   },
   {
     method: "ウレタン防水",
-    perSqm: "3,000〜6,500円",
-    small: "4〜8万円（10㎡以下）",
-    medium: "6〜13万円（10〜20㎡）",
-    large: "12〜26万円（20〜40㎡）",
+    tenSqm: "45,000〜88,000円程度",
     life: "8〜12年",
     topcoat: "5〜7年ごと",
     best: "大ベランダ・屋上・改修工事",
@@ -37,10 +31,7 @@ const methodCosts = [
   },
   {
     method: "シート防水",
-    perSqm: "3,500〜7,000円",
-    small: "4〜8万円（10㎡以下）",
-    medium: "7〜14万円（10〜20㎡）",
-    large: "15〜30万円（20〜40㎡）",
+    tenSqm: "35,000〜93,000円程度",
     life: "10〜15年",
     topcoat: "メンテナンス不要（定期点検は必要）",
     best: "屋上・大面積・商業施設",
@@ -49,36 +40,35 @@ const methodCosts = [
   },
 ];
 
-const extraCosts = [
-  { item: "足場費用", cost: "5〜15万円", note: "2階以上のベランダ・屋上工事に必要" },
-  { item: "既存防水の撤去", cost: "1〜5万円", note: "既存防水の状態が悪い場合" },
-  { item: "下地補修（ひび割れ等）", cost: "1〜3万円", note: "既存のひび割れや欠損の補修" },
-  { item: "排水口（ドレン）交換", cost: "1〜3万円/箇所", note: "経年劣化したドレンの交換" },
-  { item: "立ち上がり部の増打ち", cost: "0.5〜2万円", note: "防水層の立ち上がり部分の補修" },
-  { item: "シーリング打ち替え", cost: "2〜8万円", note: "外壁との取り合い部分のシーリング" },
+const extraItems = [
+  "足場（2階以上のベランダ・屋上の工事）",
+  "既存防水の撤去（既存防水の状態が悪い場合）",
+  "下地補修（ひび割れや欠損の補修）",
+  "排水口（ドレン）の交換",
+  "立ち上がり部分の補修",
+  "外壁との取り合い部分のシーリング打ち替え",
 ];
 
 const priceFactors = [
   { factor: "施工面積", impact: "high", description: "面積が大きいほど材料費・人件費は増加しますが、単価は下がる傾向があります。" },
-  { factor: "工法の種類", impact: "high", description: "FRP、シート、ウレタンの順に費用が高くなる傾向があります。下地の状態によっても異なります。" },
+  { factor: "工法の種類", impact: "high", description: "工法によって材料と工程が異なるため、費用が変わります。下地の状態によっても異なります。" },
   { factor: "下地の状態", impact: "medium", description: "既存防水の劣化が激しいと撤去・補修費用が増加します。" },
-  { factor: "足場の要否", impact: "high", description: "2階以上のベランダは足場が必要になり5〜15万円の追加費用が発生します。" },
+  { factor: "足場の要否", impact: "high", description: "2階以上のベランダは足場が必要になり、工事本体とは別に足場の費用がかかります。" },
   { factor: "業者の種類", impact: "medium", description: "直接施工の専門業者は仲介業者より安い場合があります。一括見積もりで比較することをおすすめします。" },
-  { factor: "季節・時期", impact: "low", description: "繁忙期（春・秋）は割高になる傾向があります。閑散期（冬・梅雨）に依頼すると、価格交渉に応じてもらいやすくなります。" },
 ];
 
 const faqs = [
   {
     q: "ベランダ防水工事の費用相場はいくらですか？",
-    a: "10㎡前後で約4〜10万円、20㎡前後で約6〜16万円が目安です。工法別の単価はウレタン防水3,000〜6,500円/㎡、シート防水3,500〜7,000円/㎡、FRP防水4,000〜8,000円/㎡で、面積が大きいほど㎡単価は下がる傾向があります。",
+    a: "くらしのマーケットは、ベランダ・屋上の防水工事の費用相場を10平米あたり3.5万〜10万円程度とし、工法別にウレタン防水45,000〜88,000円程度、FRP防水40,000〜97,000円程度、シート防水35,000〜93,000円程度としています（10平米あたり。税込・税別の記載なし。2026年10月25日確認）。面積・下地の状態・足場の要否で変わるため、金額は業者の見積もりで確認してください。",
   },
   {
     q: "防水工事の費用以外に追加でかかる費用はありますか？",
-    a: "2階以上のベランダ・屋上では足場費用が5〜15万円かかります。そのほか、既存防水の撤去（1〜5万円）、下地補修（1〜3万円）、排水口（ドレン）交換（1〜3万円/箇所）、シーリング打ち替え（2〜8万円）などが、劣化状況に応じて追加になる場合があります。",
+    a: "2階以上のベランダ・屋上では足場の費用がかかります。そのほか、既存防水の撤去、下地補修、排水口（ドレン）の交換、シーリングの打ち替えなどが、劣化状況に応じて追加になる場合があります。金額は業者の見積もりで確認してください。",
   },
   {
     q: "FRP・ウレタン・シート防水はどれが安いですか？",
-    a: "㎡単価ではウレタン防水が最も安い傾向です。ただし耐用年数やメンテナンス周期、ベランダの形状・面積によって総額は変わります。小〜中規模のベランダにはFRP、大面積や屋上にはウレタン・シートが適している場合が多くあります。",
+    a: "くらしのマーケットの10平米あたりの費用相場は、ウレタン防水45,000〜88,000円程度、FRP防水40,000〜97,000円程度、シート防水35,000〜93,000円程度で（2026年10月25日確認）、幅が重なっています。耐用年数やメンテナンス周期、ベランダの形状・面積によって総額は変わります。小〜中規模のベランダにはFRP、大面積や屋上にはウレタン・シートが適している場合が多くあります。",
   },
   {
     q: "防水工事の費用を抑えるにはどうすればよいですか？",
@@ -86,7 +76,7 @@ const faqs = [
   },
   {
     q: "防水工事の費用はどんな要因で変わりますか？",
-    a: "施工面積、工法の種類、下地の劣化状態、足場の要否、業者の種類（直接施工か仲介か）、依頼する季節などで変わります。特に面積・工法・足場の有無が金額に大きく影響します。",
+    a: "施工面積、工法の種類、下地の劣化状態、足場の要否、業者の種類（直接施工か仲介か）などで変わります。特に面積・工法・足場の有無が金額に大きく影響します。",
   },
 ];
 
@@ -108,7 +98,7 @@ export default function PricePage() {
           ベランダ防水工事の費用相場
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          工法別・面積別の費用相場と、費用を左右する6つの要因を解説しています。
+          工法別の費用相場と、費用を左右する5つの要因を解説しています。
         </p>
       </div>
 
@@ -116,7 +106,8 @@ export default function PricePage() {
       <div className="bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-5 md:p-6 mb-10">
         <p className="text-sm font-bold text-[#2563EB] mb-2">ベランダ防水工事の費用相場の目安は、次のとおりです。</p>
         <p className="text-gray-800 leading-relaxed text-sm md:text-base">
-          ベランダ防水工事の費用は、一般的な10㎡前後で<strong>約4〜10万円</strong>、20㎡前後で<strong>約6〜16万円</strong>が目安です。工法別の単価はウレタン防水が3,000〜6,500円/㎡、シート防水が3,500〜7,000円/㎡、FRP防水が4,000〜8,000円/㎡。これに加えて2階以上では足場費用（5〜15万円）や下地補修などが状況に応じて発生します。正確な金額は面積・劣化状況・工法で変わるため、3社以上から相見積もりを取得して比較することをおすすめします。
+          くらしのマーケットは、ベランダ・屋上の防水工事の費用相場を<strong>10平米あたり3.5万〜10万円程度</strong>としています。工法別では、ウレタン防水が45,000〜88,000円程度、FRP防水が40,000〜97,000円程度、シート防水が35,000〜93,000円程度です（いずれも10平米あたり。税込・税別の記載なし。2026年10月25日確認）。2階以上では足場の費用や下地補修などが状況に応じて加わるため、金額は3社以上の見積もりで確認してください。
+          <span className="block mt-2 text-xs text-gray-500">出典：くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」</span>
         </p>
       </div>
 
@@ -126,16 +117,12 @@ export default function PricePage() {
           <div key={mc.method} className={`rounded-2xl border-2 overflow-hidden ${mc.color}`}>
             <div className={`p-4 ${mc.headerColor}`}>
               <h2 className="font-bold text-lg">{mc.method}</h2>
-              <div className="text-sm opacity-90 mt-1">{mc.perSqm}/㎡</div>
+              <div className="text-sm opacity-90 mt-1">10㎡で{mc.tenSqm}</div>
             </div>
             <div className="p-5 space-y-3">
               <div>
-                <div className="text-xs text-gray-500 mb-1">面積別費用目安</div>
-                <ul className="text-sm space-y-1">
-                  <li className="text-gray-700">{mc.small}</li>
-                  <li className="text-gray-700">{mc.medium}</li>
-                  <li className="text-gray-700">{mc.large}</li>
-                </ul>
+                <div className="text-xs text-gray-500 mb-1">費用相場（10平米あたり）</div>
+                <p className="text-sm text-gray-700">{mc.tenSqm}</p>
               </div>
               <div className="border-t border-gray-200 pt-3">
                 <div className="flex justify-between text-xs mb-1">
@@ -153,37 +140,26 @@ export default function PricePage() {
         ))}
       </div>
 
+      <p className="text-xs text-gray-500 -mt-8 mb-12">
+        出典：工法別の費用相場は、くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」によります（2026年10月25日確認）。耐用年数・メンテナンスの周期は当サイトの目安です。
+      </p>
+
       {/* Extra Costs */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">追加でかかる費用一覧</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-2">追加でかかる費用</h2>
         <p className="text-sm text-gray-600 mb-4">
-          以下の費用は状況によって追加でかかる場合があります。見積もりの際に必ずご確認ください。
+          次の費用は、状況によって工事本体とは別にかかる場合があります。金額は業者の見積もりで確認してください。
         </p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b-2 border-gray-200">
-                <th className="text-left py-2 font-bold text-gray-700">項目</th>
-                <th className="text-left py-2 font-bold text-gray-700">費用目安</th>
-                <th className="text-left py-2 font-bold text-gray-700 hidden sm:table-cell">備考</th>
-              </tr>
-            </thead>
-            <tbody>
-              {extraCosts.map((item, i) => (
-                <tr key={i} className="border-b border-gray-100">
-                  <td className="py-3 font-medium text-gray-900">{item.item}</td>
-                  <td className="py-3 text-[#059669] font-bold">{item.cost}</td>
-                  <td className="py-3 text-gray-500 hidden sm:table-cell">{item.note}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <ul className="text-sm text-gray-700 space-y-1 list-disc pl-5">
+          {extraItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       </div>
 
       {/* Price Factors */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">費用を左右する6つの要因</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">費用を左右する5つの要因</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {priceFactors.map((factor, index) => {
             const impactColors = {

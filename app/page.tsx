@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "ベランダ防水工事の費用相場はいくらですか？",
     answer:
-      "工法と面積によって異なります。FRP防水は4,000〜8,000円/㎡、ウレタン防水は3,000〜6,500円/㎡、シート防水は3,500〜7,000円/㎡が目安です。一般的なベランダ（10〜15㎡）では8〜15万円程度が相場です。",
+      "くらしのマーケットは、ベランダ・屋上の防水工事の費用相場を10平米あたり3.5万〜10万円程度としています（工法別ではウレタン防水45,000〜88,000円程度、FRP防水40,000〜97,000円程度、シート防水35,000〜93,000円程度。税込・税別の記載なし。2026年10月25日確認）。面積・下地の状態・足場の要否で変わるため、金額は業者の見積もりで確認してください。",
   },
   {
     question: "防水工事は何年おきに必要ですか？",
@@ -60,13 +60,10 @@ const severityConfig = {
   urgent: { label: "緊急", color: "bg-red-100 text-red-800" },
 };
 
-const costTable = [
-  { method: "FRP防水", area: "〜10㎡", cost: "5〜10万円", life: "10〜15年", best: "小規模ベランダ" },
-  { method: "FRP防水", area: "10〜20㎡", cost: "8〜16万円", life: "10〜15年", best: "中規模ベランダ" },
-  { method: "ウレタン防水", area: "〜20㎡", cost: "6〜13万円", life: "8〜12年", best: "改修工事" },
-  { method: "ウレタン防水", area: "20〜50㎡", cost: "12〜25万円", life: "8〜12年", best: "大規模ベランダ" },
-  { method: "シート防水", area: "30㎡〜", cost: "15〜30万円", life: "10〜15年", best: "屋上" },
-  { method: "トップコートのみ", area: "〜20㎡", cost: "3〜8万円", life: "3〜5年", best: "延命" },
+const costRows = [
+  { method: "ウレタン防水", cost: "45,000〜88,000円程度", life: "8〜12年" },
+  { method: "FRP防水", cost: "40,000〜97,000円程度", life: "10〜15年" },
+  { method: "シート防水", cost: "35,000〜93,000円程度", life: "10〜15年" },
 ];
 
 export default function HomePage() {
@@ -199,7 +196,7 @@ export default function HomePage() {
               <h3 className="font-bold text-gray-900 text-base mb-2">トップコート塗り替え</h3>
               <p className="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">防水層を長持ちさせる延命メンテナンス</p>
               <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100">
-                <span>1,000〜2,500円/㎡</span>
+                <span>費用は見積もりで確認</span>
                 <span className="text-[#059669] font-semibold group-hover:translate-x-0.5 transition-transform">詳細を見る →</span>
               </div>
             </Link>
@@ -337,35 +334,31 @@ export default function HomePage() {
             <span className="inline-block text-xs font-bold text-[#059669] bg-green-50 border border-green-200 px-3 py-1 rounded-full mb-3">
               費用相場
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">工法別・面積別 費用早見表</h2>
-            <p className="text-gray-500">2026年時点の費用相場（材料費・施工費込み）</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">工法別 費用相場（10平米あたり）</h2>
+            <p className="text-gray-500">くらしのマーケットが公表している費用相場（2026年10月25日確認）</p>
           </div>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-[#2563EB] text-white">
                   <th className="px-4 py-3.5 text-left font-bold">工法</th>
-                  <th className="px-4 py-3.5 text-left font-bold">面積目安</th>
-                  <th className="px-4 py-3.5 text-left font-bold">費用目安</th>
-                  <th className="px-4 py-3.5 text-left font-bold">耐用年数</th>
-                  <th className="px-4 py-3.5 text-left font-bold hidden sm:table-cell">おすすめ用途</th>
+                  <th className="px-4 py-3.5 text-left font-bold">費用相場（10平米あたり）</th>
+                  <th className="px-4 py-3.5 text-left font-bold">耐用年数（当サイトの目安）</th>
                 </tr>
               </thead>
               <tbody>
-                {costTable.map((row, index) => (
+                {costRows.map((row, index) => (
                   <tr key={index} className={`${index % 2 === 0 ? "bg-white" : "bg-gray-50"} hover:bg-blue-50 transition-colors`}>
                     <td className="px-4 py-3.5 font-semibold text-gray-900">{row.method}</td>
-                    <td className="px-4 py-3.5 text-gray-500">{row.area}</td>
                     <td className="px-4 py-3.5 font-bold text-[#059669]">{row.cost}</td>
                     <td className="px-4 py-3.5 text-gray-500">{row.life}</td>
-                    <td className="px-4 py-3.5 text-gray-400 hidden sm:table-cell">{row.best}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3 text-center">
-            ※費用は目安です。実際の費用は現地の状態・業者によって異なります。複数社からの見積もり取得をおすすめします。
+            出典：くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（税込・税別の記載なし。2026年10月25日確認）。面積・下地の状態・足場の要否で変わるため、金額は複数社の見積もりで確認してください。トップコートの塗り替えの金額は、公式の情報で確認できないため記載していません。
           </p>
           <div className="text-center mt-6">
             <Link href="/cost/price/" className="text-[#2563EB] font-bold hover:underline no-underline text-sm">

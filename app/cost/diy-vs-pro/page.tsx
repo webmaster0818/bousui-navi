@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 const comparisons = [
   {
     aspect: "費用",
-    diy: "3,000〜8,000円（材料費のみ）",
-    pro: "8,000〜25,000円/㎡（材工込み）",
+    diy: "材料費のみ（金額は製品・面積による）",
+    pro: "10平米あたり3.5万〜10万円程度（くらしのマーケット）",
     winner: "diy",
-    note: "DIYは材料費のみ。ただし道具代や施工不良時の追加費用を考慮すると、差は縮まる",
+    note: "業者の金額は、くらしのマーケット「ベランダ防水工事の費用相場」（https://curama.jp/rooftop-waterproofing/magazine/2540/・税込・税別の記載なし・2026年10月25日確認）による。DIYは材料費のみだが、道具代や施工不良時の追加費用がかかる場合がある",
   },
   {
     aspect: "施工品質",
@@ -128,6 +128,11 @@ export default function DiyVsProPage() {
           </div>
         ))}
       </div>
+      <p className="-mt-8 mb-10 text-xs text-gray-500 leading-relaxed">
+        出典：専門業者の費用は、くらしのマーケット「
+        <a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>
+        」の費用相場（10平米あたり3.5万〜10万円程度・ウレタン/FRP/シート/アスファルト防水）によります（税込・税別の記載なし。2026年10月25日確認）。金額は業者の見積もりで確認してください。
+      </p>
 
       {/* Verdict */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
@@ -168,42 +173,9 @@ export default function DiyVsProPage() {
 
       {/* Cost Simulation */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">10年間の総コスト比較（15㎡のベランダの場合）</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b-2 border-gray-200">
-                <th className="text-left py-3 font-bold text-gray-700">費用項目</th>
-                <th className="text-center py-3 font-bold text-blue-700">DIY</th>
-                <th className="text-center py-3 font-bold text-[#2563EB]">専門業者に依頼</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b border-gray-100">
-                <td className="py-3 text-gray-700">初回施工費</td>
-                <td className="py-3 text-center font-medium">1〜3万円（材料費）</td>
-                <td className="py-3 text-center font-medium">10〜18万円</td>
-              </tr>
-              <tr className="border-b border-gray-100 bg-gray-50">
-                <td className="py-3 text-gray-700">5年後のメンテナンス</td>
-                <td className="py-3 text-center text-orange-500">3〜5万円（再施工）</td>
-                <td className="py-3 text-center font-medium">3〜5万円（TC塗り替え）</td>
-              </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-3 text-gray-700">施工不良による修繕（想定）</td>
-                <td className="py-3 text-center text-red-500">5〜15万円（リスクあり）</td>
-                <td className="py-3 text-center text-[#059669]">0円（保証内）</td>
-              </tr>
-              <tr className="bg-[#EFF6FF]">
-                <td className="py-3 font-bold text-gray-900">10年間の想定総コスト</td>
-                <td className="py-3 text-center font-bold text-orange-600">9〜23万円</td>
-                <td className="py-3 text-center font-bold text-[#059669]">13〜23万円</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-gray-400 mt-3">
-          ※DIYで施工不良が発生した場合の修繕費を含む試算です。施工不良がなければDIYの費用は下がりますが、施工品質を確実に担保することは困難です。
+        <h2 className="text-xl font-bold text-gray-900 mb-4">長い期間の費用で比べる</h2>
+        <p className="text-sm text-gray-700 leading-relaxed">
+          DIYは材料費だけで始められますが、施工不良があると再施工や雨漏りの修繕が必要になり、費用がかさむ場合があります。業者に依頼する場合は、施工後の保証の範囲と、トップコートの塗り替えなどのメンテナンスの時期も含めて比べてください。金額は業者の見積もりで確認してください。
         </p>
       </div>
 
