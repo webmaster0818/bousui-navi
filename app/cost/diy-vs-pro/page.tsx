@@ -131,7 +131,7 @@ export default function DiyVsProPage() {
       <p className="-mt-8 mb-10 text-xs text-gray-500 leading-relaxed">
         出典：専門業者の費用は、くらしのマーケット「
         <a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>
-        」の費用相場（10平米あたり3.5万〜10万円程度・ウレタン/FRP/シート/アスファルト防水）によります（税込・税別の記載なし。2026年10月25日確認）。金額は業者の見積もりで確認してください。
+        」（2024年9月6日更新の記事）の費用相場（10平米あたり3.5万〜10万円程度・ウレタン/FRP/シート/アスファルト防水）によります（税込・税別の記載なし。2026年10月25日確認）。金額は業者の見積もりで確認してください。
       </p>
 
       {/* Verdict */}

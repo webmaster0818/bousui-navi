@@ -23,12 +23,12 @@ const faqs = [
   {
     question: "防水工事は何年おきに必要ですか？",
     answer:
-      "一般的には10〜15年で全面改修、5〜7年でトップコートの塗り替えが推奨されます。ただし、紫外線の強さや歩行頻度によって劣化速度は変わります。色あせや細かいひび割れが見られた場合は、早めに専門業者へ相談することをおすすめします。",
+      "防水工事見積もり.comの工法表（屋上の防水工事）は、防水層の耐用年数をFRP防水10〜12年、ウレタン防水10〜15年、シート防水12〜18年としています。トップコートについては、くらしのマーケットが寿命を5年程度としています（いずれも2026年10月25日確認）。紫外線の強さや歩行頻度によって劣化速度は変わります。色あせや細かいひび割れが見られた場合は、早めに専門業者へ相談することをおすすめします。",
   },
   {
     question: "FRP防水とウレタン防水はどちらがおすすめですか？",
     answer:
-      "小面積のベランダ（10㎡以下）では、強度・耐久性の面からFRP防水が適しています。改修工事や大面積では、ウレタン防水が費用対効果に優れています。現地の状態によって適した工法は異なるため、複数の専門業者に診断を依頼することをおすすめします。",
+      "小面積のベランダ（10㎡以下）では、強度・耐久性の面からFRP防水が適しています。費用は面積・下地の状態で変わるため、見積もりで比べてください。現地の状態によって適した工法は異なるため、複数の専門業者に診断を依頼することをおすすめします。",
   },
   {
     question: "防水工事をDIYで行うことはできますか？",
@@ -61,9 +61,9 @@ const severityConfig = {
 };
 
 const costRows = [
-  { method: "ウレタン防水", cost: "45,000〜88,000円程度", life: "8〜12年" },
-  { method: "FRP防水", cost: "40,000〜97,000円程度", life: "10〜15年" },
-  { method: "シート防水", cost: "35,000〜93,000円程度", life: "10〜15年" },
+  { method: "ウレタン防水", cost: "45,000〜88,000円程度", life: "10〜15年" },
+  { method: "FRP防水", cost: "40,000〜97,000円程度", life: "10〜12年" },
+  { method: "シート防水", cost: "35,000〜93,000円程度", life: "12〜18年" },
 ];
 
 export default function HomePage() {
@@ -191,7 +191,7 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                 </div>
-                <span className="text-xs font-bold text-[#059669] bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">低コストの保守</span>
+                <span className="text-xs font-bold text-[#059669] bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">防水層の保守</span>
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-2">トップコート塗り替え</h3>
               <p className="text-sm text-gray-500 mb-4 flex-1 leading-relaxed">防水層を長持ちさせる延命メンテナンス</p>
@@ -343,7 +343,7 @@ export default function HomePage() {
                 <tr className="bg-[#2563EB] text-white">
                   <th className="px-4 py-3.5 text-left font-bold">工法</th>
                   <th className="px-4 py-3.5 text-left font-bold">費用相場（10平米あたり）</th>
-                  <th className="px-4 py-3.5 text-left font-bold">耐用年数（当サイトの目安）</th>
+                  <th className="px-4 py-3.5 text-left font-bold">耐用年数</th>
                 </tr>
               </thead>
               <tbody>
@@ -358,7 +358,7 @@ export default function HomePage() {
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3 text-center">
-            出典：くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（税込・税別の記載なし。2026年10月25日確認）。面積・下地の状態・足場の要否で変わるため、金額は複数社の見積もりで確認してください。トップコートの塗り替えの金額は、公式の情報で確認できないため記載していません。
+            出典：くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（2024年9月6日更新の記事。税込・税別の記載なし。2026年10月25日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">防水工事見積もり.com</a>の工法表（屋上の防水工事・2026年10月25日確認）によります。面積・下地の状態・足場の要否で変わるため、金額は複数社の見積もりで確認してください。トップコートの塗り替えの金額は、公式の情報で確認できないため記載していません。
           </p>
           <div className="text-center mt-6">
             <Link href="/cost/price/" className="text-[#2563EB] font-bold hover:underline no-underline text-sm">

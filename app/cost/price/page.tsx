@@ -14,8 +14,8 @@ const methodCosts = [
   {
     method: "FRP防水",
     tenSqm: "40,000〜97,000円程度",
-    life: "10〜15年",
-    topcoat: "3〜5年ごと",
+    life: "10〜12年（通気緩衝工法は13〜15年ほど）",
+    topcoat: "5年に1度程度のトップコート塗り替え",
     best: "小〜中ベランダ、新築・リフォーム",
     color: "bg-blue-50 border-blue-200",
     headerColor: "bg-[#2563EB] text-white",
@@ -23,8 +23,8 @@ const methodCosts = [
   {
     method: "ウレタン防水",
     tenSqm: "45,000〜88,000円程度",
-    life: "8〜12年",
-    topcoat: "5〜7年ごと",
+    life: "10〜15年（密着工法は5年ほど、通気緩衝工法は15年ほど）",
+    topcoat: "トップコートの寿命は5年程度",
     best: "大ベランダ・屋上・改修工事",
     color: "bg-green-50 border-green-200",
     headerColor: "bg-[#059669] text-white",
@@ -32,8 +32,8 @@ const methodCosts = [
   {
     method: "シート防水",
     tenSqm: "35,000〜93,000円程度",
-    life: "10〜15年",
-    topcoat: "メンテナンス不要（定期点検は必要）",
+    life: "12〜18年（加硫ゴムシートは10年ほど、塩ビシートは15年ほど）",
+    topcoat: "トップコートの塗り替えは不要",
     best: "屋上・大面積・商業施設",
     color: "bg-orange-50 border-orange-200",
     headerColor: "bg-[#F97316] text-white",
@@ -50,11 +50,11 @@ const extraItems = [
 ];
 
 const priceFactors = [
-  { factor: "施工面積", impact: "high", description: "面積が大きいほど材料費・人件費は増加しますが、単価は下がる傾向があります。" },
+  { factor: "施工面積", impact: "high", description: "面積によって材料費・人件費が変わります。同じ面積の条件で見積もりを比べてください。" },
   { factor: "工法の種類", impact: "high", description: "工法によって材料と工程が異なるため、費用が変わります。下地の状態によっても異なります。" },
   { factor: "下地の状態", impact: "medium", description: "既存防水の劣化が激しいと撤去・補修費用が増加します。" },
   { factor: "足場の要否", impact: "high", description: "2階以上のベランダは足場が必要になり、工事本体とは別に足場の費用がかかります。" },
-  { factor: "業者の種類", impact: "medium", description: "直接施工の専門業者は仲介業者より安い場合があります。一括見積もりで比較することをおすすめします。" },
+  { factor: "業者の種類", impact: "medium", description: "直接施工の専門業者か仲介かによって、見積もりの内訳が変わります。一括見積もりで比較することをおすすめします。" },
 ];
 
 const faqs = [
@@ -107,7 +107,7 @@ export default function PricePage() {
         <p className="text-sm font-bold text-[#2563EB] mb-2">ベランダ防水工事の費用相場の目安は、次のとおりです。</p>
         <p className="text-gray-800 leading-relaxed text-sm md:text-base">
           くらしのマーケットは、ベランダ・屋上の防水工事の費用相場を<strong>10平米あたり3.5万〜10万円程度</strong>としています。工法別では、ウレタン防水が45,000〜88,000円程度、FRP防水が40,000〜97,000円程度、シート防水が35,000〜93,000円程度です（いずれも10平米あたり。税込・税別の記載なし。2026年10月25日確認）。2階以上では足場の費用や下地補修などが状況に応じて加わるため、金額は3社以上の見積もりで確認してください。
-          <span className="block mt-2 text-xs text-gray-500">出典：くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」</span>
+          <span className="block mt-2 text-xs text-gray-500">出典：くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（2024年9月6日更新の記事）</span>
         </p>
       </div>
 
@@ -141,7 +141,7 @@ export default function PricePage() {
       </div>
 
       <p className="text-xs text-gray-500 -mt-8 mb-12">
-        出典：工法別の費用相場は、くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」によります（2026年10月25日確認）。耐用年数・メンテナンスの周期は当サイトの目安です。
+        出典：工法別の費用相場は、くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（2024年9月6日更新の記事）によります。トップコートの周期も同記事によります。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">防水工事見積もり.com</a>の工法表（屋上の防水工事）によります（いずれも2026年10月25日確認）。
       </p>
 
       {/* Extra Costs */}

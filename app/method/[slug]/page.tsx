@@ -35,40 +35,40 @@ const comparisonRows = [
     name: "FRP防水",
     href: "/method/frp/",
     unit: "10㎡で40,000〜97,000円程度",
-    life: "10〜15年",
+    life: "10〜12年",
     days: "2〜3日",
     place: "ベランダ・小面積",
-    topcoat: "5〜7年ごと",
+    topcoat: "5年に1度程度",
     note: "ガラス繊維のマットに樹脂を含浸させて硬化させる工法。強度が高く、住宅のベランダで広く使われます。",
   },
   {
     name: "ウレタン防水（密着工法）",
     href: "/method/urethane/",
     unit: "10㎡で45,000〜88,000円程度（工法の別なし）",
-    life: "8〜12年",
+    life: "5年ほど（密着工法）",
     days: "3〜5日",
     place: "新築・下地の状態が良い場所",
-    topcoat: "約5年ごと",
-    note: "下地に直接ウレタンを塗布する方法。安価ですが、下地の湿気や動きの影響を受けやすい工法です。",
+    topcoat: "寿命5年程度",
+    note: "下地に直接ウレタンを塗布する方法。下地の湿気や動きの影響を受けやすい工法です。",
   },
   {
     name: "ウレタン防水（絶縁・通気緩衝工法）",
     href: "/method/urethane/",
     unit: "10㎡で45,000〜88,000円程度（工法の別なし）",
-    life: "8〜12年",
+    life: "15年ほど（通気緩衝工法）",
     days: "3〜5日",
     place: "改修工事・湿気の多い場所・屋上",
-    topcoat: "約5年ごと",
-    note: "通気緩衝シートを挟んでから施工する方法。費用は高めですが、下地の湿気や動きを吸収します。",
+    topcoat: "寿命5年程度",
+    note: "通気緩衝シートを挟んでから施工する方法。下地の湿気や動きを吸収します。",
   },
   {
     name: "シート防水（塩ビ・ゴム）",
     href: "/method/sheet/",
     unit: "10㎡で35,000〜93,000円程度",
-    life: "10〜15年",
+    life: "12〜18年",
     days: "1〜2日",
     place: "屋上・大面積",
-    topcoat: "5年ごとに接合部の点検",
+    topcoat: "塗り替え不要",
     note: "工場で製造された防水シートを敷く工法。接着工法と機械的固定工法があり、平らで広い面に向きます。",
   },
 ];
@@ -128,7 +128,7 @@ export default async function MethodPage({ params }: Props) {
           <p className="-mt-3 mb-6 text-xs text-gray-500 leading-relaxed">
             出典：費用の目安は、くらしのマーケット「
             <a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">ベランダ防水工事の費用相場</a>
-            」の10平米あたりの費用相場によります（税込・税別の記載なし。2026年10月25日確認）。金額は業者の見積もりで確認してください。
+            」（2024年9月6日更新の記事）の10平米あたりの費用相場によります（税込・税別の記載なし。2026年10月25日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">防水工事見積もり.com</a>の工法表（屋上の防水工事・2026年10月25日確認）によります。金額は業者の見積もりで確認してください。
           </p>
         )}
 
@@ -169,7 +169,7 @@ export default async function MethodPage({ params }: Props) {
             工法別の比較表（ウレタン・シート・FRP・絶縁工法）
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
-            当サイトが各工法ページに掲載している㎡単価・耐用年数・施工日数をまとめた表です。㎡単価は工事本体の目安で、足場や下地補修は含みません。ウレタン防水は密着工法と絶縁（通気緩衝）工法で単価表を分けて確認できていないため、同じ価格帯の中でどちらの側に位置するかを記載しています。
+            各工法の費用の目安・耐用年数・施工日数をまとめた表です。費用の目安はくらしのマーケットの10平米あたりの費用相場で、密着工法と絶縁（通気緩衝）工法の別はありません。耐用年数は防水工事見積もり.comの工法表（屋上の防水工事）、トップコートの周期はくらしのマーケットによります（いずれも2026年10月25日確認）。
           </p>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white">
             <table className="w-full text-sm min-w-[760px]">
@@ -205,7 +205,7 @@ export default async function MethodPage({ params }: Props) {
           <p className="text-sm text-gray-600 leading-relaxed mt-4">
             費用の目安は、くらしのマーケット「
             <a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] font-medium">ベランダ防水工事の費用相場</a>
-            」の10平米あたりの費用相場によります（密着工法・絶縁工法の別、税込・税別の記載なし。2026年10月25日確認）。足場・下地補修などを含めた金額は業者の見積もりで確認してください。工法を指定して見積もりを取りたい場合は
+            」（2024年9月6日更新の記事）の10平米あたりの費用相場によります（密着工法・絶縁工法の別、税込・税別の記載なし。2026年10月25日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">防水工事見積もり.com</a>の工法表（屋上の防水工事）によります。足場・下地補修などを含めた金額は業者の見積もりで確認してください。工法を指定して見積もりを取りたい場合は
             <Link href="/ranking/" className="text-[#2563EB] font-medium">業者・会社ランキング</Link>
             から、防水工事の取扱い範囲を確認して依頼先を選んでください。
           </p>
