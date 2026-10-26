@@ -4,7 +4,10 @@ import { notFound } from "next/navigation";
 import methodsData from "@/data/methods.json";
 import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
-import { RelatedGuides } from "@/lib/guides";
+import { RelatedGuides, RichText } from "@/lib/guides";
+
+type MethodAnswer = { heading: string; columns: string[]; rows: string[][]; paragraphs: string[] };
+type MethodSource = { label: string; url: string };
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -18,6 +21,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const method = methodsData.find((m) => m.slug === slug);
   if (!method) return {};
+  if ("seoTitle" in method && "seoDescription" in method) {
+    return {
+      alternates: { canonical: `/method/${slug}/` },
+      title: method.seoTitle as string,
+      description: method.seoDescription as string,
+    };
+  }
   const title =
     slug === "comparison"
       ? "防水工事の種類と工法比較【2026年・ウレタン/シート/FRP/絶縁工法の価格】"
@@ -79,12 +89,26 @@ export default async function MethodPage({ params }: Props) {
   if (!method) notFound();
 
   const TOP3 = companiesData.slice(0, 3);
+  const answer = "answer" in method ? (method.answer as MethodAnswer) : null;
+  const sources = "sources" in method ? (method.sources as MethodSource[]) : [];
+  const checked = "checked" in method ? (method.checked as string) : "";
+  const faqJsonLd = answer
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: method.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      }
+    : null;
 
   // /method/comparison/ は比較対象にウレタン防水の密着・絶縁工法を加えたため、
   // 見出しも実際に比較している工法にあわせて表示する。
   const displayTitle =
     slug === "comparison"
-      ? "防水工事の工法比較｜ウレタン・シート・FRP・絶縁工法の価格比較"
+      ? "シート防水とウレタン防水の価格比較｜FRP防水・絶縁工法を含む工法比較"
       : method.title;
 
   return (
@@ -105,7 +129,53 @@ export default async function MethodPage({ params }: Props) {
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{displayTitle}</h1>
         <p className="text-gray-700 leading-relaxed">{method.description}</p>
+        {checked && <p className="mt-2 text-xs text-gray-500">出典の確認日：{checked}</p>}
       </div>
+
+      {answer && (
+        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{answer.heading}</h2>
+          <div className="overflow-x-auto mb-4">
+            <table className="w-full text-sm border-collapse min-w-[640px]">
+              <thead>
+                <tr className="bg-[#EFF6FF]">
+                  {answer.columns.map((c) => (
+                    <th key={c} className="border border-gray-200 px-3 py-2 text-left">{c}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {answer.rows.map((row, i) => (
+                  <tr key={i}>
+                    {row.map((cell, j) => (
+                      <td key={j} className={`border border-gray-200 px-3 py-2 align-top text-gray-700${j === 0 ? " font-bold whitespace-nowrap" : ""}`}>
+                        <RichText text={cell} />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {answer.paragraphs.map((t, i) => (
+            <p key={i} className="text-sm text-gray-700 leading-relaxed mb-3">
+              <RichText text={t} />
+            </p>
+          ))}
+          {sources.length > 0 && (
+            <div className="mt-4 text-xs text-gray-500">
+              <p>出典（{checked}確認）：</p>
+              <ul className="mt-1 space-y-1">
+                {sources.map((src) => (
+                  <li key={src.url}>
+                    <a href={src.url} target="_blank" rel="noopener noreferrer" className="underline">{src.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Summary Card */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
@@ -287,6 +357,9 @@ export default async function MethodPage({ params }: Props) {
       </div>
 
       <RelatedGuides path={`/method/${slug}/`} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
 
       {/* Other Methods */}
       <div className="mb-8">
