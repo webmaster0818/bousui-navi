@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     q: "FRP・ウレタン・シート防水はどれが安いですか？",
-    a: "くらしのマーケットの10平米あたりの費用相場は、ウレタン防水45,000〜88,000円程度、FRP防水40,000〜97,000円程度、シート防水35,000〜93,000円程度で（2026年10月25日確認）、幅が重なっています。耐用年数やメンテナンス周期、ベランダの形状・面積によって総額は変わります。小〜中規模のベランダにはFRP、大面積や屋上にはウレタン・シートが適している場合が多くあります。",
+    a: "くらしのマーケットの10平米あたりの費用相場は、ウレタン防水45,000〜88,000円程度、FRP防水40,000〜97,000円程度、シート防水35,000〜93,000円程度で（2026年10月28日確認）、幅が重なっています。耐用年数やメンテナンス周期、ベランダの形状・面積によって総額は変わります。同記事は、FRP防水をベランダの防水方法の主流とし、シート防水は平坦な広い場所に向き、凸凹の多い場所や形状が複雑なベランダには向かないとしています。",
   },
   {
     q: "防水工事の見積書が相場どおりか確認する方法はありますか？",
@@ -145,7 +145,7 @@ export default function PricePage() {
       </div>
 
       <p className="text-xs text-gray-500 -mt-8 mb-12">
-        出典：工法別の費用相場は、くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（2024年9月6日更新の記事）によります。トップコートの周期も同記事によります。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">防水工事見積もり.com</a>の工法表（屋上の防水工事）によります（いずれも2026年10月25日確認）。
+        出典：工法別の費用相場は、くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（2024年9月6日更新の記事）によります。トップコートの周期も同記事によります。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">防水工事見積もり.com</a>の工法表（屋上の防水工事）によります（いずれも2026年10月28日確認）。
       </p>
 
       {/* Extra Costs */}
