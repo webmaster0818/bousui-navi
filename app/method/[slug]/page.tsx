@@ -198,7 +198,7 @@ export default async function MethodPage({ params }: Props) {
           <p className="-mt-3 mb-6 text-xs text-gray-500 leading-relaxed">
             出典：費用の目安は、くらしのマーケット「
             <a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">ベランダ防水工事の費用相場</a>
-            」（2024年9月6日更新の記事）の10平米あたりの費用相場によります（税込・税別の記載なし。2026年10月25日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">防水工事見積もり.com</a>の工法表（屋上の防水工事・2026年10月25日確認）によります。金額は業者の見積もりで確認してください。
+            」（2024年9月6日更新の記事）の10平米あたりの費用相場によります（税込・税別の記載なし。2026年10月30日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">防水工事見積もり.com</a>の工法表（屋上の防水工事・2026年10月30日確認）によります。金額は業者の見積もりで確認してください。
           </p>
         )}
 
@@ -239,7 +239,7 @@ export default async function MethodPage({ params }: Props) {
             工法別の比較表（ウレタン・シート・FRP・絶縁工法）
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
-            各工法の費用の目安・耐用年数・施工日数をまとめた表です。費用の目安はくらしのマーケットの10平米あたりの費用相場で、密着工法と絶縁（通気緩衝）工法の別はありません。耐用年数は防水工事見積もり.comの工法表（屋上の防水工事）、トップコートの周期はくらしのマーケットによります（いずれも2026年10月25日確認）。
+            各工法の費用の目安・耐用年数・施工日数をまとめた表です。費用の目安はくらしのマーケットの10平米あたりの費用相場で、密着工法と絶縁（通気緩衝）工法の別はありません。耐用年数は防水工事見積もり.comの工法表（屋上の防水工事）、トップコートの周期はくらしのマーケットによります（いずれも2026年10月30日確認）。
           </p>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white">
             <table className="w-full text-sm min-w-[760px]">
@@ -275,7 +275,7 @@ export default async function MethodPage({ params }: Props) {
           <p className="text-sm text-gray-600 leading-relaxed mt-4">
             費用の目安は、くらしのマーケット「
             <a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] font-medium">ベランダ防水工事の費用相場</a>
-            」（2024年9月6日更新の記事）の10平米あたりの費用相場によります（密着工法・絶縁工法の別、税込・税別の記載なし。2026年10月25日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">防水工事見積もり.com</a>の工法表（屋上の防水工事）によります。足場・下地補修などを含めた金額は業者の見積もりで確認してください。工法を指定して見積もりを取りたい場合は
+            」（2024年9月6日更新の記事）の10平米あたりの費用相場によります（密着工法・絶縁工法の別、税込・税別の記載なし。2026年10月30日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">防水工事見積もり.com</a>の工法表（屋上の防水工事）によります。足場・下地補修などを含めた金額は業者の見積もりで確認してください。工法を指定して見積もりを取りたい場合は
             <Link href="/ranking/" className="text-[#2563EB] font-medium">業者・会社ランキング</Link>
             から、防水工事の取扱い範囲を確認して依頼先を選んでください。
           </p>

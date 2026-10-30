@@ -18,12 +18,12 @@ const faqs = [
   {
     question: "ベランダ防水工事の費用相場はいくらですか？",
     answer:
-      "くらしのマーケットは、ベランダ・屋上の防水工事の費用相場を10平米あたり3.5万〜10万円程度としています（工法別ではウレタン防水45,000〜88,000円程度、FRP防水40,000〜97,000円程度、シート防水35,000〜93,000円程度。税込・税別の記載なし。2026年10月25日確認）。面積・下地の状態・足場の要否で変わるため、金額は業者の見積もりで確認してください。",
+      "くらしのマーケットは、ベランダ・屋上の防水工事の費用相場を10平米あたり3.5万〜10万円程度としています（工法別ではウレタン防水45,000〜88,000円程度、FRP防水40,000〜97,000円程度、シート防水35,000〜93,000円程度。税込・税別の記載なし。2026年10月30日確認）。面積・下地の状態・足場の要否で変わるため、金額は業者の見積もりで確認してください。",
   },
   {
     question: "防水工事は何年おきに必要ですか？",
     answer:
-      "防水工事見積もり.comの工法表（屋上の防水工事）は、防水層の耐用年数をFRP防水10〜12年、ウレタン防水10〜15年、シート防水12〜18年としています。トップコートについては、くらしのマーケットが寿命を5年程度としています（いずれも2026年10月25日確認）。紫外線の強さや歩行頻度によって劣化速度は変わります。色あせや細かいひび割れが見られた場合は、早めに専門業者へ相談することをおすすめします。",
+      "防水工事見積もり.comの工法表（屋上の防水工事）は、防水層の耐用年数をFRP防水10〜12年、ウレタン防水10〜15年、シート防水12〜18年としています。トップコートについては、くらしのマーケットが寿命を5年程度としています（いずれも2026年10月30日確認）。紫外線の強さや歩行頻度によって劣化速度は変わります。色あせや細かいひび割れが見られた場合は、早めに専門業者へ相談することをおすすめします。",
   },
   {
     question: "FRP防水とウレタン防水はどちらがおすすめですか？",
@@ -335,7 +335,7 @@ export default function HomePage() {
               費用相場
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">工法別 費用相場（10平米あたり）</h2>
-            <p className="text-gray-500">くらしのマーケットが公表している費用相場（2026年10月25日確認）</p>
+            <p className="text-gray-500">くらしのマーケットが公表している費用相場（2026年10月30日確認）</p>
           </div>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
@@ -358,7 +358,7 @@ export default function HomePage() {
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3 text-center">
-            出典：くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（2024年9月6日更新の記事。税込・税別の記載なし。2026年10月25日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">防水工事見積もり.com</a>の工法表（屋上の防水工事・2026年10月25日確認）によります。面積・下地の状態・足場の要否で変わるため、金額は複数社の見積もりで確認してください。トップコートの塗り替えの金額は、公式の情報で確認できないため記載していません。
+            出典：くらしのマーケット「<a href="https://curama.jp/rooftop-waterproofing/magazine/2540/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</a>」（2024年9月6日更新の記事。税込・税別の記載なし。2026年10月30日確認）。耐用年数は<a href="https://bousuikouji.info/" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">防水工事見積もり.com</a>の工法表（屋上の防水工事・2026年10月30日確認）によります。面積・下地の状態・足場の要否で変わるため、金額は複数社の見積もりで確認してください。トップコートの塗り替えの金額は、公式の情報で確認できないため記載していません。
           </p>
           <div className="text-center mt-6">
             <Link href="/cost/price/" className="text-[#2563EB] font-bold hover:underline no-underline text-sm">
