@@ -9,6 +9,15 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+// 会社ごとに任意で持つ項目（即答の冒頭・FAQ・出典）。無い会社は従来どおりの表示
+type CompanyExtra = {
+  seoTitle?: string;
+  seoDescription?: string;
+  answer?: string[];
+  faqs?: { q: string; a: string }[];
+  sources?: { label: string; href: string; checked: string }[];
+};
+
 export async function generateStaticParams() {
   return companiesData.map((company) => ({ slug: company.slug }));
 }
@@ -17,10 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const company = companiesData.find((c) => c.slug === slug);
   if (!company) return {};
+  const ex = company as CompanyExtra;
   return {
     alternates: { canonical: `/company/${slug}/` },
-    title: `${company.name}の口コミ・評判・費用【2026年】`,
-    description: `${company.name}の特徴・料金・口コミを解説しています。${company.tagline}。${company.description.slice(0, 80)}`,
+    title: ex.seoTitle ?? `${company.name}の口コミ・評判・費用【2026年】`,
+    description: ex.seoDescription ?? `${company.name}の特徴・料金・口コミを解説しています。${company.tagline}。${company.description.slice(0, 80)}`,
   };
 }
 
@@ -30,11 +40,20 @@ export default async function CompanyPage({ params }: Props) {
   if (!company) notFound();
 
   const rb = getVerifiedRating(company.slug);
+  const ex = company as CompanyExtra;
+  const faqLd = ex.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: ex.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      }
+    : null;
 
   const rankLabel = ["1位", "2位", "3位", "4位", "5位", "6位", "7位", "8位", "9位", "10位"][company.rank - 1];
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
       <Breadcrumb
         items={[
           { label: "業者ランキング", href: "/ranking/" },
@@ -76,7 +95,15 @@ export default async function CompanyPage({ params }: Props) {
           )}
         </div>
 
-        <p className="text-gray-700 leading-relaxed mb-6">{company.description}</p>
+        {ex.answer?.length ? (
+          <div className="bg-[#EFF6FF] border border-blue-100 rounded-xl p-5 mb-6 space-y-3">
+            {ex.answer.map((t, i) => (
+              <p key={i} className={`text-gray-800 leading-relaxed text-sm md:text-base${i === 0 ? " font-medium" : ""}`}>{t}</p>
+            ))}
+          </div>
+        ) : (
+          <p className="text-gray-700 leading-relaxed mb-6">{company.description}</p>
+        )}
 
         {/* Key Info */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
@@ -167,6 +194,33 @@ export default async function CompanyPage({ params }: Props) {
           ))}
         </div>
       </div>
+
+      {ex.faqs?.length ? (
+        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
+          <h2 className="font-bold text-gray-900 text-lg mb-4">よくある質問</h2>
+          <dl className="space-y-4">
+            {ex.faqs.map((f, i) => (
+              <div key={i}>
+                <dt className="font-bold text-gray-900 text-sm mb-1">Q. {f.q}</dt>
+                <dd className="text-sm text-gray-700 leading-relaxed">A. {f.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ) : null}
+
+      {ex.sources?.length ? (
+        <div className="bg-gray-50 rounded-2xl border border-gray-200 p-6 mb-8">
+          <h2 className="font-bold text-gray-900 text-base mb-3">出典</h2>
+          <ul className="space-y-1 text-xs text-gray-600">
+            {ex.sources.map((src, i) => (
+              <li key={i}>
+                <a href={src.href} target="_blank" rel="noopener noreferrer" className="text-[#2563EB] underline">{src.label}</a>（{src.checked}確認）
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
 
       {/* CTA（公式URLが確認できている会社のみ） */}
       {company.officialUrl && (
