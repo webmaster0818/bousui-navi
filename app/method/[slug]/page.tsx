@@ -8,6 +8,7 @@ import { RelatedGuides, RichText } from "@/lib/guides";
 
 type MethodAnswer = { heading: string; columns: string[]; rows: string[][]; paragraphs: string[] };
 type MethodSource = { label: string; url: string };
+type MethodTable = { columns: string[]; rows: string[][] };
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -125,7 +126,7 @@ export default async function MethodPage({ params }: Props) {
         <div className="flex flex-wrap gap-2 mb-4">
           <span className="text-xs bg-[#EFF6FF] text-[#2563EB] font-bold px-3 py-1 rounded-full">工法ガイド</span>
           {method.costPerSqm && <span className="text-xs bg-green-50 text-[#059669] font-bold px-3 py-1 rounded-full">費用：{method.costPerSqm}</span>}
-          <span className="text-xs bg-gray-100 text-gray-600 font-bold px-3 py-1 rounded-full">耐久：{method.durability}</span>
+          {method.durability && <span className="text-xs bg-gray-100 text-gray-600 font-bold px-3 py-1 rounded-full">耐久：{method.durability}</span>}
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{displayTitle}</h1>
         <p className="text-gray-700 leading-relaxed">{method.description}</p>
@@ -185,11 +186,13 @@ export default async function MethodPage({ params }: Props) {
             <div className="text-xs text-gray-500 mb-1">費用の目安</div>
             <div className="text-base font-bold text-[#2563EB]">{method.costPerSqm || "見積もりで確認"}</div>
           </div>
-          <div className="text-center p-4 bg-green-50 rounded-xl">
-            <div className="text-xs text-gray-500 mb-1">耐用年数</div>
-            <div className="text-base font-bold text-[#059669]">{method.durability}</div>
-          </div>
-          <div className="text-center p-4 bg-gray-50 rounded-xl col-span-2">
+          {method.durability && (
+            <div className="text-center p-4 bg-green-50 rounded-xl">
+              <div className="text-xs text-gray-500 mb-1">耐用年数</div>
+              <div className="text-base font-bold text-[#059669]">{method.durability}</div>
+            </div>
+          )}
+          <div className={`text-center p-4 bg-gray-50 rounded-xl ${method.durability ? "col-span-2" : "col-span-1 sm:col-span-3"}`}>
             <div className="text-xs text-gray-500 mb-1">おすすめ用途</div>
             <div className="text-base font-bold text-gray-900">{method.bestFor}</div>
           </div>
@@ -203,7 +206,7 @@ export default async function MethodPage({ params }: Props) {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
+          {method.pros.length > 0 && <div>
             <h3 className="font-bold text-[#059669] mb-2 text-sm">メリット</h3>
             <ul className="space-y-1">
               {method.pros.map((pro, i) => (
@@ -215,8 +218,8 @@ export default async function MethodPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
+          </div>}
+          {method.cons.length > 0 && <div>
             <h3 className="font-bold text-orange-500 mb-2 text-sm">デメリット</h3>
             <ul className="space-y-1">
               {method.cons.map((con, i) => (
@@ -228,7 +231,7 @@ export default async function MethodPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-          </div>
+          </div>}
         </div>
       </div>
 
@@ -291,7 +294,34 @@ export default async function MethodPage({ params }: Props) {
             </span>
             {section.title}
           </h2>
-          <div className="text-gray-700 leading-relaxed whitespace-pre-line text-sm">{section.content}</div>
+          <div className="text-gray-700 leading-relaxed whitespace-pre-line text-sm"><RichText text={section.content} /></div>
+          {"table" in section && Boolean(section.table) && (
+            <div className="overflow-x-auto mt-4">
+              <table className="w-full text-sm border-collapse min-w-[640px]">
+                <thead>
+                  <tr className="bg-[#EFF6FF]">
+                    {(section.table as MethodTable).columns.map((c) => (
+                      <th key={c} className="border border-gray-200 px-3 py-2 text-left">{c}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {(section.table as MethodTable).rows.map((row, i) => (
+                    <tr key={i}>
+                      {row.map((cell, j) => (
+                        <td key={j} className={`border border-gray-200 px-3 py-2 align-top text-gray-700${j === 0 ? " font-bold whitespace-nowrap" : ""}`}>
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+          {"note" in section && typeof section.note === "string" && (
+            <p className="mt-3 text-xs text-gray-500 leading-relaxed">{section.note}</p>
+          )}
         </div>
       ))}
 
@@ -374,7 +404,11 @@ export default async function MethodPage({ params }: Props) {
               <div className="font-bold text-gray-900 text-sm mb-1">
                 {slug === "comparison" ? m.title.replace(/【[^】]*】/g, "") : m.title}
               </div>
-              <div className="text-xs text-gray-500">{m.costPerSqm ? `${m.costPerSqm} / ` : ""}耐久：{m.durability}</div>
+              {(m.costPerSqm || m.durability) && (
+                <div className="text-xs text-gray-500">
+                  {[m.costPerSqm, m.durability ? `耐久：${m.durability}` : ""].filter(Boolean).join(" / ")}
+                </div>
+              )}
             </Link>
           ))}
         </div>
