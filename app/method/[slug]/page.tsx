@@ -353,7 +353,7 @@ export default async function MethodPage({ params }: Props) {
 
       {/* Recommended Companies */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
-        <h2 className="font-bold text-gray-900 text-lg mb-4">この工法に対応するおすすめ業者TOP3</h2>
+        <h2 className="font-bold text-gray-900 text-lg mb-4">{["tsuki-kansho", "ensobi-sheet", "polymer-cement"].includes(method.slug) ? "ベランダ防水のおすすめ業者TOP3" : "この工法に対応するおすすめ業者TOP3"}</h2>
         <div className="space-y-3">
           {TOP3.map((company, index) => (
             <div key={company.slug} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
