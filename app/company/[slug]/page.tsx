@@ -222,6 +222,15 @@ export default async function CompanyPage({ params }: Props) {
         </div>
       ) : null}
 
+      {(company.slug === "bousui-pro" || company.slug === "bousui-mitsumori") && (
+        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
+          <h2 className="font-bold text-gray-900 text-base mb-2">比較ページ</h2>
+          <Link href="/compare/bousui-pro-vs-bousui-mitsumori/" className="text-[#2563EB] underline text-sm">
+            防水工事屋さんPROと防水工事見積もり.comの違い（自社施工と専門業者の紹介を比較）
+          </Link>
+        </div>
+      )}
+
       {/* CTA（公式URLが確認できている会社のみ） */}
       {company.officialUrl && (
       <div className="bg-gradient-to-r from-[#2563EB] to-[#1e40af] rounded-2xl p-8 text-white text-center">

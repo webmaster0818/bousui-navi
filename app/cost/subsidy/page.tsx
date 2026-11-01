@@ -135,10 +135,21 @@ export default function SubsidyPage() {
           </table>
         </div>
         <p className="text-sm text-gray-700 leading-relaxed mt-4">
-          市区町村の制度は、年度ごとに受付期間と予算が定められています。前橋市の2026年度の制度は、申請書の受付が2026年12月18日まで、補助額は対象工事費（税抜）の3分の1以内・上限10万円です。我孫子市の2026年度の制度は、受付が2027年2月10日まで（予算に達した場合は終了）、補助額は持家のリフォームで対象経費の5％・上限7万円です。なお、我孫子市の制度では、マンションなど区分所有建物の共用部分の工事（専用部分にあるベランダを含む）は対象外です。お住まいの自治体の制度は、見積もりの依頼前に住宅担当課でご確認ください。
+          市区町村の制度は、年度ごとに受付期間と予算が定められています。前橋市の2026年度の制度は、補助額が対象工事費（税抜）の3分の1以内・上限10万円で、申込みの受付は2026年6月10日で終了しています（申込みのうち建築年の古い順に600件が対象。2026年11月1日確認）。我孫子市の2026年度の制度は、受付が2027年2月10日まで（予算に達した場合は終了）、補助額は持家のリフォームで対象経費の5％・上限7万円です。なお、我孫子市の制度では、マンションなど区分所有建物の共用部分の工事（専用部分にあるベランダを含む）は対象外です。お住まいの自治体の制度は、見積もりの依頼前に住宅担当課でご確認ください。
+        </p>
+        <p className="text-sm text-gray-700 leading-relaxed mt-3">
+          防水を対象工事に明記している自治体は、
+          <Link href="/cost/subsidy/list/" className="text-[#2563EB] underline">ベランダ防水に使える市区町村の補助金一覧</Link>
+          にまとめています。自治体ごとの詳細は
+          <Link href="/cost/subsidy/maebashi/" className="text-[#2563EB] underline">前橋市</Link>
+          ・
+          <Link href="/cost/subsidy/abiko/" className="text-[#2563EB] underline">我孫子市</Link>
+          のページをご覧ください。
         </p>
         <p className="text-xs text-gray-500 leading-relaxed mt-3">
           出典（2026年10月22日確認）：
+          <a href="https://www.city.maebashi.gunma.jp/soshiki/toshikeikakubu/kenchikujutaku/oshirase/48348.html" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">前橋市「【受付終了】令和8年度住宅リフォーム補助金」（2026年11月1日確認）</a>
+          ／
           <a href="https://www.city.maebashi.gunma.jp/material/files/group/63/R8tebiki.pdf" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">前橋市「住宅リフォーム補助 申請手引き」（令和8年度）</a>
           ／
           <a href="https://www.city.abiko.chiba.jp/kurashi/sumai/josei/reform/index.html" target="_blank" rel="noopener noreferrer" className="text-[#059669] underline">我孫子市「我孫子市住宅リフォーム補助金制度」</a>
