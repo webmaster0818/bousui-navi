@@ -4,6 +4,14 @@ import { notFound } from "next/navigation";
 import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
 import { getVerifiedRating } from "@/lib/verifiedRating";
+import reviewsData from "@/data/reviews.json";
+
+// 出典つきの口コミをまとめた評判ページ（/review/[slug]/）がある会社
+const reviewSlugs = new Set(
+  (reviewsData as unknown as { slug: string; reviews?: unknown[] }[])
+    .filter((r) => (r.reviews?.length ?? 0) > 0)
+    .map((r) => r.slug)
+);
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -29,8 +37,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ex = company as CompanyExtra;
   return {
     alternates: { canonical: `/company/${slug}/` },
-    title: ex.seoTitle ?? `${company.name}の口コミ・評判・費用【2026年】`,
-    description: ex.seoDescription ?? `${company.name}の特徴・料金・口コミを解説しています。${company.tagline}。${company.description.slice(0, 80)}`,
+    // このページの本文に口コミの内容は無いため、既定の title・description に「口コミ」「評判」は入れない（口コミは /review/[slug]/ に掲載）
+    title: ex.seoTitle ?? `${company.name}の特徴・メリット・注意点【2026年】`,
+    description: ex.seoDescription ?? `${company.name}の特徴、メリットと注意点、対応エリア・保証期間・価格帯をまとめています。${company.tagline}。${company.description.slice(0, 80)}`,
   };
 }
 
@@ -194,6 +203,16 @@ export default async function CompanyPage({ params }: Props) {
           ))}
         </div>
       </div>
+
+      {reviewSlugs.has(company.slug) && (
+        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
+          <h2 className="font-bold text-gray-900 text-base mb-2">{company.name}の口コミ・評判</h2>
+          <p className="text-sm text-gray-700 mb-2">口コミ・評判は、出典と取得日を付けて別のページにまとめています。</p>
+          <Link href={`/review/${company.slug}/`} className="text-[#2563EB] underline text-sm">
+            {company.name}の評判ページを見る
+          </Link>
+        </div>
+      )}
 
       {ex.faqs?.length ? (
         <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
