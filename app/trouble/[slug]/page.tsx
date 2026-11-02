@@ -6,7 +6,7 @@ import companiesData from "@/data/companies.json";
 import Breadcrumb from "@/components/Breadcrumb";
 import { RelatedGuides, RichText } from "@/lib/guides";
 
-type TroubleAnswer = { heading: string; rows: string[][]; paragraphs: string[] };
+type TroubleAnswer = { heading: string; columns?: string[]; rows: string[][]; paragraphs: string[] };
 type TroubleSource = { label: string; url: string };
 
 type Props = {
@@ -97,9 +97,9 @@ export default async function TroublePage({ params }: Props) {
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-[#EFF6FF]">
-                  <th className="border border-gray-200 px-3 py-2 text-left">ひび割れの状態</th>
-                  <th className="border border-gray-200 px-3 py-2 text-left">対応</th>
-                  <th className="border border-gray-200 px-3 py-2 text-left">根拠</th>
+                  {(answer.columns ?? ["ひび割れの状態", "対応", "根拠"]).map((c) => (
+                    <th key={c} className="border border-gray-200 px-3 py-2 text-left">{c}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>

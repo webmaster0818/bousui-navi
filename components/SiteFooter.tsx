@@ -43,6 +43,8 @@ export default function SiteFooter() {
               <li><Link href="/trouble/crack/" className="hover:text-white transition-colors no-underline">ひび割れの原因と補修</Link></li>
               <li><Link href="/trouble/peeling/" className="hover:text-white transition-colors no-underline">剥がれ・膨れの対策</Link></li>
               <li><Link href="/trouble/puddle/" className="hover:text-white transition-colors no-underline">水たまりの解決法</Link></li>
+              <li><Link href="/trouble/drain/" className="hover:text-white transition-colors no-underline">排水口（ドレン）の詰まり</Link></li>
+              <li><Link href="/trouble/topcoat-fade/" className="hover:text-white transition-colors no-underline">トップコートの色あせ・摩耗</Link></li>
             </ul>
           </div>
 

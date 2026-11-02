@@ -40,6 +40,13 @@ const PAGE_LABELS: Record<string, string> = {
   "/trouble/crack/": "防水層のひび割れの原因と補修方法",
   "/trouble/peeling/": "防水層の剥がれ・膨れの原因と対策",
   "/trouble/puddle/": "ベランダに水たまりができる原因と解決法",
+  "/trouble/drain/": "ベランダの排水口（ドレン）が詰まる原因と掃除・点検の目安",
+  "/trouble/topcoat-fade/": "ベランダのトップコートの色あせ・摩耗",
+  "/method/tsuki-kansho/": "通気緩衝工法（絶縁工法）とは",
+  "/method/polymer-cement/": "ポリマーセメント系塗膜防水とは",
+  "/method/ensobi-sheet/": "塩ビシート防水とは",
+  "/method/gomu-sheet/": "ゴムシート防水とは",
+  "/method/asphalt/": "アスファルト防水・改質アスファルトシート防水とは",
 };
 
 export function pageLabel(href: string): string {
