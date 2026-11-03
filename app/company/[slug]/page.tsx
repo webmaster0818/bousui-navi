@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/company/${slug}/` },
     // このページの本文に口コミの内容は無いため、既定の title・description に「口コミ」「評判」は入れない（口コミは /review/[slug]/ に掲載）
     title: ex.seoTitle ?? `${company.name}の特徴・メリット・注意点【2026年】`,
-    description: ex.seoDescription ?? `${company.name}の特徴、メリットと注意点、対応エリア・保証期間・価格帯をまとめています。${company.tagline}。${company.description.slice(0, 80)}`,
+    description: ex.seoDescription ?? `${company.name}の特徴・メリット・注意点をまとめています。${company.tagline}。${company.description.slice(0, 80)}`,
   };
 }
 
