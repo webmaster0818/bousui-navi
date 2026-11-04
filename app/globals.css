@@ -45,3 +45,85 @@ a {
 a:hover {
   opacity: 0.8;
 }
+
+/* ======================================================================
+ * TOP 刷新（2026-11-05・redesign-20261105 ブランチ）
+ * 防水層を思わせる深い青（--bw-navy）を操作色に、薄い灰色の背景と細い枠線で区切る。
+ * 操作ボタンはすべて同じ青。グラデーションは FV の写真の上だけ。大きな角丸・影は使わない。
+ * ====================================================================== */
+:root {
+  --bw-ink: #15232D;
+  --bw-navy: #17506B;
+  --bw-navy-dark: #0F3A4F;
+  --bw-water: #4A9CC9;
+  --bw-water-dark: #2E7AA6;
+  --bw-wash: #E9F0F3;
+  --bw-paper: #F4F6F6;
+  --bw-border: #CCD7DD;
+  --bw-border-strong: #8DA1AD;
+  --bw-muted: #4A5A66;
+  --bw-alert: #A3392B;
+}
+
+/* 既存の a { color } が @layer の外にあるため、TOP の部品もレイヤーの外に置く。
+   リンクの色は親から受け継ぐ（:where で詳細度を .bw-btn と同じにし、後に書いた部品の色を優先）。 */
+.bw-page { background: var(--bw-paper); color: var(--bw-ink); font-feature-settings: "palt" 1; }
+.bw-page :where(a), .bw-header :where(a) { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.bw-page :where(a):hover, .bw-header :where(a):hover { opacity: 1; }
+.bw-page :focus-visible { outline: 3px solid var(--bw-water); outline-offset: 2px; }
+
+.bw-container { max-width: 1160px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+@media (min-width: 768px) { .bw-container { padding-left: 24px; padding-right: 24px; } }
+
+/* 統一ボタン（色は1色） */
+.bw-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 52px; padding: 0.8rem 1.5rem; border-radius: 4px;
+  background: var(--bw-navy); color: #fff; border: 1px solid var(--bw-navy);
+  font-weight: 700; letter-spacing: 0.04em; line-height: 1.35; text-align: center;
+  transition: background-color .2s ease;
+}
+.bw-btn:hover { background: var(--bw-navy-dark); color: #fff; }
+.bw-btn--lg { min-height: 64px; font-size: 18px; padding: 0.9rem 1.5rem; }
+@media (min-width: 768px) { .bw-btn--lg { min-height: 72px; font-size: 19px; } }
+.bw-btn--ghost { background: #fff; color: var(--bw-navy); border-color: var(--bw-navy); }
+.bw-btn--ghost:hover { background: var(--bw-wash); color: var(--bw-navy); }
+.bw-pr { display: inline-block; border: 1px solid currentColor; border-radius: 2px; padding: 0 0.3rem; font-size: 11px; font-weight: 700; line-height: 1.5; }
+
+/* 枠 */
+.bw-card { background: #fff; border: 1px solid var(--bw-border); border-radius: 4px; }
+.bw-card-link { transition: border-color .2s ease, background-color .2s ease; }
+.bw-card-link:hover { border-color: var(--bw-navy); background: #FAFCFC; }
+
+/* 見出し：左寄せ＋下罫線。英字ラベルは使わない */
+.bw-h2 {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  font-size: 24px; font-weight: 700; letter-spacing: 0.04em; line-height: 1.4;
+  padding-bottom: 12px; border-bottom: 2px solid var(--bw-ink); margin-bottom: 24px;
+}
+@media (min-width: 768px) { .bw-h2 { font-size: 30px; margin-bottom: 32px; } }
+.bw-h2 small { font-size: 13px; font-weight: 500; color: var(--bw-muted); letter-spacing: 0.02em; }
+.bw-lead { margin-top: -12px; margin-bottom: 24px; font-size: 14px; line-height: 1.8; color: var(--bw-muted); }
+@media (min-width: 768px) { .bw-lead { margin-top: -20px; margin-bottom: 32px; } }
+
+.bw-section { padding: 56px 0; }
+@media (min-width: 768px) { .bw-section { padding: 88px 0; } }
+.bw-band { background: #fff; border-top: 1px solid var(--bw-border); border-bottom: 1px solid var(--bw-border); }
+
+/* 箇条の印（✓の代わりに小さな四角） */
+.bw-dot { position: relative; padding-left: 14px; }
+.bw-dot::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; background: var(--bw-water-dark); }
+
+/* details */
+.bw-acc > summary { list-style: none; cursor: pointer; }
+.bw-acc > summary::-webkit-details-marker { display: none; }
+.bw-acc[open] > summary .bw-chev { transform: rotate(180deg); }
+.bw-chev { transition: transform .25s ease; }
+
+/* スクロールで順に表示（JS 実行後に html.bw-js を付ける。JS 無効・印刷・reduced-motion では常に表示） */
+.bw-js .bw-reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.bw-js .bw-reveal.bw-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .bw-js .bw-reveal { opacity: 1; transform: none; transition: none; }
+}
+@media print { .bw-js .bw-reveal { opacity: 1 !important; transform: none !important; } }

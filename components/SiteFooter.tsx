@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoMark } from "@/components/brand/LogoMark";
 
 export default function SiteFooter() {
   const currentYear = 2026;
@@ -10,12 +11,7 @@ export default function SiteFooter() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <rect width="32" height="32" rx="8" fill="#2563EB" />
-                <path d="M6 20L16 10L26 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M10 20V26H22V20" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <circle cx="16" cy="22" r="2" fill="#F97316" />
-              </svg>
+              <LogoMark size={30} tone="light" />
               <span className="font-bold text-white text-base">ベランダ防水ナビ</span>
             </div>
             <p className="text-xs text-gray-400 leading-relaxed">
