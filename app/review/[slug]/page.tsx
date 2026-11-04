@@ -32,11 +32,12 @@ export default async function ReviewPage({ params }: Props) {
   if (!r) notFound();
 
   const rating = r.ratingBlock; // optional (Google rating)
+  const noReviews = !r.reviews || r.reviews.length === 0; // 出典つきの口コミが無いページは見出しに「口コミ・評判」を出さない
 
   const toc = [
     { id: "basic", label: `${r.companyName}とは（運営会社・基本情報）` },
     { id: "reviews", label: r.reviewsHeading },
-    { id: "strengths", label: "口コミから見る強み・特徴" },
+    { id: "strengths", label: noReviews ? "公式情報から見る強み・特徴" : "口コミから見る強み・特徴" },
     { id: "cautions", label: "利用前の注意点" },
     { id: "recommended", label: "おすすめの利用者" },
     { id: "faq", label: "よくある質問" },
@@ -74,7 +75,7 @@ export default async function ReviewPage({ params }: Props) {
       <Breadcrumb items={[{ label: "口コミ・評判", href: "/review/" }, { label: r.companyName }]} />
 
       <header className="mt-2">
-        <span className="label inline-block mb-3 text-primary">業者の口コミ・評判</span>
+        <span className="label inline-block mb-3 text-primary">{noReviews ? "業者の基本情報" : "業者の口コミ・評判"}</span>
         <h1 className="text-2xl sm:text-3xl font-bold leading-snug text-text-primary mb-4">{r.title}</h1>
         <div className="flex items-center gap-3 text-sm text-text-muted mb-6">
           <time dateTime="2026-06-16">最終更新：{r.updatedAt}</time>
@@ -172,7 +173,7 @@ export default async function ReviewPage({ params }: Props) {
 
       {/* Strengths */}
       <section id="strengths" className="scroll-mt-20 mb-12">
-        <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">口コミから見る強み・特徴</h2>
+        <h2 className="text-xl font-bold text-text-primary border-l-4 border-primary pl-3 mb-5">{noReviews ? "公式情報から見る強み・特徴" : "口コミから見る強み・特徴"}</h2>
         <div className="space-y-5">
           {r.strengths.map((s: any, i: number) => (
             <div key={i}>
