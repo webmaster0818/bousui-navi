@@ -144,6 +144,12 @@ export default function SubsidyPage() {
           <Link href="/cost/subsidy/maebashi/" className="text-[#2563EB] underline">前橋市</Link>
           ・
           <Link href="/cost/subsidy/abiko/" className="text-[#2563EB] underline">我孫子市</Link>
+          ・
+          <Link href="/cost/subsidy/mito/" className="text-[#2563EB] underline">水戸市</Link>
+          ・
+          <Link href="/cost/subsidy/ota-gunma/" className="text-[#2563EB] underline">太田市（群馬県）</Link>
+          ・
+          <Link href="/cost/subsidy/nishinomiya/" className="text-[#2563EB] underline">西宮市</Link>
           のページをご覧ください。
         </p>
         <p className="text-xs text-gray-500 leading-relaxed mt-3">

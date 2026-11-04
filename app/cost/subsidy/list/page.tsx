@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cost/subsidy/list/" },
   title: "ベランダ防水に使える市区町村の補助金一覧｜防水を対象工事に含む自治体【2026年度】",
   description:
-    "住宅リフォーム補助の対象工事に「防水」を明記している市区町村を、自治体の公式資料で確認できたものだけ一覧にしました。ベランダの防水を明記する前橋市・我孫子市・水戸市と、屋根・外壁の防水を明記する神栖市の補助額・条件・受付状況を掲載しています（2026年11月1日確認）。",
+    "住宅リフォーム補助の対象工事に「防水」を明記している市区町村を、自治体の公式資料で確認できたものだけ一覧にしました。前橋市・我孫子市・水戸市・太田市・西宮市など7市の補助額・条件・受付状況を確認日とあわせて掲載しています。",
 };
 
 const balcony = citySubsidies.filter((c) => c.waterproofScope === "balcony");
@@ -20,11 +20,11 @@ const faqs = [
   },
   {
     q: "申請はいつすればよいですか。",
-    a: "掲載したすべての自治体で、交付決定を受ける前に着工した工事は補助の対象になりません。前橋市と水戸市は、交付申請の前に申込み（水戸市は抽選）があります。見積もりを取った段階で窓口に確認し、交付決定の通知を受けてから着工してください。",
+    a: "掲載したすべての自治体で、交付決定を受ける前に着工した工事は補助の対象になりません。前橋市・水戸市・西宮市は、交付申請の前に申込み（水戸市・西宮市は抽選）があります。見積もりを取った段階で窓口に確認し、交付決定の通知を受けてから着工してください。",
   },
   {
     q: "どの業者に頼んでも補助の対象になりますか。",
-    a: "なりません。前橋市は市内の業者、我孫子市は市の登録施工事業者（市外からの転入者を除く）、水戸市は本店が市内にある業者など、神栖市は市内の事業者による工事が条件です。見積もりを依頼する前に、業者が条件に合うかをご確認ください。",
+    a: "なりません。前橋市は市内の業者、我孫子市は市の登録施工事業者（市外からの転入者を除く）、水戸市は本店が市内にある業者など、神栖市は市内の事業者、太田市は本補助金の登録業者、西宮市は市内に主たる事業所を有する施工業者、有田市は市内で1年以上営んでいる施工業者による工事が条件です。見積もりを依頼する前に、業者が条件に合うかをご確認ください。",
   },
 ];
 
@@ -37,7 +37,7 @@ function SubsidyTable({ rows }: { rows: CitySubsidy[] }) {
             <th className="border border-gray-200 px-3 py-2 w-28">自治体</th>
             <th className="border border-gray-200 px-3 py-2">公式資料の記載（防水）</th>
             <th className="border border-gray-200 px-3 py-2 w-48">補助額</th>
-            <th className="border border-gray-200 px-3 py-2 w-56">受付状況（{CHECKED_DATE}確認）</th>
+            <th className="border border-gray-200 px-3 py-2 w-56">受付状況（確認日）</th>
           </tr>
         </thead>
         <tbody>
@@ -57,7 +57,10 @@ function SubsidyTable({ rows }: { rows: CitySubsidy[] }) {
                 <div className="text-xs text-gray-500 mt-1">出典：{c.waterproofWhere}</div>
               </td>
               <td className="border border-gray-200 px-3 py-2">{c.amount}</td>
-              <td className="border border-gray-200 px-3 py-2">{c.status}</td>
+              <td className="border border-gray-200 px-3 py-2">
+                {c.status}
+                <div className="text-xs text-gray-500 mt-1">{c.checked ?? CHECKED_DATE}確認</div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -78,7 +81,7 @@ export default function SubsidyListPage() {
 
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-2 bg-green-50 text-[#059669] text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-          2026年度・{CHECKED_DATE}確認
+          2026年度・2026年11月4日更新
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
           ベランダ防水に使える市区町村の補助金一覧
@@ -91,10 +94,10 @@ export default function SubsidyListPage() {
       <section className="bg-white rounded-2xl border-2 border-[#059669]/30 p-6 mb-8">
         <h2 className="text-xl font-bold text-gray-900 mb-3">この一覧の結論</h2>
         <p className="text-sm text-gray-700 leading-relaxed mb-3">
-          {CHECKED_DATE}時点で、ベランダの防水を対象工事として公式資料に明記していることを確認できたのは、前橋市・我孫子市・水戸市の3市です。神栖市は屋根と外壁の防水を対象工事に挙げています（ベランダについての記載はありません）。
+          ベランダの防水を対象工事として公式資料に明記していることを確認できたのは、前橋市・我孫子市・水戸市・太田市（群馬県）の4市です。太田市は、住宅と同一構造体のベランダを対象とし、防水の工法にウレタン防水・FRP防水・シート防水を挙げています。神栖市・有田市は屋根の防水を、西宮市は屋根や外壁の防水とベランダ又はバルコニーの工事を、それぞれ対象工事に挙げています。
         </p>
         <p className="text-sm text-gray-700 leading-relaxed mb-3">
-          受付中なのは我孫子市（2027年2月10日まで・予算に達した場合は終了）です。前橋市は令和8年度の申込み受付を6月10日で終えており、水戸市は後期の抽選・交付申請の受付を終えています。神栖市は予算上限に達したため受付を終了しています。
+          我孫子市は2027年2月10日まで受付（予算に達した場合は終了）です。有田市は、予算額に達した時点で受付を終了するとしています。前橋市は令和8年度の申込み受付を6月10日で終えており、水戸市は後期の抽選・交付申請の受付を終えています。太田市と神栖市は予算に達したため受付を終了し、西宮市は令和8年度の募集を終了しています（確認日は表に記載）。
         </p>
         <p className="text-sm text-gray-700 leading-relaxed">
           掲載していない自治体は、当サイトで「防水」の記載を確認できていない自治体です。対象外という意味ではありません。国の制度（みらいエコ住宅2026事業・介護保険の住宅改修）で防水工事を対象としていない点は、
@@ -111,7 +114,7 @@ export default function SubsidyListPage() {
       <section className="mb-8">
         <h2 className="text-xl font-bold text-gray-900 mb-3">屋根・外壁の防水を対象工事に明記している自治体</h2>
         <p className="text-sm text-gray-700 leading-relaxed mb-3">
-          次の自治体の公式資料には、屋根・外壁の防水が対象工事として書かれていますが、ベランダの防水についての記載はありません。ベランダの防水工事が対象になるかは、申請前に窓口でご確認ください。
+          次の自治体の公式資料には、屋根・外壁の防水が対象工事として書かれていますが、ベランダの防水と明記した記載はありません（西宮市は「ベランダ又はバルコニーの工事」を別に挙げています）。ベランダの防水工事が対象になるかは、申請前に窓口でご確認ください。
         </p>
         <SubsidyTable rows={roofWall} />
       </section>
@@ -178,7 +181,7 @@ export default function SubsidyListPage() {
       />
 
       <section className="text-xs text-gray-500 leading-relaxed mb-8">
-        <p className="mb-1">出典（{CHECKED_DATE}確認）：</p>
+        <p className="mb-1">出典（{CHECKED_DATE}〜2026年11月4日確認。自治体ごとの確認日は表に記載）：</p>
         <ul className="list-disc pl-5 space-y-0.5">
           {citySubsidies.flatMap((c) =>
             c.sources.map((s) => (

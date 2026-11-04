@@ -1,6 +1,6 @@
 // 市区町村の住宅リフォーム補助（防水を対象工事に含むと自治体の公式資料で確認できたもののみ）
 // 掲載基準：自治体の公式ページ・PDFの本文に「防水」が対象工事として書かれていること。
-// 書かれていない自治体は掲載しない（「対象外」とは書かない）。確認日はすべて 2026-11-01。
+// 書かれていない自治体は掲載しない（「対象外」とは書かない）。確認日は checked（未指定は CHECKED_DATE＝2026-11-01）。
 
 export type SubsidySource = { label: string; href: string };
 
@@ -18,6 +18,7 @@ export type CitySubsidy = {
   status: string;
   sources: SubsidySource[];
   hasPage: boolean;
+  checked?: string; // 公式資料を確認した日（未指定は CHECKED_DATE）
 };
 
 export const CHECKED_DATE = "2026年11月1日";
@@ -89,7 +90,8 @@ export const citySubsidies: CitySubsidy[] = [
       { label: "水戸市「水戸市安心住宅リフォーム支援補助金（住宅政策課）」", href: "https://www.city.mito.lg.jp/page/3548.html" },
       { label: "水戸市「補助対象リフォーム工事一覧」（PDF）", href: "https://www.city.mito.lg.jp/uploaded/attachment/70752.pdf" },
     ],
-    hasPage: false,
+    hasPage: true,
+    checked: "2026年11月4日",
   },
   {
     slug: "kamisu",
@@ -111,6 +113,78 @@ export const citySubsidies: CitySubsidy[] = [
       { label: "神栖市「受付終了：住まい安心リフォーム補助金」", href: "https://www.city.kamisu.ibaraki.jp/living/1001425/1001426/1012727.html" },
     ],
     hasPage: false,
+  },
+  {
+    slug: "ota-gunma",
+    pref: "群馬県",
+    city: "太田市",
+    program: "太田市住宅リフォーム支援事業",
+    fiscalYear: "令和8年度（2026年度）",
+    waterproofScope: "balcony",
+    waterproofText: "防水：ウレタン防水・FRP 防水・シート防水・シーリング打替改修／屋根：※住宅と同一構造体の下屋・霧除け・ベランダは対象",
+    waterproofWhere: "令和8年度 太田市住宅リフォーム支援事業【申請ガイドブック】「補助対象と認められる工事の具体例」",
+    amount: "補助対象額の30％・最大20万円（千円未満切捨。太田市デジタル金券 OTACO で交付）",
+    conditions: [
+      "申請日の前日において建築後10年以上経過し、住宅用火災警報器が設置されている（または設置する）建物",
+      "リフォームを行う住宅に2年以上継続して居住している住宅所有者",
+      "本補助金の登録業者が施工する、補助対象工事費10万円以上の工事",
+      "着工前に申請し、交付決定後に着工",
+      "住宅と同一構造体でないベランダ、アルミ製庇、後付けの下屋などは対象外",
+    ],
+    status: "予算に達したため、令和8年度の受付は終了（申請受付期間は2026年4月21日〜2027年1月29日の予定だった）",
+    sources: [
+      { label: "太田市「【終了しました】太田市住宅リフォーム支援事業補助金のご案内」", href: "https://www.city.ota.gunma.jp/page/1148.html" },
+      { label: "太田市「令和8年度 太田市住宅リフォーム支援事業【申請ガイドブック】」（PDF）", href: "https://www.city.ota.gunma.jp/uploaded/attachment/38624.pdf" },
+    ],
+    hasPage: true,
+    checked: "2026年11月4日",
+  },
+  {
+    slug: "nishinomiya",
+    pref: "兵庫県",
+    city: "西宮市",
+    program: "西宮市住宅リフォーム助成事業",
+    fiscalYear: "令和8年度（2026年度）",
+    waterproofScope: "roofWall",
+    waterproofText: "１ 屋根や外壁の塗装・防水工事／６ ベランダ又はバルコニーの工事",
+    waterproofWhere: "「対象となる工事の一例」（令和8年度 住宅リフォーム助成事業【2次募集】ページ掲載のPDF）",
+    amount: "助成対象となる工事経費の10％・最高15万円",
+    conditions: [
+      "西宮市内に主たる事業所を有する施工業者（個人業者を含む）が施工する、工事経費40万円以上（税込）の工事",
+      "助成申請者が所有し居住している市内の住宅（マンションは専有部分のみ）。引っ越し目的のリフォームは対象外",
+      "応募者多数の場合は抽選。交付決定通知書を受け取ってから着手",
+    ],
+    status: "令和8年度の募集は終了（2次募集は2026年7月24日〜8月31日・9月3日抽選）。令和9年度の実施は未定",
+    sources: [
+      { label: "西宮市「令和8年度(2026年度)住宅リフォーム助成事業について【2次募集】※募集は終了しました」", href: "https://www.nishi.or.jp/kurashi/sumai/josei/R8-2Reform.html" },
+      { label: "西宮市「対象となる工事の一例」（PDF）", href: "https://www.nishi.or.jp/kurashi/sumai/josei/R8-2Reform.files/R07kouji.pdf" },
+      { label: "西宮市「Q&A 対象工事について」（PDF）", href: "https://www.nishi.or.jp/kurashi/sumai/josei/R8-2Reform.files/2026QA3.pdf" },
+    ],
+    hasPage: true,
+    checked: "2026年11月4日",
+  },
+  {
+    slug: "arida",
+    pref: "和歌山県",
+    city: "有田市",
+    program: "有田市住宅リフォーム工事費補助事業",
+    fiscalYear: "令和8年度（2026年度）",
+    waterproofScope: "roofWall",
+    waterproofText: "○ 瓦の修理、屋根の葺替、屋根塗装、防水、雨どい修理",
+    waterproofWhere: "令和8年度 住宅リフォーム工事費補助事業 チラシ「補助対象工事等の一例」",
+    amount: "補助対象工事費（消費税を除く）の20％・上限20万円",
+    conditions: [
+      "市内に事務所などがある法人、または市内に住所を有する個人事業者で、1年以上継続して営んでいる施工業者との契約",
+      "補助対象工事費（消費税を除く）10万円以上の工事",
+      "交付決定後に工事契約・着手し、2027年2月26日までに完了報告書を提出できる工事",
+    ],
+    status: "申請受付は2026年6月7日（受付番号のくじ引き）から。予算額（1,500万円）に達した時点で終了",
+    sources: [
+      { label: "有田市「住宅リフォーム工事費補助事業の募集」", href: "https://www.city.arida.lg.jp/kurashi/sumai/1001033.html" },
+      { label: "有田市「令和8年度 住宅リフォーム工事費補助事業 チラシ」（PDF）", href: "https://www.city.arida.lg.jp/_res/projects/default_project/_page_/001/001/033/r8_leaflet.pdf" },
+    ],
+    hasPage: false,
+    checked: "2026年11月4日",
   },
 ];
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
-import { CHECKED_DATE, type CitySubsidy } from "@/lib/subsidies";
+import { CHECKED_DATE, citySubsidies, type CitySubsidy } from "@/lib/subsidies";
 
 type Props = {
   c: CitySubsidy;
@@ -13,6 +13,8 @@ type Props = {
 };
 
 export default function CitySubsidyPage({ c, h1, answer, details, steps, notes, faqs }: Props) {
+  const checked = c.checked ?? CHECKED_DATE;
+  const others = citySubsidies.filter((x) => x.hasPage && x.slug !== c.slug);
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumb
@@ -25,7 +27,7 @@ export default function CitySubsidyPage({ c, h1, answer, details, steps, notes, 
 
       <div className="mb-8">
         <div className="inline-flex items-center gap-2 bg-green-50 text-[#059669] text-xs font-bold px-3 py-1.5 rounded-full mb-4">
-          {c.fiscalYear}・{CHECKED_DATE}確認
+          {c.fiscalYear}・{checked}確認
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{h1}</h1>
       </div>
@@ -112,7 +114,7 @@ export default function CitySubsidyPage({ c, h1, answer, details, steps, notes, 
       />
 
       <section className="text-xs text-gray-500 leading-relaxed mb-8">
-        <p className="mb-1">出典（{CHECKED_DATE}確認）：</p>
+        <p className="mb-1">出典（{checked}確認）：</p>
         <ul className="list-disc pl-5 space-y-0.5">
           {c.sources.map((s) => (
             <li key={s.href}>
@@ -130,6 +132,20 @@ export default function CitySubsidyPage({ c, h1, answer, details, steps, notes, 
           <li><Link href="/cost/subsidy/" className="text-[#2563EB] underline">ベランダ防水・修理・リフォームの補助金・助成金ガイド</Link></li>
           <li><Link href="/cost/price/" className="text-[#2563EB] underline">ベランダ防水工事の費用相場</Link></li>
         </ul>
+        {others.length > 0 && (
+          <>
+            <p className="text-sm font-bold text-gray-900 mt-4 mb-2">ほかの自治体の住宅リフォーム補助</p>
+            <ul className="flex flex-wrap gap-2 text-sm">
+              {others.map((o) => (
+                <li key={o.slug}>
+                  <Link href={`/cost/subsidy/${o.slug}/`} className="inline-block bg-white border border-[#2563EB]/20 rounded-full px-3 py-1 text-[#2563EB] no-underline hover:underline">
+                    {o.city}（{o.pref}）
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </section>
 
       <div className="bg-gradient-to-r from-[#2563EB] to-[#1e40af] rounded-2xl p-8 text-white text-center">
