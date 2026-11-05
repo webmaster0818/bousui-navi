@@ -162,7 +162,9 @@ export default function SubsidyPage() {
           <Link href="/cost/subsidy/okayama/" className="text-[#2563EB] underline">岡山市</Link>
           ・
           <Link href="/cost/subsidy/yokosuka/" className="text-[#2563EB] underline">横須賀市</Link>
-          のページをご覧ください。
+          のページをご覧ください。「防水」の記載はないものの、ベランダの改修を対象とする
+          <Link href="/cost/subsidy/koshigaya/" className="text-[#2563EB] underline">越谷市</Link>
+          の制度も一覧に載せています。
         </p>
         <p className="text-xs text-gray-500 leading-relaxed mt-3">
           出典（2026年10月22日確認）：

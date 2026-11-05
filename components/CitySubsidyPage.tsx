@@ -15,6 +15,7 @@ type Props = {
 export default function CitySubsidyPage({ c, h1, answer, details, steps, notes, faqs }: Props) {
   const checked = c.checked ?? CHECKED_DATE;
   const others = citySubsidies.filter((x) => x.hasPage && x.slug !== c.slug);
+  const isRepair = c.waterproofScope === "balconyRepair";
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumb
@@ -40,11 +41,19 @@ export default function CitySubsidyPage({ c, h1, answer, details, steps, notes, 
       </section>
 
       <section className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-3">公式資料の記載（防水）</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">{isRepair ? "公式資料の記載（ベランダの改修・雨漏りの改修）" : "公式資料の記載（防水）"}</h2>
         <blockquote className="border-l-4 border-[#059669] bg-gray-50 px-4 py-3 text-sm text-gray-800 leading-relaxed">
           「{c.waterproofText}」
         </blockquote>
         <p className="text-xs text-gray-500 mt-2">出典：{c.waterproofWhere}</p>
+        {c.extraQuotes?.map((q) => (
+          <div key={q.text} className="mt-4">
+            <blockquote className="border-l-4 border-[#059669] bg-gray-50 px-4 py-3 text-sm text-gray-800 leading-relaxed">
+              「{q.text}」
+            </blockquote>
+            <p className="text-xs text-gray-500 mt-2">出典：{q.where}</p>
+          </div>
+        ))}
       </section>
 
       <section className="mb-8">
@@ -79,7 +88,7 @@ export default function CitySubsidyPage({ c, h1, answer, details, steps, notes, 
       </section>
 
       <section className="bg-yellow-50 border border-yellow-200 rounded-xl p-5 mb-8">
-        <h2 className="font-bold text-yellow-800 mb-2">ベランダ防水で申請するときの注意点</h2>
+        <h2 className="font-bold text-yellow-800 mb-2">{isRepair ? "ベランダの改修で申請するときの注意点" : "ベランダ防水で申請するときの注意点"}</h2>
         <ul className="list-disc pl-5 text-sm text-yellow-800 space-y-1">
           {notes.map((n, i) => (
             <li key={i}>{n}</li>

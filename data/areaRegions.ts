@@ -1,7 +1,10 @@
 // TOP「エリアから探す」用の一覧。当サイトに実在するページだけを並べる（2026-11-05 時点）。
 // 当サイトのエリア別ページは、市区町村の補助金のページ（lib/subsidies.ts の citySubsidies のうち hasPage: true）だけ。
 // 個別ページのない自治体は、市区町村の補助金一覧（/cost/subsidy/list/）へ案内する。
-import { citySubsidies } from "@/lib/subsidies";
+// TOP の文言は「防水」の記載がある自治体の数なので、「防水」の記載がない balconyRepair（越谷市など）は TOP では数えない（一覧・補助金ガイドには掲載）。
+import { citySubsidies as allCitySubsidies } from "@/lib/subsidies";
+
+const citySubsidies = allCitySubsidies.filter((c) => c.waterproofScope !== "balconyRepair");
 
 export type AreaLink = { href: string; label: string; hasPage: boolean };
 export type Prefecture = { name: string; links: AreaLink[] };
@@ -19,7 +22,7 @@ const REGION_OF: [string, string[]][] = [
   ["九州・沖縄", ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"]],
 ];
 
-const link = (c: (typeof citySubsidies)[number]): AreaLink => ({
+const link = (c: (typeof allCitySubsidies)[number]): AreaLink => ({
   href: c.hasPage ? `/cost/subsidy/${c.slug}/` : LIST_HREF,
   label: c.city,
   hasPage: c.hasPage,

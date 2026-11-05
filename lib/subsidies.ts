@@ -1,6 +1,7 @@
 // 市区町村の住宅リフォーム補助（防水を対象工事に含むと自治体の公式資料で確認できたもののみ）
 // 掲載基準：自治体の公式ページ・PDFの本文に「防水」が対象工事として書かれていること。
 // 書かれていない自治体は掲載しない（「対象外」とは書かない）。確認日は checked（未指定は CHECKED_DATE＝2026-11-01）。
+// 例外：waterproofScope "balconyRepair" は「防水」の語は無いが、ベランダの改修・雨漏りの改修を対象と公式資料に明記している自治体（防水の補助金とは書かない）。
 
 export type SubsidySource = { label: string; href: string };
 
@@ -10,9 +11,10 @@ export type CitySubsidy = {
   city: string;
   program: string; // 制度名（公式の表記）
   fiscalYear: string;
-  waterproofScope: "balcony" | "roofWall"; // ベランダの防水を明記 / 屋根・外壁の防水を明記
+  waterproofScope: "balcony" | "roofWall" | "balconyRepair"; // ベランダの防水を明記 / 屋根・外壁の防水を明記 / ベランダ改修・雨漏りの改修を明記（「防水」の記載なし）
   waterproofText: string; // 公式資料の記載（引用）
   waterproofWhere: string; // 引用元の資料名
+  extraQuotes?: { text: string; where: string }[]; // 追加の引用（原文のまま）
   amount: string;
   conditions: string[];
   status: string;
@@ -322,6 +324,37 @@ export const citySubsidies: CitySubsidy[] = [
     status: "令和8年度の受付（2026年4月1日〜5月29日）と抽選会（6月15日）は終了",
     sources: [
       { label: "横須賀市「高齢者住宅リフォーム補助金について」", href: "https://www.city.yokosuka.kanagawa.jp/4821/sumai/koureisya_reform.html" },
+    ],
+    hasPage: true,
+    checked: "2026年11月5日",
+  },
+  {
+    slug: "koshigaya",
+    pref: "埼玉県",
+    city: "越谷市",
+    program: "越谷市住宅・店舗改修促進補助金",
+    fiscalYear: "令和8年度（2026年度）第2期",
+    waterproofScope: "balconyRepair",
+    waterproofText: "Ｑ　２階のベランダを改修したいが対象となるか。　Ａ　対象となります。",
+    waterproofWhere: "越谷市「住宅・店舗改修促進補助金」よくあるお問い合わせ（Q&A）「対象工事の種類について」",
+    extraQuotes: [
+      {
+        text: "屋根の改修・設置工事　塗装、葺き替え、雨漏りの改修、雨水貯留施設設置等の工事",
+        where: "越谷市「令和８年度 越谷市住宅・店舗改修促進補助金（第２期）のご案内」【募集要項】補助対象工事の一覧",
+      },
+    ],
+    amount: "補助対象経費の20％・上限10万円（交付額1,000円未満切り捨て）",
+    conditions: [
+      "市内に本社又は本店がある施工業者を利用して実施する20万円以上（税抜き）の改修工事（市内に支社・支店・営業所があるだけでは対象外）",
+      "補助金交付決定後に着工し、2027年2月末日までに完了する工事",
+      "市内に所有し自ら居住している個人住宅（共同住宅の場合は専有部分に限る）。これまでに本補助金を利用したことがない方",
+      "ウッドデッキやテラスの改修・設置工事は対象外",
+    ],
+    status: "令和8年度第2期の申請受付は2026年11月2日〜11月16日（土日祝を除く・郵送は期間内消印有効）。予算額を超えた場合は抽選。交付決定は12月上旬予定",
+    sources: [
+      { label: "越谷市「令和8年度　越谷市住宅・店舗改修促進補助金（第2期）について」", href: "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/sien/kaisyusokusin2026-2.html" },
+      { label: "越谷市「住宅・店舗改修促進補助金　募集要項」（第2期・PDF）", href: "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/sien/R8.2.juutakutempo.pamphlet.pdf" },
+      { label: "越谷市「住宅・店舗改修促進補助金」よくあるお問い合わせ（Q&A）（PDF）", href: "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/sien/yokuaruQA_20260318.pdf" },
     ],
     hasPage: true,
     checked: "2026年11月5日",

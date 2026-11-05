@@ -378,7 +378,7 @@ function TopRanking() {
         <h2 className="bw-h2">
           おすすめ業者 TOP3<small>業者ランキング</small>
         </h2>
-        <p className="bw-lead">費用・品質・サポートを総合評価した上位3社</p>
+        <p className="bw-lead">対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4項目で順位を決めた上位3社です。金額の安さは順位に含めていません。</p>
         <ol className="grid gap-4 md:grid-cols-3 md:gap-5">
           {TOP3.map((company, index) => {
             const rb = getVerifiedRating(company.slug);
@@ -525,7 +525,6 @@ function CTASection() {
               無料で見積もりを依頼する
             </Link>
           </div>
-          <p className="mt-5 text-[12px] text-[color:var(--bw-muted)]">しつこい営業なし・個人情報は厳重に管理</p>
         </div>
       </div>
     </section>
