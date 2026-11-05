@@ -150,6 +150,18 @@ export default function SubsidyPage() {
           <Link href="/cost/subsidy/ota-gunma/" className="text-[#2563EB] underline">太田市（群馬県）</Link>
           ・
           <Link href="/cost/subsidy/nishinomiya/" className="text-[#2563EB] underline">西宮市</Link>
+          ・
+          <Link href="/cost/subsidy/kawaguchi/" className="text-[#2563EB] underline">川口市</Link>
+          ・
+          <Link href="/cost/subsidy/morioka/" className="text-[#2563EB] underline">盛岡市</Link>
+          ・
+          <Link href="/cost/subsidy/matsuyama/" className="text-[#2563EB] underline">松山市</Link>
+          ・
+          <Link href="/cost/subsidy/nagasaki/" className="text-[#2563EB] underline">長崎市</Link>
+          ・
+          <Link href="/cost/subsidy/okayama/" className="text-[#2563EB] underline">岡山市</Link>
+          ・
+          <Link href="/cost/subsidy/yokosuka/" className="text-[#2563EB] underline">横須賀市</Link>
           のページをご覧ください。
         </p>
         <p className="text-xs text-gray-500 leading-relaxed mt-3">
