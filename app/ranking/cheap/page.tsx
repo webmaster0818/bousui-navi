@@ -238,6 +238,36 @@ export default function QuoteChecklistPage() {
         </p>
       </section>
 
+      {/* 屋上・陸屋根・ビル */}
+      <section className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 mb-10">
+        <h2 className="text-xl font-bold text-gray-900 mb-3">屋上・陸屋根・ビルの防水工事を安く依頼するときに確認すること</h2>
+        <ul className="list-disc pl-5 space-y-3 text-sm text-gray-700 leading-relaxed">
+          <li>
+            <span className="font-bold text-gray-900">保護防水か露出防水か：</span>
+            防水層の上を保護コンクリートで覆う保護防水と、防水層が表面に出ている露出防水では、補修の内容が異なります。国土交通省の長期修繕計画作成ガイドラインでは、補修・修繕の例として、保護防水は伸縮目地の打替えと保護コンクリートの部分補修、露出防水は下地処理とトップコートの塗り替えを示しています。現在の屋上がどちらかを確認してから見積もりを依頼すると、各社の工事内容をそろえやすくなります。
+          </li>
+          <li>
+            <span className="font-bold text-gray-900">既存の防水層を撤去するか：</span>
+            改修には、既存の防水層を撤去してから新しくつくる方法と、撤去せずに下地を処理して新しくつくる方法があります（国土交通省「公共建築改修工事標準仕様書」）。撤去しない方法は撤去・処分の工程がない分だけ工程が少なくなりますが、既存の防水層に浮きや水分の含みがある場合は撤去が必要になることがあります。各社がどちらの方法で見積もっているかと、その理由をご確認ください。
+          </li>
+          <li>
+            <span className="font-bold text-gray-900">足場と資材の搬入：</span>
+            屋上は面積が広く、足場の要否や資材の搬入方法が工事費に影響します。見積書で足場と搬入の費用が工事本体と分けて記載されているかをご確認ください。
+          </li>
+        </ul>
+        <p className="text-sm text-gray-700 leading-relaxed mt-4">
+          屋上防水の工法と改修方法、修繕周期の例は
+          <Link href="/guide/rooftop/" className="text-[#2563EB] font-medium">屋上防水の工法と改修方法</Link>
+          で詳しく解説しています。
+        </p>
+        <p className="text-xs text-gray-500 leading-relaxed mt-3">
+          出典：
+          <a href="https://www.mlit.go.jp/jutakukentiku/house/content/001747006.pdf" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">国土交通省「長期修繕計画作成ガイドライン・同コメント」（令和6年6月改定）</a>
+          、
+          <a href="https://www.mlit.go.jp/gobuild/content/001888823.pdf" target="_blank" rel="noopener noreferrer" className="text-[#2563EB]">国土交通省「公共建築改修工事標準仕様書（建築工事編）令和7年版」</a>
+        </p>
+      </section>
+
       {/* 本ページの位置づけ */}
       <section className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 mb-10">
         <h2 className="text-xl font-bold text-gray-900 mb-3">本ページの掲載内容について</h2>
@@ -248,8 +278,8 @@ export default function QuoteChecklistPage() {
           <p>
             費用の目安は
             <Link href="/cost/price/" className="text-[#2563EB] font-medium">費用相場のページ</Link>
-            に、業者ごとの対応エリアや見積もりの取り方は
-            <Link href="/ranking/" className="text-[#2563EB] font-medium">業者ランキング</Link>
+            に、防水工事の業者・会社の比較（評価基準・対応エリア・見積もりの取り方）は
+            <Link href="/ranking/" className="text-[#2563EB] font-medium">防水工事業者ランキング</Link>
             に掲載しています。編集方針は
             <Link href="/content-policy/" className="text-[#2563EB] font-medium">記事の制作ポリシー</Link>
             に記載しています。
