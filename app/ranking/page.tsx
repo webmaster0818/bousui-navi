@@ -488,6 +488,13 @@ export default function RankingPage() {
             <div className="font-bold text-gray-900 text-sm mb-1">口コミを読む</div>
             <div className="text-xs text-gray-500 leading-relaxed">10社の口コミ・運営会社の検証記事</div>
           </Link>
+          <Link
+            href="/guide/condominium/"
+            className="bg-white rounded-xl border border-gray-200 p-4 hover:border-[#2563EB] transition-colors no-underline"
+          >
+            <div className="font-bold text-gray-900 text-sm mb-1">マンションのベランダ防水</div>
+            <div className="text-xs text-gray-500 leading-relaxed">管理組合と区分所有者の分担（国土交通省 マンション標準管理規約）</div>
+          </Link>
         </div>
       </section>
 
