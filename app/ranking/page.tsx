@@ -133,7 +133,7 @@ export default function RankingPage() {
           防水工事の優良業者・会社ランキングTOP10【ベランダ・屋上】
         </h1>
         <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          ベランダ・バルコニーと屋上の防水工事を依頼できる業者・会社10社を、対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4基準で比較しています。運営会社と口コミ評価は、当サイトが取得日を記録して一次確認できた情報のみを掲載しています。
+          防水工事の優良業者は、建設業許可（防水工事業）、防水施工技能士の在籍、保証の書面、見積もりの内訳で見分けます。防水施工技能士は、職業能力開発促進法にもとづく国家検定「技能検定」の防水施工職種に合格した人が名乗れる資格です（厚生労働省）。本ページでは、ベランダ・バルコニーと屋上の防水工事を依頼できる業者・会社10社を、対応エリア・防水工事の取扱い範囲・見積もりの取り方・運営形態の4基準で比較しています。運営会社と口コミ評価は、当サイトが取得日を記録して一次確認できた情報のみを掲載しています。
         </p>
         <div className="max-w-3xl mx-auto mt-6 text-left bg-[#EFF6FF] border border-[#2563EB]/20 rounded-2xl p-5">
           <p className="text-sm font-bold text-[#2563EB] mb-2">屋上・ベランダの防水工事で優良業者を見分ける3つの確認</p>
@@ -153,7 +153,9 @@ export default function RankingPage() {
           <p className="text-xs text-gray-600 mt-3">
             詳しくは<Link href="/guide/where-to-ask/" className="text-[#2563EB] underline">ベランダ防水工事はどこに頼む？依頼先の種類と建設業許可の確認方法</Link>で解説しています。出典：
             <a href="https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000080.html" target="_blank" rel="nofollow noopener" className="underline">国土交通省「建設業の許可とは」</a>・
-            <a href="https://www.chord.or.jp/reform/index.html" target="_blank" rel="nofollow noopener" className="underline">住まいるダイヤル「リフォームの見積書に関する相談」</a>・<a href="https://www.chord.or.jp/" target="_blank" rel="nofollow noopener" className="underline">住まいるダイヤル</a>（2026年10月20日確認）
+            <a href="https://www.chord.or.jp/reform/index.html" target="_blank" rel="nofollow noopener" className="underline">住まいるダイヤル「リフォームの見積書に関する相談」</a>・<a href="https://www.chord.or.jp/" target="_blank" rel="nofollow noopener" className="underline">住まいるダイヤル</a>・
+            <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/jinzaikaihatsu/ability_skill/ginoukentei/index.html" target="_blank" rel="nofollow noopener" className="underline">厚生労働省「技能検定制度について」</a>・
+            <a href="https://www.mhlw.go.jp/content/001294212.pdf" target="_blank" rel="nofollow noopener" className="underline">厚生労働省「技能検定職種一覧表」</a>（2026年11月20日確認）
           </p>
         </div>
         <div className="flex justify-center gap-3 mt-4 flex-wrap">
