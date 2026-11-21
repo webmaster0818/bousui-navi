@@ -402,7 +402,7 @@ export const citySubsidies: CitySubsidy[] = [
       "市内に所有し自ら居住している個人住宅（共同住宅の場合は専有部分に限る）。これまでに本補助金を利用したことがない方",
       "ウッドデッキやテラスの改修・設置工事は対象外",
     ],
-    status: "令和8年度第2期の申請受付は2026年11月2日〜11月16日（土日祝を除く・郵送は期間内消印有効）。予算額を超えた場合は抽選。交付決定は12月上旬予定",
+    status: "令和8年度第2期の申請受付は2026年11月2日〜11月16日で終了（2026年11月21日確認）。予算額を超えた場合は抽選。交付決定は12月上旬予定",
     sources: [
       { label: "越谷市「令和8年度　越谷市住宅・店舗改修促進補助金（第2期）について」", href: "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/sien/kaisyusokusin2026-2.html" },
       { label: "越谷市「住宅・店舗改修促進補助金　募集要項」（第2期・PDF）", href: "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/sien/R8.2.juutakutempo.pamphlet.pdf" },
